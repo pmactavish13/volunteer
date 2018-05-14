@@ -9,10 +9,10 @@ module.exports = function(sequelize, DataTypes) {
       autoIncrement: true,
       field: 'id'
     },
-    evenName: {
+    eventName: {
       type: DataTypes.STRING(255),
       allowNull: true,
-      field: 'evenName'
+      field: 'eventName'
     },
     eventHostId: {
       type: DataTypes.INTEGER(11),
