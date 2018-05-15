@@ -18,10 +18,12 @@ After completing any form, the member is redirected to the events portion of the
 mySQL database is used to keep track of all members and events.
 
 **************************** Technology *****************************
+
 Front end:
     HTML
     CSS
     Bootstrap 4.0    
+
 Back end:
     MySQL database
     MySQL workbench
@@ -36,9 +38,13 @@ Back end:
         Sequelize npm
 
 **************************** Developers *****************************
+
 Anthony Elliot
+
 Paula MacTavish
+
 Alexa Stefanou 
+
 Dirk Wiggins           
 
 
