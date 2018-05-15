@@ -1,8 +1,9 @@
-<div id="container">
-    <h1 class="display-4">Member Enrollment Form</h1>
+<div id="container" style="background-color: grey">
+
     <div class="row">
         <div class="col-sm-2"></div>
-        <div class="col-sm-8" id="memberEnrollment">
+        <div class="col-sm-8" id="memberEnrollment" style="border:solid 2px grey; background-color:white">
+            <h1 class="display-4" style="text-align: center; border-bottom:dotted 2px grey; padding:10px">Member Enrollment Form</h1>
             <form>
                 <div class="form-group">
 
@@ -41,27 +42,106 @@
                         <input type="url" class="form-control form-control-sm" name="photo_Url" id="photoUrl" placeholder="URL Address" onfocus="this.placeholder=''">
                     </div>
 
-                    <div>
-                        <label for="inOrOut">Inside vs. Outside Preference</label>
-                        <select class="form-control form-control-sm" id="Select">
-                            <option selected>Choose...</option>
-                            <option value="1">Inside</option>
-                            <option value="2">Outside</option>
-                        </select>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label for="onceRecur">One Time or Recurring Event Preference</label>
+                            <select class="form-control form-control-sm" id="Select">
+                                <option selected>Choose...</option>
+                                <option value="Once">Once</option>
+                                <option value="Recurring">Recurring</option>
+                                <option value="Both">Both</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="inOrOut">Inside or Outside Preference</label>
+                            <select class="form-control form-control-sm" id="Select">
+                                <option selected>Choose...</option>
+                                <option value="Inside">Inside</option>
+                                <option value="Outside">Outside</option>
+                                <option value="Both">Both</option>
+                            </select>
+                        </div>
                     </div>
 
                     <div>
-                        <label for="skills">Special Skills</label>
-                        <select class="form-control form-control-sm" id="Select">
-                            <option selected>Choose...</option>
-                            <option value="1">Carpentry</option>
-                            <option value="2">Horticulture</option>
-                        </select>
-                    </div>
+                        <label for="skills">Special Skills - Check any that Apply</label>
+                        <div class="row" style="margin-top:-10px; margin-bottom: 10px">
+                            <div class="col-sm-3">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" value="">Cooking
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" value="">Gardening
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" value="">Painting
+                                    </label>
+                                </div>
+                            </div>
 
+                            <div class="col-sm-3">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" value="">Carpentry
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" value="">Plumbing
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" value="">Electrician
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" value="">Public Relations
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" value="">Marketing
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" value="">Fund Raising
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" value="">Programming
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" value="">Sales
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" value="">Teaching
+                                    </label>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <button class="btn" style="background-color: grey; color: white; width: 180px; height: 40px; font-size:18px;" type="submit">Submit</button>
                 </div>
-                <button class="btn btn-primary" type="submit">Submit</button>
-
             </form>
         </div>
     </div>
