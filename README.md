@@ -25,17 +25,16 @@ Front end:
     Bootstrap 4.0    
 
 Back end:
-    MySQL database
-    MySQL workbench
-    npm packages:
-        Node.js
-        Express npm,
-        Express-Handlebars npm
-        Body-Parser npm
-        Path npm
-        Chai npm
-        mysql2 npm
-        Sequelize npm
+    MySQL database,
+    MySQL workbench,
+     Node.js,
+    Express npm,
+    Express-Handlebars npm,
+    Body-Parser npm,
+    Path npm,
+    Chai npm,
+    mysql2 npm,
+    Sequelize npm
 
 **************************** Developers *****************************
 
