@@ -12,7 +12,19 @@ var db = require("../models");
 // =============================================================
 module.exports = function (app) {
 
-  // Each of the below routes just handles the HTML page that the user gets sent to.
+    // Each of the below routes just handles the HTML page that the user gets sent to.
+
+
+    // index route loads homeTest.handlebars
+    app.get("/", function (req, res) {
+        res.render(path.join(__dirname, "../views/homeTest.handlebars"));
+    });
+
+
+    // index route loads home.handlebars
+    // app.get("/", function (req, res) {
+    //     res.render(path.join(__dirname, "../views/home.handlebars"));
+    // });
 
   // index route loads homeTest.handlebars
   app.get("/", function (req, res) {
@@ -24,11 +36,17 @@ module.exports = function (app) {
     });
   })
 
-  // index route loads home.handlebars
-  // app.get("/", function(req, res) {
-  //   res.render(path.join(__dirname, "../views/home.handlebars"));
-  // });
+    app.get('/logout', function (req, res) {
+        req.session.destroy(function (err) {
+            res.redirect('/');
+        });
+    });
 
+    app.get('/login', function (req, res) {
+        res.render(path.join(__dirname, "../views/login.handlebars"));
+    });
+
+   
   // new_member route loads new_members.handlebars
   app.get("/new_members", function (req, res) {
     res.render(path.join(__dirname, "../views/new_members.handlebars"));
@@ -44,5 +62,10 @@ module.exports = function (app) {
     res.render(path.join(__dirname, "../views/opportunities_sign_up.handlebars"));
   });
 
-};
+    function isLoggedIn(req, res, next) {
+        if (req.isAuthenticated())
+            return next();
+        res.redirect('/login');
+    }
 
+};
