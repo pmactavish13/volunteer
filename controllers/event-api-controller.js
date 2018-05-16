@@ -3,11 +3,11 @@ var express = require("express");
 var db = require("../models");
 
 // add new data - new member
-app.post("/new_members", function (req, res) {
-    db.members.create({
-        newMember: req.body()
-    }).then(function (dbMembers) {
-        res.json(dbMembers)
+app.post("/new_events", function (req, res) {
+    db.events.create({
+        newEvents: req.body()
+    }).then(function (dbEvents) {
+        res.json(dbEvents)
     });
 });
 
