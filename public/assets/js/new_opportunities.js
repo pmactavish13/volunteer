@@ -98,13 +98,14 @@ $(document).ready(function () {
         console.log(newOpportunity)
       
         // Send the POST request.
-        $.ajax("/new_opportunity", {
+        $.ajax("/new_opportunities", {
             type: "POST",
             data: newOpportunity
         }).then(
             function () {
                 // Reload the page to get the updated list
-                location.reload();
+                // location.reload();
+                $(location).attr('href', '/homeTest')
             }
         );
     });
