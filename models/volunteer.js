@@ -7,7 +7,7 @@ module.exports = function (sequelize, DataTypes) {
         len: [1]
       },
     },
-    event_name: {
+    opportunity_name: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
@@ -21,7 +21,7 @@ module.exports = function (sequelize, DataTypes) {
         len: [1]
       },
     },
-    start_date: {
+    member_start_date: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
@@ -51,7 +51,7 @@ module.exports = function (sequelize, DataTypes) {
     },
   });
 
-  // Associating participation in and event (volunteer) with event and member
+  // Associating participation in and event (volunteer) with opportunity and member
   Volunteer.associate = function (models) {
 
     Volunteer.belongsTo(models.Member, {
@@ -59,7 +59,7 @@ module.exports = function (sequelize, DataTypes) {
         allowNull: false
       }
     });
-    Volunteer.belongsTo(models.Event, {
+    Volunteer.belongsTo(models.Opportunity, {
       foreignKey: {
         allowNull: false
       }
