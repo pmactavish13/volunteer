@@ -30,6 +30,22 @@ module.exports = function (sequelize, DataTypes) {
         len: [1]
       },
     },
+    member_address: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    member_city: {
+      type: DataTypes.STRING(100),
+      allowNull: true,
+    },
+    member_state: {
+      type: DataTypes.STRING(2),
+      allowNull: true,
+    },
+    member_zip: {
+      type: DataTypes.STRING(5),
+      allowNull: true,
+    },
     phone: {
       type: DataTypes.BIGINT,
       allowNull: false,

@@ -1,7 +1,7 @@
 var Sequelize = require('sequelize');
 
 module.exports = function (sequelize, DataTypes) {
-  var Member = sequelize.define("Member", {
+  var Event = sequelize.define("Event", {
     user_name: {
       type: DataTypes.STRING,
       allowNull: false,
