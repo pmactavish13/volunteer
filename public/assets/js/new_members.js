@@ -44,11 +44,11 @@ $(document).ready(function () {
             password: $("#password").val().trim(),
             first_name: $("#firstName").val().trim(),
             last_name: $("#lastName").val().trim(),
-            phone: $("#phone").val().trim(),
-            eMail: $("#eMail").val().trim(),
-            photoUrl: $("#photoUrl").val().trim(),
-            frequency: $("#selectFrequency option:selected").text(),
-            inOrOut:  $("#selectInOrOut option:selected").text(),
+            member_phone: $("#phone").val().trim(),
+            member_eMail: $("#eMail").val().trim(),
+            member_photoUrl: $("#photoUrl").val().trim(),
+            member_frequency_preference: $("#selectFrequency option:selected").text(),
+            member_inOrOut:  $("#selectInOrOut option:selected").text(),
         };
         
         $('input[name="skills"]:checked').each(function() {   

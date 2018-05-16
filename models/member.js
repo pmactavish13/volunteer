@@ -46,35 +46,35 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING(5),
       allowNull: true,
     },
-    phone: {
+    member_phone: {
       type: DataTypes.BIGINT,
       allowNull: false,
       validate: {
         len: [1]
       },
     },
-    eMail: {
+    member_eMail: {
       type: DataTypes.STRING,
       allowNull: true,
       validate: {
         len: [1]
       },
     },
-    photoUrl: {
+    member_photoUrl: {
       type: DataTypes.STRING,
       allowNull: true,
       validate: {
         len: [1]
       },
     },
-    frequency: {
+    member_frequency_preference: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: [1]
       },
     },
-    inOrOut: {
+    member_inOrOut: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
@@ -133,7 +133,7 @@ module.exports = function (sequelize, DataTypes) {
 
   // Associating member with event
   Member.associate = function (models) {
-    Member.hasMany(models.Event)
+    Member.hasMany(models.Opportunity)
   };
   return Member;
 };

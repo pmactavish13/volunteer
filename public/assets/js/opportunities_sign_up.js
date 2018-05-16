@@ -1,14 +1,14 @@
 // Make sure to wait to attach handlers until the DOM is fully loaded.
 $(document).ready(function () {
 
-    $("#newEventsForm").on("submit", function (event) {
+    $("#newOpportunityForm").on("submit", function (event) {
         event.preventDefault();
         if ($.trim($("#userName").val()) === "" || $.trim($("#userName").val()) === "User Name" || $.trim($("#userName").val()) === "Please enter a User Name") {
             $("#userName").val(" Please enter a User Name");
             return false;
         }
-        if ($.trim($("#eventName").val()) === "" || $.trim($("#eventName").val()) === "Event Name" || $.trim($("#eventName").val()) === "Please enter your Event Name") {
-            $("#eventName").val(" Please enter your Event Name");
+        if ($.trim($("#opportunityName").val()) === "" || $.trim($("#opportunityName").val()) === "Event Name" || $.trim($("#opportunityName").val()) === "Please enter your Event Name") {
+            $("#opportunityName").val(" Please enter your Event Name");
             return false;
         }
         if ($.trim($("#address").val()) === "" || $.trim($("#address").val()) === "1234 Main St." || $.trim($("#address").val()) === "Please enter the Address of your Event") {
@@ -47,20 +47,20 @@ $(document).ready(function () {
             $("#selectInOrOut").val(" Please select an option");
             return false;
         }
-        var eventSignUp = {
+        var opportunitySignUp = {
             user_name: $("#userName").val().trim(),
-            event_name: $("#eventName").val().trim(),
+            opportunity_name: $("#opportunityName").val().trim(),
             member_frequency: $("#selectFrequency option:selected").text(),
-            start_date: $("#startDate").val().trim(),
+            member_start_date: $("#startDate").val().trim(),
             member_start_time: $("#startTime").val().trim(),
             member_end_time: $("#endTime").val().trim(),
             member_in_or_out: $("#selectInOrOut option:selected").text(),
         };
 
         // Send the POST request to add an event
-        $.ajax("/event_sign_up", {
+        $.ajax("/opportunity_sign_up", {
             type: "POST",
-            data: eventSignUp
+            data: opportunitySignUp
         }).then(
             function () {
                 // Reload the page to get the updated list

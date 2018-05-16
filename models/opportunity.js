@@ -1,7 +1,7 @@
 var Sequelize = require('sequelize');
 
 module.exports = function (sequelize, DataTypes) {
-  var Event = sequelize.define("Event", {
+  var Opportunity = sequelize.define("Opportunity", {
     user_name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -16,86 +16,86 @@ module.exports = function (sequelize, DataTypes) {
         len: [1]
       },
     },
-    event_name: {
+    opportunity_name: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: [1]
       },
     },
-    phone: {
+    organization_phone: {
       type: DataTypes.BIGINT,
       allowNull: false,
       validate: {
         len: [1]
       },
     },
-    eMail: {
+    organization_eMail: {
       type: DataTypes.STRING,
       allowNull: true,
       validate: {
         len: [1]
       },
     },
-    event_photo_Url: {
+    opportunity_photo_Url: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: [1]
       },
     },
-    address: {
+    organization_address: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    city: {
+    organization_city: {
       type: DataTypes.STRING(100),
       allowNull: false,
     },
-    state: {
+    organization_state: {
       type: DataTypes.STRING(2),
       allowNull: false,
     },
-    zip: {
+    organization_zip: {
       type: DataTypes.STRING(5),
       allowNull: false,
-  },
-    frequency: {
+    },
+    organization_frequency: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: [1]
       },
     },
-    date: {
+    opportunity_date: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: [1]
       },
     },
-    event_frequency: {
+    opportunity_frequency: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: [1]
       },
     },
-    start_time: {
+    opportunity_start_time: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: [1]
       },
     },
-    end_time: {
+    opportunity_end_time: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: [1]
       },
     },
-    inOrOut: {
+    opportunity_inOrOut: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
@@ -159,10 +159,10 @@ module.exports = function (sequelize, DataTypes) {
     },
   });
 
-  // Associating member with event
- Event.associate = function (models) {
-    Event.hasMany(models.Volunteer)
+  // Associating member with opportunity
+  Opportunity.associate = function (models) {
+    Opportunity.hasMany(models.Volunteer)
   };
-  return Event;
+  return Opportunity;
 };
-    
+

@@ -20,7 +20,7 @@ app.set("view engine", "handlebars");
 
 // Import routes and give the server access to them.
 require("./controllers/html-controller.js")(app);
-require("./controllers/event-api-controller.js")(app);
+require("./controllers/opportunity-api-controller.js")(app);
 require("./controllers/member-api-controller.js")(app);
 
 // Use to clear databases during development { force: true }
