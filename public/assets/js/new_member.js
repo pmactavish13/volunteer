@@ -3,6 +3,14 @@ $(document).ready(function () {
 
     $("#newMemberForm").on("submit", function (event) {
         event.preventDefault();
+        if ($.trim($("#userName").val()) === "" || $.trim($("#userName").val()) === "User Name" || $.trim($("#userName").val()) === "Please enter a User Name") {
+            $("#userName").val(" Please enter a User Name");
+            return false;
+        }
+        if ($.trim($("#password").val()) === "" || $.trim($("#password").val()) === "Password" || $.trim($("#password").val()) === "Please enter a Password") {
+            $("#password").val(" Please enter a Password");
+            return false;
+        }
         if ($.trim($("#firstName").val()) === "" || $.trim($("#firstName").val()) === "First Name" || $.trim($("#firstName").val()) === "Please enter your First Name") {
             $("#firstName").val(" Please enter your First Name");
             return false;
@@ -32,6 +40,8 @@ $(document).ready(function () {
             return false;
         } 
         var newMember = {
+            user_name: $("#userName").val().trim(),
+            password: $("#password").val().trim(),
             first_name: $("#firstName").val().trim(),
             last_name: $("#lastName").val().trim(),
             phone: $("#phone").val().trim(),
@@ -55,9 +65,6 @@ $(document).ready(function () {
             function () {
                 // Reload the page to get the updated list
                 location.reload();
-                app.get("/", function(req, res) {
-                    res.sendFile(path.join(__dirname, "../views/home.html"));
-                  });
             }
         );
     });
