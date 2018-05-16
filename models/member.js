@@ -53,7 +53,7 @@ module.exports = function (sequelize, DataTypes) {
         len: [1]
       },
     },
-    eMail: {
+    email: {
       type: DataTypes.STRING,
       allowNull: true,
       validate: {
