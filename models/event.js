@@ -1,50 +1,168 @@
-/* jshint indent: 2 */
+var Sequelize = require('sequelize');
 
-module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('events', {
-    id: {
-      type: DataTypes.INTEGER(11),
+module.exports = function (sequelize, DataTypes) {
+  var Member = sequelize.define("Member", {
+    user_name: {
+      type: DataTypes.STRING,
       allowNull: false,
-      primaryKey: true,
-      autoIncrement: true,
-      field: 'id'
+      validate: {
+        len: [1]
+      },
     },
-    eventName: {
-      type: DataTypes.STRING(255),
-      allowNull: true,
-      field: 'eventName'
+    organization_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      },
     },
-    eventHostId: {
-      type: DataTypes.INTEGER(11),
-      allowNull: true,
-      field: 'eventHostID'
+    event_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      },
     },
-    location: {
-      type: DataTypes.STRING(255),
+    phone: {
+      type: DataTypes.BIGINT,
+      allowNull: false,
+      validate: {
+        len: [1]
+      },
+    },
+    eMail: {
+      type: DataTypes.STRING,
       allowNull: true,
-      field: 'location'
+      validate: {
+        len: [1]
+      },
+    },
+    event_photo_Url: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      },
     },
     address: {
-      type: DataTypes.STRING(255),
-      allowNull: true,
-      field: 'address'
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     city: {
       type: DataTypes.STRING(100),
-      allowNull: true,
-      field: 'city'
+      allowNull: false,
     },
     state: {
       type: DataTypes.STRING(2),
-      allowNull: true,
-      field: 'state'
+      allowNull: false,
     },
     zip: {
       type: DataTypes.STRING(5),
-      allowNull: true,
-      field: 'zip'
-    }
-  }, {
-    tableName: 'events'
+      allowNull: false,
+  },
+    frequency: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      },
+    },
+    date: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      },
+    },
+    event_frequency: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      },
+    },
+    start_time: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      },
+    },
+    end_time: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      },
+    },
+    inOrOut: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      },
+    },
+    volunteers_needed: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      },
+    },
+    cooking: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
+    gardening: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
+    painting: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
+    carpentry: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
+    plumbing: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
+    electrical: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
+    publicRelations: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
+    marketing: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
+    fundRaising: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
+    programming: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
+    sales: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
+    teaching: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
   });
+
+  // Associating member with event
+ Event.associate = function (models) {
+    Event.hasMany(models.Member)
+  };
+  return Event;
 };
+    
