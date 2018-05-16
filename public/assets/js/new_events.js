@@ -1,22 +1,18 @@
 // Make sure to wait to attach handlers until the DOM is fully loaded.
 $(document).ready(function () {
 
-    $("#newMemberForm").on("submit", function (event) {
+    $("#newEventsForm").on("submit", function (event) {
         event.preventDefault();
         if ($.trim($("#userName").val()) === "" || $.trim($("#userName").val()) === "User Name" || $.trim($("#userName").val()) === "Please enter a User Name") {
             $("#userName").val(" Please enter a User Name");
             return false;
         }
-        if ($.trim($("#password").val()) === "" || $.trim($("#password").val()) === "Password" || $.trim($("#password").val()) === "Please enter a Password") {
-            $("#password").val(" Please enter a Password");
+        if ($.trim($("#organizationName").val()) === "" || $.trim($("#organizationName").val()) === "Organization Name" || $.trim($("#organizationName").val()) === "Please enter your Organization Name") {
+            $("#organizationName").val(" Please enter your Organization Name");
             return false;
         }
-        if ($.trim($("#firstName").val()) === "" || $.trim($("#firstName").val()) === "First Name" || $.trim($("#firstName").val()) === "Please enter your First Name") {
-            $("#firstName").val(" Please enter your First Name");
-            return false;
-        }
-        if ($.trim($("#lastName").val()) === "" || $.trim($("#lastName").val()) === "Last Name" || $.trim($("#lastName").val()) === "Please enter your Last Name") {
-            $("#lastName").val(" Please enter your Last Name");
+        if ($.trim($("#eventName").val()) === "" || $.trim($("#eventName").val()) === "Event Name" || $.trim($("#eventName").val()) === "Please enter your Event Name") {
+            $("#eventName").val(" Please enter your Event Name");
             return false;
         }
         if ($.trim($("#phone").val()) === "" || $.trim($("#phone").val()) === "123-456-7890" || $.trim($("#phone").val()) === "Please enter your Contact Number") {
@@ -27,35 +23,79 @@ $(document).ready(function () {
             $("#eMail").val(" Please enter your e-mail Address");
             return false;
         }
-        if ($.trim($("#photoUrl").val()) === "" || $.trim($("#photoUrl").val()) === "URL Address" || $.trim($("#photoUrl").val()) === "Please enter a valid URL address") {
-            $("#photoUrl").val(" Please enter the URL address of your photo");
+        if ($.trim($("#eventPhotoUrl").val()) === "" || $.trim($("#eventPhotoUrl").val()) === "URL Address" || $.trim($("#eventPhotoUrl").val()) === "Please enter a valid URL address") {
+            $("#eventPhotoUrl").val(" Please enter the URL address of your photo");
             return false;
         }
-        if ($.trim($(".frequency").val()) === "" || $.trim($(".frequency").val()) === "Choose..." || $.trim($(".frequency").val()) === "Please select and option") {
-            $(".frequency").val(" Please select an option");
+        if ($.trim($("#address").val()) === "" || $.trim($("#address").val()) === "1234 Main St." || $.trim($("#address").val()) === "Please enter the Address of your Event") {
+            $("#address").val(" Please enter the Address of your Event");
             return false;
         }
-        if ($.trim($(".inOrOut").val()) === "" || $.trim($(".inOrOut").val()) === "Choose..." || $.trim($(".inOrOut").val()) === "Please select and option") {
-            $(".inOrOut").val(" Please select an option");
+        if ($.trim($("#city").val()) === "" || $.trim($("#city").val()) === "City" || $.trim($("#city").val()) === "Please enter a valid City") {
+            $("#city").val(" Please enter a valid City");
+            return false;
+        }
+        if ($("#state").val() === "" || $("#state").val() === "Choose..." || $("#photoUrl").val() === "Please enter a State") {
+            $("#state").val(" Please choose a State");
+            return false;
+        }
+        if ($.trim($("#zip").val()) === "" || $.trim($("#zip").val()) === "12345" || $.trim($("#zip").val()) === "Please enter a valid Zip Code") {
+            $("#zip").val(" Please enter a valid Zip Code");
+            return false;
+        }
+        if ($("#selectFrequency").val() === "" || $("#selectFrequency").val() === "Choose..." || $("#selectFrequency").val() === "Please select an option") {
+            $("#selectFrequency").val(" Please select an option");
+            return false;
+        }
+        if ($.trim($(".date").val()) === "" || $.trim($(".date").val()) === "mm/dd/yyyy" || $.trim($(".date").val()) === "Please enter a valid Date") {
+            $(".date").val(" Please enter a valid Date");
             return false;
         } 
-        var newMember = {
+        if ($("#selectEventFrequency").val() === "" || $("#selectEventFrequency").val() === "Choose..." || $("#selectEventFrequency").val() === "Please select an option") {
+            $("#selectEventFrequency").val(" Please select an option");
+            return false;
+        }
+        if ($.trim($("#startTime").val()) === "" || $.trim($("#startTime").val()) === "HH:mm" || $.trim($("#startTime").val()) === "Please enter a valid Start Time") {
+            $("#startTime").val(" Please enter a valid Start Time");
+            return false;
+        }
+        if ($.trim($("#endTime").val()) === "" || $.trim($("#endTime").val()) === "HH:mm" || $.trim($("#endTime").val()) === "Please enter a valid End Time") {
+            $("#endTime").val(" Please enter a valid End Time");
+            return false;
+        }
+        if ($("#selectInOrOut").val() === "" || $("#selectInOrOut").val() === "Choose..." || $("#selectInOrOut").val() === "Please select an option") {
+            $("#selectInOrOut").val(" Please select an option");
+            return false;
+        } 
+        if ($.trim($("#volunteersNeeded").val()) === "" || $.trim($("#volunteersNeeded").val()) === "0" || $.trim($("#volunteersNeeded").val()) === "Please enter a valid Number") {
+            $("#volunteersNeeded").val(" Please enter a valid Number");
+            return false;
+        }
+        var newEvent = {
             user_name: $("#userName").val().trim(),
-            password: $("#password").val().trim(),
-            first_name: $("#firstName").val().trim(),
-            last_name: $("#lastName").val().trim(),
+            organization_name: $("#organizationName").val().trim(),
+            event_name: $("#eventName").val().trim(),
             phone: $("#phone").val().trim(),
             eMail: $("#eMail").val().trim(),
-            photoUrl: $("#photoUrl").val().trim(),
+            event_photo_Url: $("#eventPhotoUrl").val().trim(),
+            address: $("#address").val().trim(),
+            city: $("#city").val().trim(),
+            state: $("#selectState option:selected").text(),
+            zip: $("#zip").val().trim(),
             frequency: $("#selectFrequency option:selected").text(),
-            inOrOut:  $("#selectInOrOut option:selected").text(),
+            date: $("#date").val().trim(),
+            event_frequency: $("#selectEventFrequency option:selected").text(),
+            start_time: $("#startTime").val().trim(),
+            end_time: $("#endTime").val().trim(),
+            event_in_or_out:  $("#selectInOrOut option:selected").text(),
+            volunteers_needed: $("#volunteerNumber").val().trim(),
         };
         
         $('input[name="skills"]:checked').each(function() {   
-         newMember[this.value] = true;
+         newEvent[this.value] = true;
          });
 
-        console.log(newMember)
+        console.log(newEvent)
       
         // Send the POST request.
         $.ajax("/new_event", {

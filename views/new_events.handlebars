@@ -7,8 +7,8 @@
             <form>
                 <div class="form-group">
                     <div>
-                        <label for="userId">User Id</label>
-                        <input type="text" class="form-control form-control-sm" name="user_id" id="userId" placeholder="User Id" onfocus="this.placeholder=''">
+                        <label for="userName">User Name</label>
+                        <input type="text" class="form-control form-control-sm" name="user_name" id="userName" placeholder="User Name" onfocus="this.placeholder=''">
                     </div>
                     <div class="row">
                         <div class="col-sm-6">
@@ -44,7 +44,7 @@
 
                     <div>
                         <label for="photo">URL address of a Photo your event or organization.</label>
-                        <input type="url" class="form-control form-control-sm" name="photo_Url" id="photoUrl" placeholder="URL Address" onfocus="this.placeholder=''">
+                        <input type="url" class="form-control form-control-sm" name="event_photo_Url" id="eventPhotoUrl" placeholder="URL Address" onfocus="this.placeholder=''">
                     </div>
 
                     <div>
@@ -62,7 +62,7 @@
                         <div class="col-sm-2">
                             <div>
                                 <label for="state">State</label>
-                                <select class="form-control form-control-sm" id="inputState" class="form-control">
+                                <select class="form-control form-control-sm" id="selectState" class="form-control">
                                     <option selected>Choose...</option>
                                     <option value="AL">AL</option>
                                     <option value="AK">AK</option>
@@ -127,12 +127,12 @@
 
                     <div class="row">
                         <div class="col-sm-4">
-                            <label for="onceRecur">Once or Recurring Event</label>
-                            <select class="form-control form-control-sm" id="Select">
+                            <label for="onceRecur">One Time or Recurring Event Preference</label>
+                            <select class="form-control form-control-sm" id="selectFrequency">
                                 <option selected>Choose...</option>
-                                <option value="Once">Once</option>
-                                <option value="Recurring">Recurring</option>
-                                <option value="Both">Both</option>
+                                <option value="1">Once</option>
+                                <option value="2">Recurring</option>
+                                <option value="3">Both</option>
                             </select>
                         </div>
                         <div class="col-sm-4">
@@ -141,7 +141,7 @@
                         </div>
                         <div class="col-sm-4">
                             <label for="eventFrequency">Frequency of Event</label>
-                            <select class="form-control form-control-sm" id="Select">
+                            <select class="form-control form-control-sm" id="selectEventFrequency">
                                 <option selected>Choose...</option>
                                 <option value="Daily">Daily</option>
                                 <option value="Weekly">Weekly</option>
@@ -164,11 +164,11 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <label for="inOrOut">Inside or Outside Event</label>
-                            <select class="form-control form-control-sm" id="Select">
+                            <select class="form-control form-control-sm" id="selectInOrOut">
                                 <option selected>Choose...</option>
-                                <option value="Inside">Inside</option>
-                                <option value="Outside">Outside</option>
-                                <option value="Both">Both</option>
+                                <option value="1">Inside</option>
+                                <option value="2">Outside</option>
+                                <option value="3">Both</option>
                             </select>
                         </div>
                         <div class="col-sm-6">

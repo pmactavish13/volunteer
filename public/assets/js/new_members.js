@@ -31,12 +31,12 @@ $(document).ready(function () {
             $("#photoUrl").val(" Please enter the URL address of your photo");
             return false;
         }
-        if ($.trim($(".frequency").val()) === "" || $.trim($(".frequency").val()) === "Choose..." || $.trim($(".frequency").val()) === "Please select and option") {
-            $(".frequency").val(" Please select an option");
+        if ($("#selectFrequency").val() === "" || $("#selectFrequency").val() === "Choose..." || $("#selectFrequency").val() === "Please select an option") {
+            $("#selectFrequency").val(" Please select an option");
             return false;
         }
-        if ($.trim($(".inOrOut").val()) === "" || $.trim($(".inOrOut").val()) === "Choose..." || $.trim($(".inOrOut").val()) === "Please select and option") {
-            $(".inOrOut").val(" Please select an option");
+        if ($("#selectInOrOut").val() === "" || $("#selectInOrOut").val() === "Choose..." || $("#selectInOrOut").val() === "Please select an option") {
+            $("#selectInOrOut").val(" Please select an option");
             return false;
         } 
         var newMember = {
