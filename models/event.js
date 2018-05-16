@@ -161,7 +161,7 @@ module.exports = function (sequelize, DataTypes) {
 
   // Associating member with event
  Event.associate = function (models) {
-    Event.hasMany(models.Member)
+    Event.hasMany(models.Volunteer)
   };
   return Event;
 };
