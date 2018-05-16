@@ -16,22 +16,22 @@ module.exports = function(app) {
 
   // index route loads home.handlebars
   app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "../views/home.handlebars"));
+    res.render(path.join(__dirname, "../views/home.handlebars"));
   });
 
   // new_member route loads new_members.handlebars
   app.get("/new_members", function(req, res) {
-    res.sendFile(path.join(__dirname, "../views/new_members.handlebars"));
+    res.render(path.join(__dirname, "../views/new_members.handlebars"));
   });
 
     // new_event route loads new_events.handlebars
     app.get("/new_events", function(req, res) {
-      res.sendFile(path.join(__dirname, "../views/new_events.handlebars"));
+      res.render(path.join(__dirname, "../views/new_events.handlebars"));
     });
 
   // event sign up route loads events_sign_up.handlebars - all jobs list
   app.get("/events_sign_up", function(req, res) {
-    res.sendFile(path.join(__dirname, "../views/events_sign_up.handlebars"));
+    res.render(path.join(__dirname, "../views/events_sign_up.handlebars"));
   });
 
 };
