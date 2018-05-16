@@ -1,7 +1,7 @@
 // Make sure to wait to attach handlers until the DOM is fully loaded.
 $(document).ready(function () {
 
-    $("#newEventsForm").on("submit", function (event) {
+    $("#newOpportunityForm").on("submit", function (event) {
         event.preventDefault();
         if ($.trim($("#userName").val()) === "" || $.trim($("#userName").val()) === "User Name" || $.trim($("#userName").val()) === "Please enter a User Name") {
             $("#userName").val(" Please enter a User Name");
@@ -11,8 +11,8 @@ $(document).ready(function () {
             $("#organizationName").val(" Please enter your Organization Name");
             return false;
         }
-        if ($.trim($("#eventName").val()) === "" || $.trim($("#eventName").val()) === "Event Name" || $.trim($("#eventName").val()) === "Please enter your Event Name") {
-            $("#eventName").val(" Please enter your Event Name");
+        if ($.trim($("#opportunityName").val()) === "" || $.trim($("#opportunityName").val()) === "Event Name" || $.trim($("#opportunityName").val()) === "Please enter your Event Name") {
+            $("#opportunityName").val(" Please enter your Event Name");
             return false;
         }
         if ($.trim($("#phone").val()) === "" || $.trim($("#phone").val()) === "123-456-7890" || $.trim($("#phone").val()) === "Please enter your Contact Number") {
@@ -23,8 +23,8 @@ $(document).ready(function () {
             $("#eMail").val(" Please enter your e-mail Address");
             return false;
         }
-        if ($.trim($("#eventPhotoUrl").val()) === "" || $.trim($("#eventPhotoUrl").val()) === "URL Address" || $.trim($("#eventPhotoUrl").val()) === "Please enter a valid URL address") {
-            $("#eventPhotoUrl").val(" Please enter the URL address of your photo");
+        if ($.trim($("#opportunityPhotoUrl").val()) === "" || $.trim($("#opportunityPhotoUrl").val()) === "URL Address" || $.trim($("#opportunityPhotoUrl").val()) === "Please enter a valid URL address") {
+            $("#opportunityPhotoUrl").val(" Please enter the URL address of your photo");
             return false;
         }
         if ($.trim($("#address").val()) === "" || $.trim($("#address").val()) === "1234 Main St." || $.trim($("#address").val()) === "Please enter the Address of your Event") {
@@ -51,8 +51,8 @@ $(document).ready(function () {
             $(".date").val(" Please enter a valid Date");
             return false;
         } 
-        if ($("#selectEventFrequency").val() === "" || $("#selectEventFrequency").val() === "Choose..." || $("#selectEventFrequency").val() === "Please select an option") {
-            $("#selectEventFrequency").val(" Please select an option");
+        if ($("#selectOpportunityFrequency").val() === "" || $("#selectOpportunityFrequency").val() === "Choose..." || $("#selectOpportunityFrequency").val() === "Please select an option") {
+            $("#selectOpportunityFrequency").val(" Please select an option");
             return false;
         }
         if ($.trim($("#startTime").val()) === "" || $.trim($("#startTime").val()) === "HH:mm" || $.trim($("#startTime").val()) === "Please enter a valid Start Time") {
@@ -71,36 +71,36 @@ $(document).ready(function () {
             $("#volunteersNeeded").val(" Please enter a valid Number");
             return false;
         }
-        var newEvent = {
+        var newOpportunity = {
             user_name: $("#userName").val().trim(),
             organization_name: $("#organizationName").val().trim(),
-            event_name: $("#eventName").val().trim(),
-            phone: $("#phone").val().trim(),
-            eMail: $("#eMail").val().trim(),
-            event_photo_Url: $("#eventPhotoUrl").val().trim(),
-            address: $("#address").val().trim(),
-            city: $("#city").val().trim(),
-            state: $("#selectState option:selected").text(),
-            zip: $("#zip").val().trim(),
-            frequency: $("#selectFrequency option:selected").text(),
-            date: $("#date").val().trim(),
-            event_frequency: $("#selectEventFrequency option:selected").text(),
-            start_time: $("#startTime").val().trim(),
-            end_time: $("#endTime").val().trim(),
-            event_in_or_out:  $("#selectInOrOut option:selected").text(),
+            opportunity_name: $("#opportunityName").val().trim(),
+            organization_phone: $("#phone").val().trim(),
+            organization_eMail: $("#eMail").val().trim(),
+            organization_photo_Url: $("#opportunityPhotoUrl").val().trim(),
+            organization_address: $("#address").val().trim(),
+            organization_city: $("#city").val().trim(),
+            organization_state: $("#selectState option:selected").text(),
+            organization_zip: $("#zip").val().trim(),
+            organization_frequency: $("#selectFrequency option:selected").text(),
+            opportunity_date: $("#date").val().trim(),
+            opportunity_frequency: $("#selectOpportunityFrequency option:selected").text(),
+            opportunity_start_time: $("#startTime").val().trim(),
+            opportunity_end_time: $("#endTime").val().trim(),
+            opportunity_in_or_out:  $("#selectInOrOut option:selected").text(),
             volunteers_needed: $("#volunteerNumber").val().trim(),
         };
         
         $('input[name="skills"]:checked').each(function() {   
-         newEvent[this.value] = true;
+         newOpportunity[this.value] = true;
          });
 
-        console.log(newEvent)
+        console.log(newOpportunity)
       
         // Send the POST request.
-        $.ajax("/new_event", {
+        $.ajax("/new_opportunity", {
             type: "POST",
-            data: newMember
+            data: newOpportunity
         }).then(
             function () {
                 // Reload the page to get the updated list

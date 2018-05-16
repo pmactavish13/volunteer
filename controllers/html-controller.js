@@ -29,14 +29,14 @@ module.exports = function(app) {
     res.render(path.join(__dirname, "../views/new_members.handlebars"));
   });
 
-    // new_event route loads new_events.handlebars
-    app.get("/new_events", function(req, res) {
-      res.render(path.join(__dirname, "../views/new_events.handlebars"));
+    // new_opportunities route loads new_opportunities.handlebars
+    app.get("/new_opportunities", function(req, res) {
+      res.render(path.join(__dirname, "../views/new_opportunities.handlebars"));
     });
 
-  // event sign up route loads events_sign_up.handlebars - all jobs list
-  app.get("/events_sign_up", function(req, res) {
-    res.render(path.join(__dirname, "../views/events_sign_up.handlebars"));
+  // opportunities sign up route loads opportunities_sign_up.handlebars - all jobs list
+  app.get("/opportunities_sign_up", function(req, res) {
+    res.render(path.join(__dirname, "../views/opportunities_sign_up.handlebars"));
   });
 
 };
