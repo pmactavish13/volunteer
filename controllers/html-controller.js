@@ -14,10 +14,15 @@ module.exports = function(app) {
 
   // Each of the below routes just handles the HTML page that the user gets sent to.
 
-  // index route loads home.handlebars
+ // index route loads homeTest.handlebars
   app.get("/", function(req, res) {
-    res.render(path.join(__dirname, "../views/home.handlebars"));
+    res.render(path.join(__dirname, "../views/homeTest.handlebars"));
   });
+
+  // index route loads home.handlebars
+  // app.get("/", function(req, res) {
+  //   res.render(path.join(__dirname, "../views/home.handlebars"));
+  // });
 
   // new_member route loads new_members.handlebars
   app.get("/new_members", function(req, res) {
