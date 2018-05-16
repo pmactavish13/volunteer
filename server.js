@@ -28,20 +28,15 @@ app.use(passport.session()); // persistent login sessions
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-// Import routes and give the server access to them.
-<<<<<<< HEAD
-require("./controllers/html-controller.js")(app, passport);
-require("./controllers/event-api-controller.js")(app);
-=======
-require("./controllers/html-controller.js")(app);
-require("./controllers/opportunity-api-controller.js")(app);
->>>>>>> c5d28edaba6b7191735ba04d7a2fd5ae2e69be3e
-require("./controllers/member-api-controller.js")(app);
-// require('./controllers/auth-controller.js')(app, passport);
-
 //load passport strategy
 require('./config/passport/passport.js')(passport, db.members);
 // Use to clear databases during development { force: true }
+
+// Import routes and give the server access to them.
+require("./controllers/html-controller.js")(app);
+require("./controllers/opportunity-api-controller.js")(app);
+require("./controllers/member-api-controller.js")(app, passport);
+// require('./controllers/auth-controller.js')(app, passport);
 
 // Initiate database interface and start our server so that it can begin listening to client requests.
 db.sequelize.sync().then(function () {

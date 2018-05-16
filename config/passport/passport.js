@@ -1,22 +1,23 @@
 //load bcrypt
 var bCrypt = require('bcrypt-nodejs');
+var db = require('../../models');
 
-module.exports = function (passport, user) {
+module.exports = function (passport, member) {
 
-    var User = user;
+    var Member = member;
     var LocalStrategy = require('passport-local').Strategy;
 
-    passport.serializeUser(function (user, done) {
-        done(null, user.id);
+    passport.serializeUser(function (member, done) {
+        done(null, member.id);
     });
 
-    // used to deserialize the user
+    // used to deserialize the member
     passport.deserializeUser(function (id, done) {
-        User.findById(id).then(function (user) {
-            if (user) {
-                done(null, user.get());
+        db.Member.findById(id).then(function (member) {
+            if (member) {
+                done(null, member.get());
             } else {
-                done(user.errors, null);
+                done(member.errors, null);
             }
         });
     });
@@ -32,12 +33,12 @@ module.exports = function (passport, user) {
                 return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
             };
 
-            User.findOne({
+            db.Member.findOne({
                 where: {
                     email: email
                 }
-            }).then(function (user) {
-                if (user) {
+            }).then(function (member) {
+                if (member) {
                     return done(null, false, {
                         message: 'email address already in use. please try again'
                     });
@@ -46,10 +47,10 @@ module.exports = function (passport, user) {
                     var data = {
                         email: email,
                         password: hashPassword,
-                        firstname: req.body.first_name,
-                        lastname: req.body.last_name,
-                        phone: req.body.phone,
-                        photoUrl: req.body.photo_Url,
+                        first_name: req.body.firstname,
+                        last_name: req.body.lastname,
+                        member_phone: req.body.phone,
+                        member_photoUrl: req.body.photoUrl,
                     };
 
                     // db.members.create({
@@ -58,7 +59,7 @@ module.exports = function (passport, user) {
                     //     res.json(dbMembers)
                     // });
 
-                    User.create(data).then(function (newUser, created) {
+                    db.Member.create(data).then(function (newUser, created) {
                         if (!newUser) {
                             return done(null, false);
                         }
@@ -80,28 +81,28 @@ module.exports = function (passport, user) {
         },
 
         function (req, email, password, done) {
-            var User = user;
+            var Member = member;
             var isValidPassword = function (userpass, password) {
                 return bCrypt.compareSync(password, userpass);
             };
 
-            User.findOne({
+            db.Member.findOne({
                 where: {
                     email: email
                 }
-            }).then(function (user) {
-                if (!user) {
+            }).then(function (member) {
+                if (!member) {
                     return done(null, false, {
                         message: 'email/password combination incorrect. please try again.'
                     });
                 }
-                if (!isValidPassword(user.password, password)) {
+                if (!isValidPassword(member.password, password)) {
                     return done(null, false, {
                         message: 'email/password combination incorrect. please try again.'
                     });
                 }
 
-                var userinfo = user.get();
+                var userinfo = member.get();
                 return done(null, userinfo);
 
             }).catch(function (err) {
