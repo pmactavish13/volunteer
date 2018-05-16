@@ -1,5 +1,6 @@
 var db = require("../models");
 
+module.exports = function (app) {
 // add new data - new member
 app.post("/new_members", function (req, res) {
     db.members.create({
@@ -8,3 +9,4 @@ app.post("/new_members", function (req, res) {
         res.json(dbMembers)
     });
 });
+}
