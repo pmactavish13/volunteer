@@ -47,7 +47,7 @@ $(document).ready(function () {
             $("#selectFrequency").val(" Please select an option");
             return false;
         }
-        if ($.trim($(".date").val()) === "" || $.trim($(".date").val()) === "mm/dd/yyyy" || $.trim($(".date").val()) === "Please enter a valid Date") {
+        if ($.trim($(".date").val()) === "" || $.trim($(".date").val()) === "MM/DD/YY" || $.trim($(".date").val()) === "Please enter a valid Date") {
             $(".date").val(" Please enter a valid Date");
             return false;
         } 
@@ -108,5 +108,4 @@ $(document).ready(function () {
             }
         );
     });
-
 });
