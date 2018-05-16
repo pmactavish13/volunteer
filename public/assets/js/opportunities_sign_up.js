@@ -58,7 +58,7 @@ $(document).ready(function () {
         };
 
         // Send the POST request to add an event
-        $.ajax("/opportunity_sign_up", {
+        $.ajax("/opportunities_sign_up", {
             type: "POST",
             data: opportunitySignUp
         }).then(

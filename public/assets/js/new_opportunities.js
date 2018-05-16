@@ -98,7 +98,7 @@ $(document).ready(function () {
         console.log(newOpportunity)
       
         // Send the POST request.
-        $.ajax("/new_opportunity", {
+        $.ajax("/new_opportunities", {
             type: "POST",
             data: newOpportunity
         }).then(
