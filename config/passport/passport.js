@@ -47,12 +47,12 @@ module.exports = function (passport, member) {
                     var data = {
                         email: email,
                         password: hashPassword,
-                        first_name: req.body.firstname,
-                        last_name: req.body.lastname,
+                        first_name: req.body.first_name,
+                        last_name: req.body.last_name,
                         phone: req.body.phone,
                         photoUrl: req.body.photoUrl,
-                        frequency: req.body.selectFrequency,
-                        inOrOut: req.body.selectInOrOut,
+                        frequency: req.body.frequency,
+                        inOrOut: req.body.inOrOut,
                         cooking: req.body.cooking,
                         gardening: req.body.gardening,
                         painting: req.body.painting,
@@ -66,12 +66,6 @@ module.exports = function (passport, member) {
                         sales: req.body.sales,
                         teaching: req.body.teaching,
                     };
-
-                    // db.members.create({
-                    //     newMember: req.body()
-                    // }).then(function (dbMembers) {
-                    //     res.json(dbMembers)
-                    // });
 
                     db.Member.create(data).then(function (newUser, created) {
                         if (!newUser) {

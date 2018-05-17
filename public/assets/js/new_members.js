@@ -54,7 +54,7 @@ $(document).ready(function () {
         console.log(newMember)
       
         // Send the POST request.
-        $.ajax("/api/new_members", {
+        $.ajax("/api/member", {
             type: "POST",
             data: newMember
         }).then(
