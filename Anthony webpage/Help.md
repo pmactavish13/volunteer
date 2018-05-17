@@ -6,5 +6,22 @@ Things I need help with with:
 
 3. Changing the modals and providing more info.
 
-4. Getting the sizes of the Volunteer opportunites boxes the same size.
+4. Getting the sizes of the Volunteer opportunities boxes the same size.
+
+
+
+
+
+
+Things to do for Anthony:
+
+Main home page --
+
+Home page words "We find work you won't get paid for"
+
+Remove login button on home page
+
+Create modal for login
+
+Optimize modal for opportunities
 
