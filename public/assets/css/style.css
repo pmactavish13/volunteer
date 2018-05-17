@@ -5,3 +5,8 @@ html {
     box-sizing: inherit;
 }
 
+.form-control {
+    margin-top: -8px;
+    margin-bottom: 15px;
+}
+
