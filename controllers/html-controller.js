@@ -14,29 +14,24 @@ module.exports = function (app) {
 
   // Each of the below routes just handles the HTML page that the user gets sent to.
 
-
-  // index route loads homeTest.handlebars
-  app.get("/", function (req, res) {
-    res.render(path.join(__dirname, "../views/homeTest.handlebars"));
-  });
-
-
   // index route loads home.handlebars
   // app.get("/", function (req, res) {
   //     res.render(path.join(__dirname, "../views/home.handlebars"));
   // });
 
-  // index route loads homeTest.handlebars
+  // route loads homeTest.handlebars
   app.get("/", function (req, res) {
-    db.Volunteer.findAll({
-      include: [db.Opportunity, db.Member],
+    db.Opportunity.findAll({
       order: ["opportunity_name"]
-    }).then(function (dbVolunteer) {
-      res.render(path.join(__dirname, "../views/homeTest.handlebars"), {
-        volunteers: dbVolunteer
-      });
+    }).then(function (dbOpportunity) {
+      res.render(path.join(__dirname, "../views/homeTest.handlebars"), { opportunities: dbOpportunity });
     });
   })
+
+  // route loads private.handlebars
+  app.get("/private", function (req, res) {
+    res.render(path.join(__dirname, "../views/private.handlebars"));
+  });
 
   app.get('/logout', function (req, res) {
     req.session.destroy(function (err) {

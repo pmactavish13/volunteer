@@ -2,8 +2,12 @@
 $(document).ready(function () {
 
     $("#newMemberForm").on("submit", function (event) {
-        console.log("success")
         event.preventDefault();
+
+        if ($.trim($("#email").val()) === "" || $.trim($("#email").val()) === "jDoe@email.com" || $.trim($("#email").val()) === "Please enter a valid e-mail Address") {
+            $("#email").val(" Please enter your e-mail Address");
+            return false;
+        }
         if ($.trim($("#password").val()) === "" || $.trim($("#password").val()) === "Password" || $.trim($("#password").val()) === "Please enter a Password") {
             $("#password").val(" Please enter a Password");
             return false;
@@ -20,10 +24,6 @@ $(document).ready(function () {
             $("#phone").val(" Please enter your Contact Number");
             return false;
         }
-        if ($.trim($("#email").val()) === "" || $.trim($("#email").val()) === "jDoe@email.com" || $.trim($("#email").val()) === "Please enter a valid e-mail Address") {
-            $("#email").val(" Please enter your e-mail Address");
-            return false;
-        }
         if ($.trim($("#photoUrl").val()) === "" || $.trim($("#photoUrl").val()) === "URL Address" || $.trim($("#photoUrl").val()) === "Please enter a valid URL address") {
             $("#photoUrl").val(" Please enter the URL address of your photo");
             return false;
@@ -37,14 +37,14 @@ $(document).ready(function () {
             return false;
         } 
         var newMember = {
-            password: $("#password").val().trim(),
-            firstname: $("#firstName").val().trim(),
-            lastname: $("#lastName").val().trim(),
-            phone: $("#phone").val().trim(),
             email: $("#email").val().trim(),
+            password: $("#password").val().trim(),
+            first_name: $("#firstName").val().trim(),
+            last_name: $("#lastName").val().trim(),
+            phone: $("#phone").val().trim(),
             photoUrl: $("#photoUrl").val().trim(),
-            member_frequency_preference: $("#selectFrequency option:selected").text(),
-            member_inOrOut:  $("#selectInOrOut option:selected").text(),
+            frequency: $("#selectFrequency option:selected").text(),
+            inOrOut:  $("#selectInOrOut option:selected").text(),
         };
         
         $('input[name="skills"]:checked').each(function() {   
@@ -61,9 +61,8 @@ $(document).ready(function () {
             function () {
                 // Reload the page to get the updated list
                 // location.reload();
-                $(location).attr('href', '/')
+                $(location).attr('href', '/private')
             }
         );
     });
-
 });
