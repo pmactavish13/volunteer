@@ -58,13 +58,13 @@ $(document).ready(function () {
         };
 
         // Send the POST request to add an event
-        $.ajax("/opportunity_sign_up", {
+        $.ajax("/opportunities_sign_up", {
             type: "POST",
             data: opportunitySignUp
         }).then(
             function () {
                 // Reload the page to get the updated list
-                location.reload();
+                // location.reload();
             }
         );
 
@@ -82,7 +82,8 @@ $(document).ready(function () {
         }).then(
             function () {
                 // Reload the page to get the updated list
-                location.reload();
+                // location.reload();
+                $(location).attr('href', '/homeTest')
             }
         );
     });

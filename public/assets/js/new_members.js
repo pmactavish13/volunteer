@@ -2,6 +2,7 @@
 $(document).ready(function () {
 
     $("#newMemberForm").on("submit", function (event) {
+        console.log("success")
         event.preventDefault();
         // if ($.trim($("#userName").val()) === "" || $.trim($("#userName").val()) === "User Name" || $.trim($("#userName").val()) === "Please enter a User Name") {
         //     $("#userName").val(" Please enter a User Name");
@@ -58,13 +59,14 @@ $(document).ready(function () {
         console.log(newMember)
       
         // Send the POST request.
-        $.ajax("/new_members", {
+        $.ajax("/api/new_members", {
             type: "POST",
             data: newMember
         }).then(
             function () {
                 // Reload the page to get the updated list
-                location.reload();
+                // location.reload();
+                $(location).attr('href', '/')
             }
         );
     });
