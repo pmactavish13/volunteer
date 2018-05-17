@@ -161,7 +161,7 @@ module.exports = function (sequelize, DataTypes) {
 
   // Associating member with opportunity
   // Opportunity.associate = function (models) {
-  //   Opportunity.hasMany(models.Volunteer)
+  //   Opportunity.belongsToMany(models.Member)
   // };
   return Opportunity;
 };
