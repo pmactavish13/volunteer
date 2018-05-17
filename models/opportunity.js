@@ -160,9 +160,9 @@ module.exports = function (sequelize, DataTypes) {
   });
 
   // Associating member with opportunity
-  Opportunity.associate = function (models) {
-    Opportunity.belongsToMany(models.Member)
-  };
+  // Opportunity.associate = function (models) {
+  //   Opportunity.belongsToMany(models.Member)
+  // };
   return Opportunity;
 };
 

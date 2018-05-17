@@ -2,6 +2,13 @@ var Sequelize = require('sequelize');
 
 module.exports = function (sequelize, DataTypes) {
   var Member = sequelize.define("Member", {
+    // user_name: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false,
+    //   validate: {
+    //     len: [1]
+    //   },
+    // },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -125,8 +132,8 @@ module.exports = function (sequelize, DataTypes) {
   });
 
   // Associating member with event
-  Member.associate = function (models) {
-    Member.belongsToMany(models.Opportunity)
-  };
+  // Member.associate = function (models) {
+  //   Member.belongsToMany(db.Opportunity, {through: 'MemberOpportunity'})
+  // };
   return Member;
 };
