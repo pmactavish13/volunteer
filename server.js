@@ -30,7 +30,7 @@ app.set("view engine", "handlebars");
 
 //load passport strategy
 require('./config/passport/passport.js')(passport, db.members);
-// Use to clear databases during development { force: true }
+
 
 // Import routes and give the server access to them.
 require("./controllers/html-controller.js")(app);
@@ -38,6 +38,7 @@ require("./controllers/opportunity-api-controller.js")(app);
 require("./controllers/member-api-controller.js")(app, passport);
 // require('./controllers/auth-controller.js')(app, passport);
 
+// Use to clear databases during development { force: true }
 // Initiate database interface and start our server so that it can begin listening to client requests.
 db.sequelize.sync().then(function () {
     console.log('database sync okay');
