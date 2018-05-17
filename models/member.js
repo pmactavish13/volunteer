@@ -62,14 +62,14 @@ module.exports = function (sequelize, DataTypes) {
     },
     member_frequency_preference: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: false,
       validate: {
         len: [1]
       },
     },
     member_inOrOut: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: false,
       validate: {
         len: [1]
       },
@@ -126,7 +126,7 @@ module.exports = function (sequelize, DataTypes) {
 
   // Associating member with event
   Member.associate = function (models) {
-    Member.hasMany(models.Opportunity)
+    Member.belongsToMany(models.Opportunity)
   };
   return Member;
 };

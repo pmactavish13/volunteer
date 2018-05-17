@@ -2,12 +2,11 @@
 $(document).ready(function () {
 
     $("#newMemberForm").on("submit", function (event) {
-        console.log("success")
         event.preventDefault();
-        // if ($.trim($("#userName").val()) === "" || $.trim($("#userName").val()) === "User Name" || $.trim($("#userName").val()) === "Please enter a User Name") {
-        //     $("#userName").val(" Please enter a User Name");
-        //     return false;
-        // }
+        if ($.trim($("#email").val()) === "" || $.trim($("#email").val()) === "jDoe@email.com" || $.trim($("#email").val()) === "Please enter a valid e-mail Address") {
+            $("#email").val(" Please enter your e-mail Address");
+            return false;
+        }
         if ($.trim($("#password").val()) === "" || $.trim($("#password").val()) === "Password" || $.trim($("#password").val()) === "Please enter a Password") {
             $("#password").val(" Please enter a Password");
             return false;
@@ -24,37 +23,32 @@ $(document).ready(function () {
             $("#phone").val(" Please enter your Contact Number");
             return false;
         }
-        if ($.trim($("#email").val()) === "" || $.trim($("#email").val()) === "jDoe@email.com" || $.trim($("#email").val()) === "Please enter a valid e-mail Address") {
-            $("#email").val(" Please enter your e-mail Address");
-            return false;
-        }
         if ($.trim($("#photoUrl").val()) === "" || $.trim($("#photoUrl").val()) === "URL Address" || $.trim($("#photoUrl").val()) === "Please enter a valid URL address") {
             $("#photoUrl").val(" Please enter the URL address of your photo");
             return false;
         }
-        // if ($("#selectFrequency").val() === "" || $("#selectFrequency").val() === "Choose..." || $("#selectFrequency").val() === "Please select an option") {
-        //     $("#selectFrequency").val(" Please select an option");
-        //     return false;
-        // }
-        // if ($("#selectInOrOut").val() === "" || $("#selectInOrOut").val() === "Choose..." || $("#selectInOrOut").val() === "Please select an option") {
-        //     $("#selectInOrOut").val(" Please select an option");
-        //     return false;
-        // } 
+        if ($("#selectFrequency").val() === "" || $("#selectFrequency").val() === "Choose..." || $("#selectFrequency").val() === "Please select an option") {
+            $("#selectFrequency").val(" Please select an option");
+            return false;
+        }
+        if ($("#selectInOrOut").val() === "" || $("#selectInOrOut").val() === "Choose..." || $("#selectInOrOut").val() === "Please select an option") {
+            $("#selectInOrOut").val(" Please select an option");
+            return false;
+        } 
         var newMember = {
-            // user_name: $("#userName").val().trim(),
             password: $("#password").val().trim(),
+            email: $("#email").val().trim(),
             firstname: $("#firstName").val().trim(),
             lastname: $("#lastName").val().trim(),
             phone: $("#phone").val().trim(),
-            email: $("#email").val().trim(),
             photoUrl: $("#photoUrl").val().trim(),
-            // member_frequency_preference: $("#selectFrequency option:selected").text(),
-            // member_inOrOut:  $("#selectInOrOut option:selected").text(),
+            member_frequency_preference: $("#selectFrequency option:selected").text(),
+            member_inOrOut:  $("#selectInOrOut option:selected").text(),
         };
         
-        // $('input[name="skills"]:checked').each(function() {   
-        //  newMember[this.value] = true;
-        //  });
+        $('input[name="skills"]:checked').each(function() {   
+         newMember[this.value] = true;
+         });
 
         console.log(newMember)
       
@@ -66,9 +60,8 @@ $(document).ready(function () {
             function () {
                 // Reload the page to get the updated list
                 // location.reload();
-                $(location).attr('href', '/')
+                $(location).attr('href', '/private')
             }
         );
     });
-
 });

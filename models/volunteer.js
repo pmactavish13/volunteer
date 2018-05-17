@@ -51,19 +51,4 @@ module.exports = function (sequelize, DataTypes) {
     },
   });
 
-  // Associating participation in and event (volunteer) with opportunity and member
-  Volunteer.associate = function (models) {
-
-    Volunteer.belongsTo(models.Member, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-    Volunteer.belongsTo(models.Opportunity, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-  };
-  return Volunteer;
 };
