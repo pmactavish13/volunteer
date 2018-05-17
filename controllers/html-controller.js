@@ -14,11 +14,6 @@ module.exports = function (app) {
 
   // Each of the below routes just handles the HTML page that the user gets sent to.
 
-  // index route loads homeTest.handlebars
-  // app.get("/", function (req, res) {
-  //   res.render(path.join(__dirname, "../views/homeTest.handlebars"));
-  // });
-
   // index route loads home.handlebars
   // app.get("/", function (req, res) {
   //     res.render(path.join(__dirname, "../views/home.handlebars"));
@@ -27,7 +22,6 @@ module.exports = function (app) {
   // route loads homeTest.handlebars
   app.get("/", function (req, res) {
     db.Opportunity.findAll({
-      include: [db.Member],
       order: ["opportunity_name"]
     }).then(function (dbOpportunity) {
       res.render(path.join(__dirname, "../views/homeTest.handlebars"), { opportunities: dbOpportunity });
@@ -50,7 +44,7 @@ module.exports = function (app) {
   });
 
 
-   
+
   // new_member route loads new_members.handlebars
   app.get("/new_members", function (req, res) {
     res.render(path.join(__dirname, "../views/new_members.handlebars"));

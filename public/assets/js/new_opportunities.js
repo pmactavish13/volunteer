@@ -3,10 +3,10 @@ $(document).ready(function () {
 
     $("#newOpportunityForm").on("submit", function (event) {
         event.preventDefault();
-        // if ($.trim($("#userName").val()) === "" || $.trim($("#userName").val()) === "User Name" || $.trim($("#userName").val()) === "Please enter a User Name") {
-        //     $("#userName").val(" Please enter a User Name");
-        //     return false;
-        // }
+        if ($.trim($("#userName").val()) === "" || $.trim($("#userName").val()) === "User Name" || $.trim($("#userName").val()) === "Please enter your Name") {
+            $("#userName").val(" Please enter your Name");
+            return false;
+        }
         if ($.trim($("#organizationName").val()) === "" || $.trim($("#organizationName").val()) === "Organization Name" || $.trim($("#organizationName").val()) === "Please enter your Organization Name") {
             $("#organizationName").val(" Please enter your Organization Name");
             return false;
@@ -76,8 +76,8 @@ $(document).ready(function () {
             organization_name: $("#organizationName").val().trim(),
             opportunity_name: $("#opportunityName").val().trim(),
             organization_phone: $("#phone").val().trim(),
-            organization_email: $("#email").val().trim(),
-            organization_photo_Url: $("#opportunityPhotoUrl").val().trim(),
+            organization_eMail: $("#email").val().trim(),
+            opportunity_photo_Url: $("#opportunityPhotoUrl").val().trim(),
             organization_address: $("#address").val().trim(),
             organization_city: $("#city").val().trim(),
             organization_state: $("#selectState option:selected").text(),
