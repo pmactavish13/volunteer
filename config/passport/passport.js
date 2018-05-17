@@ -53,18 +53,18 @@ module.exports = function (passport, member) {
                         photoUrl: req.body.photoUrl,
                         frequency: req.body.selectFrequency,
                         inOrOut: req.body.selectInOrOut,
-                        // cooking:
-                        // gardening:
-                        // painting:
-                        // carpentry:
-                        // plumbing:
-                        // electrical:
-                        // publicRelations:
-                        // marketing:
-                        // fundRaising:
-                        // programming:
-                        // sales:
-                        // teaching:
+                        cooking: req.body.cooking,
+                        gardening: req.body.gardening,
+                        painting: req.body.painting,
+                        carpentry: req.body.carpentry,
+                        plumbing: req.body.plumbing,
+                        electrical: req.body.electrical,
+                        publicRelations: req.body.publicRelations,
+                        marketing: req.body.marketing,
+                        fundRaising: req.body.fundRaising,
+                        programming: req.body.programming,
+                        sales: req.body.sales,
+                        teaching: req.body.teaching,
                     };
 
                     // db.members.create({
@@ -95,6 +95,8 @@ module.exports = function (passport, member) {
         },
 
         function (req, email, password, done) {
+            console.log("login route");
+
             var Member = member;
             var isValidPassword = function (userpass, password) {
                 return bCrypt.compareSync(password, userpass);
