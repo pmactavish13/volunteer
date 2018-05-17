@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 
 // For Passport
 app.use(session({
-    secret: 'keyboard cat',
+    secret: 'ninety tuba spike',
     resave: true,
     saveUninitialized: true
 })); // session secret
@@ -40,7 +40,7 @@ require("./controllers/member-api-controller.js")(app, passport);
 
 // Use to clear databases during development { force: true }
 // Initiate database interface and start our server so that it can begin listening to client requests.
-db.sequelize.sync().then(function () {
+db.sequelize.sync({ force: true }).then(function () {
     console.log('database sync okay');
     app.listen(PORT, function (err) {
         if (!err) {
@@ -50,7 +50,7 @@ db.sequelize.sync().then(function () {
         else {
             console.log(err);
         }
-    })
+    });
 }).catch(function (err) {
     console.log(err, "database synch failed");
 });

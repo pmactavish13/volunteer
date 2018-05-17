@@ -46,6 +46,7 @@ module.exports = function (app) {
         res.render(path.join(__dirname, "../views/login.handlebars"));
     });
 
+
    
   // new_member route loads new_members.handlebars
   app.get("/new_members", function (req, res) {

@@ -49,8 +49,22 @@ module.exports = function (passport, member) {
                         password: hashPassword,
                         first_name: req.body.firstname,
                         last_name: req.body.lastname,
-                        member_phone: req.body.phone,
-                        member_photoUrl: req.body.photoUrl,
+                        phone: req.body.phone,
+                        photoUrl: req.body.photoUrl,
+                        frequency: req.body.selectFrequency,
+                        inOrOut: req.body.selectInOrOut,
+                        // cooking:
+                        // gardening:
+                        // painting:
+                        // carpentry:
+                        // plumbing:
+                        // electrical:
+                        // publicRelations:
+                        // marketing:
+                        // fundRaising:
+                        // programming:
+                        // sales:
+                        // teaching:
                     };
 
                     // db.members.create({
