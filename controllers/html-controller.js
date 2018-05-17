@@ -48,16 +48,6 @@ module.exports = function (app) {
         res.render(path.join(__dirname, "../views/login.handlebars"));
     });
 
-    // app.post('/new_members', passport.authenticate('local-signup', {
-    //     successRedirect: '/events_sign_up',
-    //     failureRedirect: '/new_members'
-    // }));
-
-    // app.post('/login', passport.authenticate('local-signin', {
-    //     successRedirect: '/opportunities_sign_up',
-    //     failureRedirect: '/login'
-    // }));
-
     function isLoggedIn(req, res, next) {
         if (req.isAuthenticated())
             return next();
