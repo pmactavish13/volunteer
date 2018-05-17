@@ -62,14 +62,14 @@ module.exports = function (sequelize, DataTypes) {
     },
     frequency: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: false,
       validate: {
         len: [1]
       },
     },
     inOrOut: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: false,
       validate: {
         len: [1]
       },
