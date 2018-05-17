@@ -3,6 +3,7 @@ $(document).ready(function () {
 
     $("#newMemberForm").on("submit", function (event) {
         event.preventDefault();
+
         if ($.trim($("#email").val()) === "" || $.trim($("#email").val()) === "jDoe@email.com" || $.trim($("#email").val()) === "Please enter a valid e-mail Address") {
             $("#email").val(" Please enter your e-mail Address");
             return false;
@@ -36,14 +37,14 @@ $(document).ready(function () {
             return false;
         } 
         var newMember = {
-            password: $("#password").val().trim(),
             email: $("#email").val().trim(),
-            firstname: $("#firstName").val().trim(),
-            lastname: $("#lastName").val().trim(),
+            password: $("#password").val().trim(),
+            first_name: $("#firstName").val().trim(),
+            last_name: $("#lastName").val().trim(),
             phone: $("#phone").val().trim(),
             photoUrl: $("#photoUrl").val().trim(),
-            member_frequency_preference: $("#selectFrequency option:selected").text(),
-            member_inOrOut:  $("#selectInOrOut option:selected").text(),
+            frequency: $("#selectFrequency option:selected").text(),
+            inOrOut:  $("#selectInOrOut option:selected").text(),
         };
         
         $('input[name="skills"]:checked').each(function() {   
