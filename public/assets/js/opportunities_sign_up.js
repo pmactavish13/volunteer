@@ -57,10 +57,15 @@ $(document).ready(function () {
             // member_in_or_out: $("#selectInOrOut option:selected").text(),
         };
 
+        //***********************************************/
+        //  GET THE MEMBER ID
+        //  GET THE OPPORTUNITY ID
+        // THEN POST
+
         // Send the POST request to add an event
-        $.ajax("/opportunities_sign_up", {
+        $.ajax("/member_opportunity", {
             type: "POST",
-            data: opportunitySignUp
+            data: opportunitySignUpId
         }).then(
             function () {
                 // Reload the page to get the updated list
