@@ -43,18 +43,18 @@ $(document).ready(function () {
             $("#zip").val(" Please enter a valid Zip Code");
             return false;
         }
-        if ($("#selectFrequency").val() === "" || $("#selectFrequency").val() === "Choose..." || $("#selectFrequency").val() === "Please select an option") {
-            $("#selectFrequency").val(" Please select an option");
-            return false;
-        }
+        // if ($("#selectFrequency").val() === "" || $("#selectFrequency").val() === "Choose..." || $("#selectFrequency").val() === "Please select an option") {
+        //     $("#selectFrequency").val(" Please select an option");
+        //     return false;
+        // }
         if ($.trim($(".date").val()) === "" || $.trim($(".date").val()) === "MM/DD/YY" || $.trim($(".date").val()) === "Please enter a valid Date") {
             $(".date").val(" Please enter a valid Date");
             return false;
         } 
-        if ($("#selectOpportunityFrequency").val() === "" || $("#selectOpportunityFrequency").val() === "Choose..." || $("#selectOpportunityFrequency").val() === "Please select an option") {
-            $("#selectOpportunityFrequency").val(" Please select an option");
-            return false;
-        }
+        // if ($("#selectOpportunityFrequency").val() === "" || $("#selectOpportunityFrequency").val() === "Choose..." || $("#selectOpportunityFrequency").val() === "Please select an option") {
+        //     $("#selectOpportunityFrequency").val(" Please select an option");
+        //     return false;
+        // }
         if ($.trim($("#startTime").val()) === "" || $.trim($("#startTime").val()) === "HH:mm" || $.trim($("#startTime").val()) === "Please enter a valid Start Time") {
             $("#startTime").val(" Please enter a valid Start Time");
             return false;
@@ -72,7 +72,8 @@ $(document).ready(function () {
             return false;
         }
         var newOpportunity = {
-            user_name: $("#userName").val().trim(),
+            // add user_name by how it is passed into form
+            //user_name: $("#userName").val().trim(),
             organization_name: $("#organizationName").val().trim(),
             opportunity_name: $("#opportunityName").val().trim(),
             organization_phone: $("#phone").val().trim(),
@@ -82,9 +83,9 @@ $(document).ready(function () {
             organization_city: $("#city").val().trim(),
             organization_state: $("#selectState option:selected").text(),
             organization_zip: $("#zip").val().trim(),
-            organization_frequency: $("#selectFrequency option:selected").text(),
+            // organization_frequency: $("#selectFrequency option:selected").text(),
             opportunity_date: $("#date").val().trim(),
-            opportunity_frequency: $("#selectOpportunityFrequency option:selected").text(),
+            // opportunity_frequency: $("#selectOpportunityFrequency option:selected").text(),
             opportunity_start_time: $("#startTime").val().trim(),
             opportunity_end_time: $("#endTime").val().trim(),
             opportunity_in_or_out:  $("#selectInOrOut option:selected").text(),

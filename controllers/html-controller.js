@@ -12,12 +12,7 @@ var db = require("../models");
 // =============================================================
 module.exports = function (app) {
 
-  // Each of the below routes just handles the HTML page that the user gets sent to.
-
-  // index route loads homeTest.handlebars
-  // app.get("/", function (req, res) {
-  //   res.render(path.join(__dirname, "../views/homeTest.handlebars"));
-  // });
+  // Each of the below routes handles the HTML page that the user gets sent to.
 
   // index route loads home.handlebars
   // app.get("/", function (req, res) {
@@ -27,31 +22,25 @@ module.exports = function (app) {
   // route loads homeTest.handlebars
   app.get("/", function (req, res) {
     db.Opportunity.findAll({
-      include: [db.Member],
       order: ["opportunity_name"]
     }).then(function (dbOpportunity) {
       res.render(path.join(__dirname, "../views/homeTest.handlebars"), { opportunities: dbOpportunity });
     });
-  })
-
-  // route loads private.handlebars
-  app.get("/private", function (req, res) {
-    res.render(path.join(__dirname, "../views/private.handlebars"));
+  }); 
+  
+  // new_member route loads new_members.handlebars
+  app.get("/new_members", function (req, res) {
+    res.render(path.join(__dirname, "../views/new_members.handlebars"));
   });
-
-  app.get('/logout', function (req, res) {
-    req.session.destroy(function (err) {
-      res.redirect('/');
-    });
-  });
-
+  
+  // route leads to login page
   app.get('/login', function (req, res) {
     res.render(path.join(__dirname, "../views/login.handlebars"));
   });
 
-  // new_member route loads new_members.handlebars
-  app.get("/new_members", function (req, res) {
-    res.render(path.join(__dirname, "../views/new_members.handlebars"));
+  // route loads private.handlebars
+  app.get("/private", function (req, res) {
+    res.render(path.join(__dirname, "../views/private.handlebars"));
   });
 
   // new_opportunities route loads new_opportunities.handlebars
@@ -60,8 +49,15 @@ module.exports = function (app) {
   });
 
   // opportunities sign up route loads opportunities_sign_up.handlebars - all jobs list
-  app.get("/opportunities_sign_up", function (req, res) {
+  app.get("/opportunities_sign_up", isLoggedIn,function (req, res,) {
     res.render(path.join(__dirname, "../views/opportunities_sign_up.handlebars"));
+  });
+  
+  // logout, redirect to home page
+  app.get('/logout', function (req, res) {
+    req.session.destroy(function (err) {
+      res.redirect('/');
+    });
   });
 
   function isLoggedIn(req, res, next) {

@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 
 // For Passport
 app.use(session({
-    secret: 'keyboard cat',
+    secret: 'ninety tuba spike',
     resave: true,
     saveUninitialized: true
 })); // session secret

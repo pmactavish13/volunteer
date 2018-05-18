@@ -6,7 +6,10 @@
             <h1 class="display-4" style="border-bottom:dotted 2px grey; padding:10px">Member Enrollment Form</h1>
             <form id="newMemberForm">
                 <div class="form-group">
-
+                    <div>
+                        <label for="userName">User Name</label>
+                        <input type="text" class="form-control form-control-sm" name="user_name" id="userName" placeholder="User Name" onfocus="this.placeholder=''">
+                    </div>
                     <div class="row">
                         <div class="col-sm-6">
                             <div>
@@ -53,7 +56,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-sm-6">
+                        {{!-- <div class="col-sm-6">
                             <label for="onceRecur">One Time or Recurring Event Preference</label>
                             <select class="form-control form-control-sm" id="selectFrequency">
                                 <option selected>Choose...</option>
@@ -61,8 +64,8 @@
                                 <option value="2">Recurring</option>
                                 <option value="3">Both</option>
                             </select>
-                        </div>
-                        <div class="col-sm-6">
+                        </div> --}}
+                        <div class="col-sm-12">
                             <label for="inOrOut">Inside or Outside Preference</label>
                             <select class="form-control form-control-sm" id="selectInOrOut">
                                 <option selected>Choose...</option>

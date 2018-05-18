@@ -2,13 +2,13 @@ var Sequelize = require('sequelize');
 
 module.exports = function (sequelize, DataTypes) {
   var Member = sequelize.define("Member", {
-    // user_name: {
-    //   type: DataTypes.STRING,
-    //   allowNull: false,
-    //   validate: {
-    //     len: [1]
-    //   },
-    // },
+    user_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      },
+    },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -18,7 +18,8 @@ module.exports = function (sequelize, DataTypes) {
     },
     password: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
+      // allowNull: false,
       validate: {
         len: [1]
       },

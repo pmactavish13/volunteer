@@ -3,6 +3,10 @@ $(document).ready(function () {
 
     $("#newMemberForm").on("submit", function (event) {
         event.preventDefault();
+        if ($.trim($("#userName").val()) === "" || $.trim($("#userName").val()) === "User Name" || $.trim($("#userName").val()) === "Please enter a User Name") {
+            $("#userName").val(" Please enter a User Name");
+            return false;
+        }
         if ($.trim($("#email").val()) === "" || $.trim($("#email").val()) === "jDoe@email.com" || $.trim($("#email").val()) === "Please enter a valid e-mail Address") {
             $("#email").val(" Please enter your e-mail Address");
             return false;
@@ -27,22 +31,24 @@ $(document).ready(function () {
             $("#photoUrl").val(" Please enter the URL address of your photo");
             return false;
         }
-        if ($("#selectFrequency").val() === "" || $("#selectFrequency").val() === "Choose..." || $("#selectFrequency").val() === "Please select an option") {
-            $("#selectFrequency").val(" Please select an option");
-            return false;
-        }
+        // if ($("#selectFrequency").val() === "" || $("#selectFrequency").val() === "Choose..." || $("#selectFrequency").val() === "Please select an option") {
+        //     $("#selectFrequency").val(" Please select an option");
+        //     return false;
+        // }
         if ($("#selectInOrOut").val() === "" || $("#selectInOrOut").val() === "Choose..." || $("#selectInOrOut").val() === "Please select an option") {
             $("#selectInOrOut").val(" Please select an option");
             return false;
         } 
+        
         var newMember = {
+            user_name: $("#userName").val().trim(),
             password: $("#password").val().trim(),
             email: $("#email").val().trim(),
-            firstname: $("#firstName").val().trim(),
-            lastname: $("#lastName").val().trim(),
+            first_name: $("#firstName").val().trim(),
+            last_name: $("#lastName").val().trim(),
             phone: $("#phone").val().trim(),
             photoUrl: $("#photoUrl").val().trim(),
-            member_frequency_preference: $("#selectFrequency option:selected").text(),
+            // member_frequency_preference: $("#selectFrequency option:selected").text(),
             member_inOrOut:  $("#selectInOrOut option:selected").text(),
         };
         
