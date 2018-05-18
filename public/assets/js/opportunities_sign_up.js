@@ -49,7 +49,7 @@ $(document).ready(function () {
         // }
         var opportunitySignUp = {
             user_name: $("#userName").val().trim(),
-            opportunity_name: $("#oppogit crtunityName").val().trim(),
+            opportunity_name: $("#opportunityName").val().trim(),
             // member_frequency: $("#selectFrequency option:selected").text(),
             // member_start_date: $("#startDate").val().trim(),
             // member_start_time: $("#startTime").val().trim(),
