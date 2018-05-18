@@ -34,7 +34,9 @@ Back end:
     Path npm,
     Chai npm,
     mysql2 npm,
-    Sequelize npm
+    Sequelize npm,
+    Passport npm,
+    Express-session npm
 
 **************************** Developers *****************************
 
