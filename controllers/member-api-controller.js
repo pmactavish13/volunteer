@@ -12,23 +12,41 @@ module.exports = function (app, passport) {
         failureRedirect: '/login'
     }));
 
+    // get all members
     app.get("/api/member", isLoggedIn, function (req, res) {
         db.Member.findAll({
+            attributes: {
+                exclude: ['password']
+            },
             include: [db.Opportunity]
         }).then(function (members) {
             res.json(members);
         });
     });
 
+    // get specific member
     app.get("/api/member/:id", isLoggedIn, function (req, res) {
+        lookupId = !req.params.id ? req.user.id : req.params.id;
         db.Member.findOne({
+            attributes: {
+                exclude: ['password']
+            },
             where: {
-                id: req.params.id
+                id: lookupId
             },
             include: [db.Opportunity]
         }).then(function (member) {
             res.json(member);
         });
+    });
+
+    app.get('/users/:id?', function(req, res, next){
+        var id = req.params.id;
+    
+        if(!id)
+            return next();
+    
+        // do something
     });
 
     app.put("/api/member/:id", isLoggedIn, function (req, res) {
@@ -58,5 +76,3 @@ module.exports = function (app, passport) {
         res.redirect('/login');
     }
 };
-
-

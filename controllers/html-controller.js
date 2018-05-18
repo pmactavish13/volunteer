@@ -26,7 +26,7 @@ module.exports = function (app) {
     }).then(function (dbOpportunity) {
       res.render(path.join(__dirname, "../views/homeTest.handlebars"), { opportunities: dbOpportunity });
     });
-  })
+  });
 
   // route loads private.handlebars
   app.get("/private", function (req, res) {
