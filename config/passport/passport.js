@@ -2,22 +2,22 @@
 var bCrypt = require('bcrypt-nodejs');
 var db = require('../../models');
 
-module.exports = function (passport, member) {
+module.exports = function (passport, login) {
 
-    var Member = member;
+    var Login = login;
     var LocalStrategy = require('passport-local').Strategy;
 
-    passport.serializeUser(function (member, done) {
-        done(null, member.id);
+    passport.serializeUser(function (login, done) {
+        done(null, login.id);
     });
 
-    // used to deserialize the member
+    // used to deserialize the login
     passport.deserializeUser(function (id, done) {
-        db.Member.findById(id).then(function (member) {
-            if (member) {
-                done(null, member.get());
+        db.Member.findById(id).then(function (login) {
+            if (login) {
+                done(null, login.get());
             } else {
-                done(member.errors, null);
+                done(login.errors, null);
             }
         });
     });
@@ -37,8 +37,8 @@ module.exports = function (passport, member) {
                 where: {
                     email: email
                 }
-            }).then(function (member) {
-                if (member) {
+            }).then(function (login) {
+                if (login) {
                     return done(null, false, {
                         message: 'email address already in use. please try again'
                     });
@@ -99,19 +99,19 @@ module.exports = function (passport, member) {
                 where: {
                     email: email
                 }
-            }).then(function (member) {
-                if (!member) {
+            }).then(function (login) {
+                if (!login) {
                     return done(null, false, {
                         message: 'email/password combination incorrect. please try again.'
                     });
                 }
-                if (!isValidPassword(member.password, password)) {
+                if (!isValidPassword(login.password, password)) {
                     return done(null, false, {
                         message: 'email/password combination incorrect. please try again.'
                     });
                 }
 
-                var userinfo = member.get();
+                var userinfo = login.get();
                 return done(null, userinfo);
 
             }).catch(function (err) {

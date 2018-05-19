@@ -17,7 +17,7 @@ module.exports = function (app) {
     });
   }); 
   
-  // new_member route loads new_members.handlebars
+  // register new_member route loads new_members.handlebars
   app.get("/new_members", function (req, res) {
     res.render(path.join(__dirname, "../views/new_members.handlebars"));
   });
