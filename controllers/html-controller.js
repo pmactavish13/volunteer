@@ -13,7 +13,7 @@ module.exports = function (app) {
     db.Opportunity.findAll({
       order: ["opportunity_name"]
     }).then(function (dbOpportunity) {
-      res.render(path.join(__dirname, "../views/homeTest.handlebars"), { opportunities: dbOpportunity });
+      res.render(path.join(__dirname, "../views/home.handlebars"), { opportunities: dbOpportunity });
     });
   }); 
   
