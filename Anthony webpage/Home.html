@@ -63,10 +63,66 @@
         <div class="intro-text">
           <div class="intro-lead-in"></div>
           <div class="intro-heading text-uppercase"></div>
-          <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Login</a>
+          <li>
+            <li>
+
+            </li>
+          </li>
+          <!-- <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">We find work you won't get paid for!</a> -->
         </div>
       </div>
     </header>
+
+    <!-- Trigger the modal with a button -->
+<button type="button" class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" data-toggle="modal" data-target="#myModal">We find work, you won't get paid for! ;~)</button>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Volunteer Opportunities</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-lg-12">
+            <form id="contactForm" name="sentMessage" novalidate="novalidate">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <input class="form-control" id="email" type="email" placeholder="Your Email *" required="required" data-validation-required-message="Please enter your email address.">
+                    <p class="help-block text-danger"></p>
+                  </div>
+                  <div class="form-group">
+                    <input class="form-control" id="phone" type="tel" placeholder="Your Password *" required="required" data-validation-required-message="Please enter your password.">
+                    <p class="help-block text-danger"></p>
+                  </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-lg-6 text-center">
+                  <div id="success"></div>
+                  <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Login</button>
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-lg-6 text-center">
+                  <div id="success"></div>
+                  <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Sign Up</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
 
     <!-- Services -->
     <section id="services">
@@ -505,14 +561,14 @@
               <div class="col-lg-8 mx-auto">
                 <div class="modal-body">
                   <!-- Project Details Go Here -->
-                  <h2 class="text-uppercase">Project Name</h2>
-                  <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                  <img class="img-fluid d-block mx-auto" src="img/portfolio/01-full.jpg" alt="">
-                  <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                  <h2 class="text-uppercase">Graffitti Cleanup</h2>
+                  <p class="item-intro text-muted">Northern Liberties</p>
+                  <img class="img-fluid d-block mx-auto" src="img/portfolio/Graffiti-Removal.jpg" alt="">
+                  <p>On Saturday June 23 we'll be cleaning up graffiti at 3rd and Spring Garden. All cleaning supplies will be provided. If you have gloves and water proof boots please bring those. Light refeshments will be served.</p>
                   <ul class="list-inline">
-                    <li>Date: January 2017</li>
-                    <li>Client: Threads</li>
-                    <li>Category: Illustration</li>
+                    <li>Date: June 23, 2018</li>
+                    <li>Time: 1:00PM</li>
+                    <li>Community Service Hours: No</li>
                   </ul>
                   <button class="btn btn-primary" data-dismiss="modal" type="button">
                     <i class="fa fa-times"></i>
@@ -539,14 +595,14 @@
               <div class="col-lg-8 mx-auto">
                 <div class="modal-body">
                   <!-- Project Details Go Here -->
-                  <h2 class="text-uppercase">Project Name</h2>
-                  <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                  <img class="img-fluid d-block mx-auto" src="img/portfolio/02-full.jpg" alt="">
-                  <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                  <h2 class="text-uppercase">Volunteer day @ the Zoo!</h2>
+                  <p class="item-intro text-muted">Philadelphia Zoo.</p>
+                  <img class="img-fluid d-block mx-auto" src="img/portfolio/philly zoo.jpg" alt="">
+                  <p>The Philadelphia Zoo will be hosting a volunteer day. There are several projects that need to done from light office work to cleaning up the area around the Zoo. All volunteers will recieve a free ticket and free parking to visit the Zoo on a day of their choice. Community serivce hours will provided to those that need it. Everyone that volunteers will be invited to the July 4th clerebration at 7PM that evening! </p>
                   <ul class="list-inline">
-                    <li>Date: January 2017</li>
-                    <li>Client: Explore</li>
-                    <li>Category: Graphic Design</li>
+                    <li>Date: July 4, 2018</li>
+                    <li>Time: 10:00AM</li>
+                    <li>Community Service Hours: Yes</li>
                   </ul>
                   <button class="btn btn-primary" data-dismiss="modal" type="button">
                     <i class="fa fa-times"></i>
@@ -573,14 +629,14 @@
               <div class="col-lg-8 mx-auto">
                 <div class="modal-body">
                   <!-- Project Details Go Here -->
-                  <h2 class="text-uppercase">Project Name</h2>
-                  <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                  <img class="img-fluid d-block mx-auto" src="img/portfolio/03-full.jpg" alt="">
-                  <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                  <h2 class="text-uppercase">Helping those in need</h2>
+                  <p class="item-intro text-muted">University City</p>
+                  <img class="img-fluid d-block mx-auto" src="img/portfolio/soup kitchen.jpg" alt="">
+                  <p>On Sunday July 15, our team will be at 3902 Spring Garden St to help feed those in need. The food and serving supplies wil be provided, we need as many volunteers to help with distrbing the food as possible. If needed community serivce hours will be provided. After the main meal has bee served there will be distribution of care packages. </p>
                   <ul class="list-inline">
-                    <li>Date: January 2017</li>
-                    <li>Client: Finish</li>
-                    <li>Category: Identity</li>
+                    <li>Date: July 15, 2018 </li>
+                    <li>Time: 11:00AM</li>
+                    <li>Community Service Hours: Yes</li>
                   </ul>
                   <button class="btn btn-primary" data-dismiss="modal" type="button">
                     <i class="fa fa-times"></i>
@@ -607,14 +663,14 @@
               <div class="col-lg-8 mx-auto">
                 <div class="modal-body">
                   <!-- Project Details Go Here -->
-                  <h2 class="text-uppercase">Project Name</h2>
-                  <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                  <img class="img-fluid d-block mx-auto" src="img/portfolio/04-full.jpg" alt="">
-                  <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                  <h2 class="text-uppercase">Cleanup, & Cookout</h2>
+                  <p class="item-intro text-muted">Fairmount Park - The Plateau </p>
+                  <img class="img-fluid d-block mx-auto" src="img/portfolio/park.jpg" alt="">
+                  <p>Join us for a memorial day park cleanup. We asking as many volunteers as needed. Please register for this event! After the cleanup we'll be having a cookout and softball game for all participants. Cleaning supplies will be provided.  </p>
                   <ul class="list-inline">
-                    <li>Date: January 2017</li>
-                    <li>Client: Lines</li>
-                    <li>Category: Branding</li>
+                    <li>Date: May 28, 2018</li>
+                    <li>Time: 9:00AM</li>
+                    <li>Community Service Hours: No</li>
                   </ul>
                   <button class="btn btn-primary" data-dismiss="modal" type="button">
                     <i class="fa fa-times"></i>
