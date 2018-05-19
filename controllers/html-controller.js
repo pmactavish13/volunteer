@@ -1,7 +1,3 @@
-// *********************************************************************************
-// html-controller.js - this file offers a set of routes for sending users to the various html pages
-// *********************************************************************************
-
 // Dependencies
 // =============================================================
 var path = require("path");
@@ -12,13 +8,6 @@ var db = require("../models");
 // =============================================================
 module.exports = function (app) {
 
-  // Each of the below routes handles the HTML page that the user gets sent to.
-
-  // index route loads home.handlebars
-  // app.get("/", function (req, res) {
-  //     res.render(path.join(__dirname, "../views/home.handlebars"));
-  // });
-
   // route loads homeTest.handlebars
   app.get("/", function (req, res) {
     db.Opportunity.findAll({
@@ -28,7 +17,7 @@ module.exports = function (app) {
     });
   }); 
   
-  // new_member route loads new_members.handlebars
+  // register new_member route loads new_members.handlebars
   app.get("/new_members", function (req, res) {
     res.render(path.join(__dirname, "../views/new_members.handlebars"));
   });
@@ -49,7 +38,7 @@ module.exports = function (app) {
   });
 
   // opportunities sign up route loads opportunities_sign_up.handlebars - all jobs list
-  app.get("/opportunities_sign_up", isLoggedIn,function (req, res,) {
+  app.get("/opportunities_sign_up",isLoggedIn, function (req, res,) {
     res.render(path.join(__dirname, "../views/opportunities_sign_up.handlebars"));
   });
   

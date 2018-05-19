@@ -65,7 +65,7 @@ $(document).ready(function () {
         // Send the POST request to add an event
         $.ajax("/member_opportunity", {
             type: "POST",
-            data: opportunitySignUpId
+            data: opportunitySignUp
         }).then(
             function () {
                 // Reload the page to get the updated list
