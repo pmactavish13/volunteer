@@ -1,7 +1,3 @@
-// *********************************************************************************
-// html-controller.js - this file offers a set of routes for sending users to the various html pages
-// *********************************************************************************
-
 // Dependencies
 // =============================================================
 var path = require("path");
@@ -11,13 +7,6 @@ var db = require("../models");
 // Routes
 // =============================================================
 module.exports = function (app) {
-
-  // Each of the below routes handles the HTML page that the user gets sent to.
-
-  // index route loads home.handlebars
-  // app.get("/", function (req, res) {
-  //     res.render(path.join(__dirname, "../views/home.handlebars"));
-  // });
 
   // route loads homeTest.handlebars
   app.get("/", function (req, res) {

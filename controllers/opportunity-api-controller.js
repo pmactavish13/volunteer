@@ -36,25 +36,6 @@ module.exports = function (app) {
 // });
 
 
-// app.post('/api/new_members', passport.authenticate('local-signup', {
-//     successRedirect: '/opportunities_sign_up',
-//     failureRedirect: '/new_members'
-// }));
-
-// app.post('/login', passport.authenticate('local-signin', {
-//     successRedirect: '/events_sign_up',
-//     failureRedirect: '/login'
-// }));
-
-// }
-// module.exports = function (app, passport) {
-//     // add new data - new member
-//     // app.post("/api/new_members", function (req, res) {
-//     //     db.Member.create(req.body)
-//     //     .then(function (dbMember) {
-//     //         res.json(dbMember)
-//     //     });
-//     // });
 
 
 

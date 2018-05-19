@@ -13,16 +13,16 @@ module.exports = function (app, passport) {
     }));
 
     // get all members
-    app.get("/api/member", isLoggedIn, function (req, res) {
-        db.Member.findAll({
-            attributes: {
-                exclude: ['password']
-            },
-            include: [db.Opportunity]
-        }).then(function (members) {
-            res.json(members);
-        });
-    });
+    // app.get("/api/member", isLoggedIn, function (req, res) {
+    //     db.Member.findAll({
+    //         attributes: {
+    //             exclude: ['password']
+    //         },
+    //         include: [db.Opportunity]
+    //     }).then(function (members) {
+    //         res.json(members);
+    //     });
+    // });
 
     // get specific member
     app.get("/api/member/:id", isLoggedIn, function (req, res) {
