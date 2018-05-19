@@ -15,7 +15,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 // app.use(bodyParser.text());
 
-// For Passport
 app.use(session({
     secret: 'ninety tuba spike',
     resave: true,
@@ -24,23 +23,33 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 
+// persistent data
+// app.use(function(req, res, next) {
+//     if (req.Member) {
+//         console.log(req.Member);
+//     }
+//     next();
+// });
+
 // Set Handlebars as the default templating engine.
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
+
 //load passport strategy
 require('./config/passport/passport.js')(passport, db.members);
+
 
 // Import routes and give the server access to them.
 require("./controllers/html-controller.js")(app);
 require("./controllers/opportunity-api-controller.js")(app);
-require("./controllers/member-api-controller.js")(app, passport);
-// require('./controllers/auth-controller.js')(app, passport);
+require("./controllers/member-api-controller.js")(app);
 
 // Use to clear databases during development { force: true }
+// { force: true }
 
 // Initiate database interface and start our server so that it can begin listening to client requests.
-db.sequelize.sync({ force: true }).then(function () {
+db.sequelize.sync().then(function () {
     console.log('database sync okay');
     app.listen(PORT, function (err) {
         if (!err) {
