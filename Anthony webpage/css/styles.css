@@ -33,3 +33,7 @@
     color: #212529;
     background-color: #fed136;
 }
+
+.portfolio-item-content {
+    height: 100%;
+}
