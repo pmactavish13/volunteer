@@ -42,8 +42,8 @@ require('./config/passport/passport.js')(passport, db.members);
 
 // Import routes and give the server access to them.
 require("./controllers/html-controller.js")(app);
-require("./controllers/opportunity-api-controller.js")(app);
-require("./controllers/member-api-controller.js")(app);
+//require("./controllers/opportunity-api-controller.js")(app);
+require("./controllers/member-api-controller.js")(app, passport);
 
 // Use to clear databases during development { force: true }
 // { force: true }
