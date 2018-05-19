@@ -1,0 +1,35 @@
+/* .filter-bar {
+    background-color: #e0e0e0;
+    height: 50px;
+} */
+
+.filter {
+    padding: 10px 15px;
+    border-width: 0px;
+    font-family: sans-serif;
+    border-radius: 2px;
+    margin-right: 5px;
+
+}
+
+.filter.show-all {
+    background-color: #999999;
+    color: #ffffff;
+
+}
+
+.filter.categories {
+    background-color: #efefef;
+    color: #999999;
+
+}
+
+.filter.show-all:hover {
+    background-color: #212529;
+    color: #fed136;
+}
+
+.filter.categories:hover {
+    color: #212529;
+    background-color: #fed136;
+}
