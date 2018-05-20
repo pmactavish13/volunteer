@@ -24,7 +24,7 @@ module.exports = function (app) {
   
   // route leads to login page
   app.get('/login', function (req, res) {
-    res.render(path.join(__dirname, "../views/login.handlebars"));
+    res.render(path.join(__dirname, "../views/home"));
   });
 
   // route loads private.handlebars
