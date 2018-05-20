@@ -13,10 +13,10 @@
           <a class="nav-link js-scroll-trigger" href="#portfolio">Opportunities</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" data-toggle="modal" data-target="#myModal">Log In</a>
+          <a class="nav-link js-scroll-trigger" href="/new_members">Sign Up</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="/new_members">Sign Up</a>
+          <a class="nav-link js-scroll-trigger" data-toggle="modal" data-target="#myModal">Log In</a>
         </li>
       </ul>
     </div>
@@ -24,7 +24,7 @@
 </nav>
 
 <!-- Header -->
-<header class="masthead"style="max-height:870px">
+<header class="masthead">
   <div class="container">
     <div class="intro-text">
       <div class="intro-lead-in" style="background-color:#fed136; padding: 20px; border-radius: 8px; margin-top: 200px">Matching Volunteers with Events
@@ -42,27 +42,28 @@
 
 
 <!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
+<div id="myModal" class="modal fade modalLogIn" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
-    <div class="modal-content">
+    <div class="modal-content" id="login">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"></button>
+        {{!-- <button type="button" class="close" data-dismiss="modal"></button> --}}
         <h4 class="modal-title">Member Log In</h4>
       </div>
       <div class="modal-body">
         <div class="row">
           <div class="col-lg-12">
-            <form id="memberLoginForm" name="login" method="post" action="login" novalidate="novalidate">
+            <form id="memberLoginForm" name="login" method="post" action="login">
+              {{!-- novalidate="novalidate"> --}}
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
                     <input class="form-control" id="email" name="email" type="email" placeholder="Your Email *" onfocus="this.placeholder=''"> 
                     {{!-- required="required" data-validation-required-message="Please enter your email address.">
                     <p class="help-block text-danger"></p> --}}
-                  </div>
-                  <div class="form-group">
+                  {{!-- </div>
+                  <div class="form-group"> --}}
                     <input class="form-control" id="password" name="password" type="password" placeholder="Your Password *" onfocus="this.placeholder=''"> 
                     {{!-- required="required" data-validation-required-message="Please enter your password."> 
                     <p class="help-block text-danger"></p> --}}
@@ -70,12 +71,12 @@
                 </div>
                 <div class="clearfix"></div>
                 <div class="col-lg-6 text-center">
-                  <div id="success"></div>
-                  <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Login</button>
+                  {{!-- <div id="success"></div> --}}
+                  <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit" value="Log In">Login</button>
                 </div>
                 <div class="clearfix"></div>
                 <div class="col-lg-6 text-center">
-                  <div id="success"></div>
+                  {{!-- <div id="success"></div> --}}
                   <a class="btn btn-primary btn-xl text-uppercase"  href="/new_members">Sign Up</a>
                 </div>
               </div>
@@ -135,7 +136,7 @@
     <div class="row">
       <div class="col-lg-12 text-center">
         <h2 class="section-heading text-uppercase">Volunteer Opportunities</h2>
-        <h3 class="section-subheading text-muted">Check out our amazing events we having going on!</h3>
+        <h3 class="section-subheading text-muted">Check out the amazing events we having going on!</h3>
       </div>
     </div>
     <div class="row">
@@ -146,7 +147,7 @@
               <i class="fa fa-plus fa-3x"></i>
             </div>
           </div>
-          <img class="img-fluid" src="img/portfolio/Graffiti.jpg" alt="Graffiti">
+          <img class="img-fluid" src="assets/img/portfolio/Graffiti.jpg" alt="Graffiti">
         </a>
         <div class="portfolio-caption">
           <h4>Northern Liberties</h4>
@@ -160,7 +161,7 @@
               <i class="fa fa-plus fa-3x"></i>
             </div>
           </div>
-          <img class="img-fluid" src="img/portfolio/Zoo.jpg" alt="Zoo">
+          <img class="img-fluid" src="assets/img/portfolio/Zoo.jpg" alt="Zoo">
         </a>
         <div class="portfolio-caption">
           <h4>Philadelphia Zoo</h4>
@@ -174,7 +175,7 @@
               <i class="fa fa-plus fa-3x"></i>
             </div>
           </div>
-          <img class="img-fluid" src="img/portfolio/soup3.jpg" alt="soup">
+          <img class="img-fluid" src="assets/img/portfolio/soup3.jpg" alt="soup">
         </a>
         <div class="portfolio-caption">
           <h4>University City</h4>
@@ -188,7 +189,7 @@
               <i class="fa fa-plus fa-3x"></i>
             </div>
           </div>
-          <img class="img-fluid" src="img/portfolio/park_cleanup.jpg" alt="park">
+          <img class="img-fluid" src="assets/img/portfolio/park_cleanup.jpg" alt="park">
         </a>
         <div class="portfolio-caption">
           <h4>Fairmount Park</h4>
@@ -202,7 +203,7 @@
               <i class="fa fa-plus fa-3x"></i>
             </div>
           </div>
-          <img class="img-fluid" src="img/portfolio/tutor2.jpg" alt="tutor2">
+          <img class="img-fluid" src="assets/img/portfolio/tutor2.jpg" alt="tutor2">
         </a>
         <div class="portfolio-caption">
           <h4>Center City</h4>
@@ -216,7 +217,7 @@
               <i class="fa fa-plus fa-3x"></i>
             </div>
           </div>
-          <img class="img-fluid" src="img/portfolio/old.jpg" alt="Old People">
+          <img class="img-fluid" src="assets/img/portfolio/old.jpg" alt="Old People">
         </a>
         <div class="portfolio-caption">
           <h4>Overbrook</h4>
@@ -400,32 +401,32 @@
     </section> -->
 
 <!-- Clients -->
-<section class="py-5">
+{{!-- <section class="py-5">
   <div class="container">
     <div class="row">
       <div class="col-md-3 col-sm-6">
         <a href="#">
-          <img class="img-fluid d-block mx-auto" src="img/logos/envato.jpg" alt="">
+          <img class="img-fluid d-block mx-auto" src="assets/img/logos/envato.jpg" alt="">
         </a>
       </div>
       <div class="col-md-3 col-sm-6">
         <a href="#">
-          <img class="img-fluid d-block mx-auto" src="img/logos/designmodo.jpg" alt="">
+          <img class="img-fluid d-block mx-auto" src="assets/img/logos/designmodo.jpg" alt="">
         </a>
       </div>
       <div class="col-md-3 col-sm-6">
         <a href="#">
-          <img class="img-fluid d-block mx-auto" src="img/logos/themeforest.jpg" alt="">
+          <img class="img-fluid d-block mx-auto" src="assets/img/logos/themeforest.jpg" alt="">
         </a>
       </div>
       <div class="col-md-3 col-sm-6">
         <a href="#">
-          <img class="img-fluid d-block mx-auto" src="img/logos/creative-market.jpg" alt="">
+          <img class="img-fluid d-block mx-auto" src="assets/img/logos/creative-market.jpg" alt="">
         </a>
       </div>
     </div>
   </div>
-</section>
+</section> --}}
 
 {{!--
 <!-- Contact -->
@@ -531,7 +532,7 @@
               <!-- Project Details Go Here -->
               <h2 class="text-uppercase">Graffitti Cleanup</h2>
               <p class="item-intro text-muted">Northern Liberties</p>
-              <img class="img-fluid d-block mx-auto" src="img/portfolio/Graffiti-Removal.jpg" alt="">
+              <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/Graffiti-Removal.jpg" alt="">
               <p>On Saturday June 23 we'll be cleaning up graffiti at 3rd and Spring Garden. All cleaning supplies will be provided.
                 If you have gloves and water proof boots please bring those. Light refeshments will be served.</p>
               <ul class="list-inline">
@@ -566,7 +567,7 @@
               <!-- Project Details Go Here -->
               <h2 class="text-uppercase">Volunteer day @ the Zoo!</h2>
               <p class="item-intro text-muted">Philadelphia Zoo.</p>
-              <img class="img-fluid d-block mx-auto" src="img/portfolio/philly zoo.jpg" alt="">
+              <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/philly zoo.jpg" alt="">
               <p>The Philadelphia Zoo will be hosting a volunteer day. There are several projects that need to done from light
                 office work to cleaning up the area around the Zoo. All volunteers will recieve a free ticket and free parking
                 to visit the Zoo on a day of their choice. Community serivce hours will provided to those that need it. Everyone
@@ -603,7 +604,7 @@
               <!-- Project Details Go Here -->
               <h2 class="text-uppercase">Helping those in need</h2>
               <p class="item-intro text-muted">University City</p>
-              <img class="img-fluid d-block mx-auto" src="img/portfolio/soup.jpg" alt="">
+              <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/soup.jpg" alt="">
               <p>On Sunday July 15, our team will be at 3902 Spring Garden St to help feed those in need. The food and serving
                 supplies wil be provided, we need as many volunteers to help with distrbing the food as possible. If needed
                 community serivce hours will be provided. After the main meal has bee served there will be distribution of
@@ -640,7 +641,7 @@
               <!-- Project Details Go Here -->
               <h2 class="text-uppercase">Cleanup & Cookout</h2>
               <p class="item-intro text-muted">Fairmount Park - The Plateau </p>
-              <img class="img-fluid d-block mx-auto" src="img/portfolio/park.jpg" alt="">
+              <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/park.jpg" alt="">
               <p>Join us for a memorial day park cleanup. We asking as many volunteers as needed. Please register for this event!
                 After the cleanup we'll be having a cookout and softball game for all participants. Cleaning supplies will
                 be provided. </p>
@@ -676,7 +677,7 @@
               <!-- Project Details Go Here -->
               <h2 class="text-uppercase">Project Name</h2>
               <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-              <img class="img-fluid d-block mx-auto" src="img/portfolio/tutor3.jpg" alt="">
+              <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/tutor3.jpg" alt="">
               <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis
                 dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate,
                 maiores repudiandae, nostrum, reiciendis facere nemo!</p>
@@ -712,7 +713,7 @@
               <!-- Project Details Go Here -->
               <h2 class="text-uppercase">Project Name</h2>
               <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-              <img class="img-fluid d-block mx-auto" src="img/portfolio/old 2.jpg" alt="">
+              <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/old 2.jpg" alt="">
               <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis
                 dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate,
                 maiores repudiandae, nostrum, reiciendis facere nemo!</p>
