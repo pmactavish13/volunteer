@@ -1,0 +1,172 @@
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color: rgb(19, 18, 18)">
+    <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">Volunteer Philadelphia</a>
+        {{!--
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fa fa-bars"></i>
+        </button> --}}
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav text-uppercase ml-auto">
+                {{!--
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#portfolio">Opportunities</a>
+                </li> --}}
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" data-toggle="modal" data-target="#memberProfile">Member Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger">Log Out</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="bg-light" id="portfolio">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading text-uppercase">Volunteer Opportunities</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-sm-6 portfolio-item">
+                <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
+                    <div class="portfolio-hover">
+                        <div class="portfolio-hover-content">
+                            <i class="fa fa-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img class="img-fluid" src="assets/img/portfolio/Graffiti.jpg" alt="Graffiti">
+                </a>
+                <div class="portfolio-caption">
+                    <h4>Northern Liberties</h4>
+                    <p class="text-muted">Cleanup un-cool artwork</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <span class="copyright">Copyright &copy; Philadelphia Volunteer 2018</span>
+            </div>
+            <div class="col-md-4">
+                {{!--
+                <ul class="list-inline social-buttons">
+                    <li class="list-inline-item">
+                        <a href="#">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#">
+                            <i class="fa fa-linkedin"></i>
+                        </a>
+                    </li>
+                </ul> --}}
+            </div>
+            <div class="col-md-4">
+                {{!--
+                <ul class="list-inline quicklinks">
+                    <li class="list-inline-item">
+                        <a href="#">Privacy Policy</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#">Terms of Use</a>
+                    </li>
+                </ul> --}}
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Portfolio Modals -->
+
+<!-- Modal Template for Portfolio -->
+<div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl"></div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="modal-body">
+                            <!-- Project Details Go Here -->
+                            <h2 class="text-uppercase">Graffitti Cleanup</h2>
+                            <p class="item-intro text-muted">Northern Liberties</p>
+                            <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/Graffiti-Removal.jpg" alt="">
+                            <p>On Saturday June 23 we'll be cleaning up graffiti at 3rd and Spring Garden. All cleaning supplies
+                                will be provided. If you have gloves and water proof boots please bring those. Light refeshments
+                                will be served.</p>
+                            <ul class="list-inline">
+                                <li>Date: June 23, 2018</li>
+                                <li>Time: 1:00PM</li>
+                                <li>Community Service Hours: No</li>
+                            </ul>
+
+                            <a class="btn btn-primary" href="/opportunities_sign_up">Event Sign Up</a>
+
+                            <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                <i class="fa fa-times"></i>
+                                Close Project</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Template for Member Profile -->
+<div class="portfolio-modal modal fade" id="memberProfile" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl"></div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="modal-body">
+                            <!-- Member Details Go Here -->
+                            <h2 class="text-uppercase">Member Profile</h2>
+                            {{!-- <p class="item-intro text-muted">Northern Liberties</p>
+                            <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/Graffiti-Removal.jpg" alt="">
+                            <p>On Saturday June 23 we'll be cleaning up graffiti at 3rd and Spring Garden. All cleaning supplies
+                                will be provided. If you have gloves and water proof boots please bring those. Light refeshments
+                                will be served.</p>
+                            <ul class="list-inline">
+                                <li>Date: June 23, 2018</li>
+                                <li>Time: 1:00PM</li>
+                                <li>Community Service Hours: No</li>
+                            </ul> --}}
+
+                            <a class="btn btn-primary" href="/member_upDate">Edit Member Profile</a> 
+
+                            <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
