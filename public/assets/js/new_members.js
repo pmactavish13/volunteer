@@ -48,7 +48,7 @@ $(document).ready(function () {
             last_name: $("#lastName").val().trim(),
             phone: $("#phone").val().trim(),
             photoUrl: $("#photoUrl").val().trim(),
-            member_inOrOut:  $("#selectInOrOut option:selected").text(),
+            inOrOut:  $("#selectInOrOut option:selected").text(),
         };
         
         $('input[name="skills"]:checked').each(function() {   

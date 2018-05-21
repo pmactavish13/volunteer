@@ -53,7 +53,7 @@ module.exports = function (passport, signin) {
                         last_name: req.body.last_name,
                         phone: req.body.phone,
                         photoUrl: req.body.photoUrl,
-                        member_inOrOut: req.body.member_inOrOut,
+                        inOrOut: req.body.member_inOrOut,
                         cooking: req.body.cooking,
                         gardening: req.body.gardening,
                         painting: req.body.painting,

@@ -67,7 +67,7 @@ module.exports = function (sequelize, DataTypes) {
         len: [1]
       },
     },
-    member_inOrOut: {
+    inOrOut: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
