@@ -26,7 +26,7 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 //load passport strategy
-require('./config/passport/passport.js')(passport, db.members);
+require('./controllers/passport.js')(passport, db.members);
 
 // what is going on with passport
 app.use((req, res, next) => {

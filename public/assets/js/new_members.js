@@ -7,10 +7,6 @@ $(document).ready(function () {
         $this.find('.message:first').text('');
 
         event.preventDefault();
-        if ($.trim($("#userName").val()) === "" || $.trim($("#userName").val()) === "User Name" || $.trim($("#userName").val()) === "Please enter a User Name") {
-            $("#userName").val(" Please enter a User Name");
-            return false;
-        }
         if ($.trim($("#email").val()) === "" || $.trim($("#email").val()) === "jDoe@email.com" || $.trim($("#email").val()) === "Please enter a valid e-mail Address") {
             $("#email").val(" Please enter your e-mail Address");
             return false;
@@ -41,7 +37,6 @@ $(document).ready(function () {
         } 
         
         var newMember = {
-            user_name: $("#userName").val().trim(),
             password: $("#password").val().trim(),
             email: $("#email").val().trim(),
             first_name: $("#firstName").val().trim(),
