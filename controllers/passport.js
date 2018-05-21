@@ -67,6 +67,7 @@ module.exports = function (passport, signin) {
                         sales: req.body.sales,
                         teaching: req.body.teaching,
                     };
+
                     db.Member.create(data).then(function (newUser, created) {
                         if (!newUser) {
                             return done(null, false);
