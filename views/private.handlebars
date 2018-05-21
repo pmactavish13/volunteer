@@ -9,15 +9,14 @@
         </button> --}}
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav text-uppercase ml-auto">
-                {{!--
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#portfolio">Opportunities</a>
-                </li> --}}
+                    <a class="nav-link js-scroll-trigger" href="/new_opportunities">Post New Event</a>
+                </li> 
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" data-toggle="modal" data-target="#memberProfile">Member Profile</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger">Log Out</a>
+                    <a class="nav-link js-scroll-trigger" href="/logout">Log Out</a>
                 </li>
             </ul>
         </div>
@@ -51,48 +50,37 @@
 </section>
 
 <!-- Footer -->
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <span class="copyright">Copyright &copy; Philadelphia Volunteer 2018</span>
-            </div>
-            <div class="col-md-4">
-                {{!--
-                <ul class="list-inline social-buttons">
-                    <li class="list-inline-item">
-                        <a href="#">
-                            <i class="fa fa-twitter"></i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="#">
-                            <i class="fa fa-facebook"></i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="#">
-                            <i class="fa fa-linkedin"></i>
-                        </a>
-                    </li>
-                </ul> --}}
-            </div>
-            <div class="col-md-4">
-                {{!--
-                <ul class="list-inline quicklinks">
-                    <li class="list-inline-item">
-                        <a href="#">Privacy Policy</a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="#">Terms of Use</a>
-                    </li>
-                </ul> --}}
-            </div>
-        </div>
+<footer style="background-color: #fed136; max height 50px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <span class="copyright">Copyright &copy; Philadelphhia Volunteer 2018</span>
+      </div>
+      <div class="col-md-1">
+        {{!-- <ul class="list-inline social-buttons">
+          <li class="list-inline-item">
+            <a href="#">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="#">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="#">
+              <i class="fa fa-linkedin"></i>
+            </a>
+          </li>
+        </ul> --}}
+      </div>
+      <div class="col-md-7">
+            <p style="color: black; font-weight:300">Developers: Anthony Elliot / Paula MacTavish / Alexa Stefanou / Dirk Wiggins</p>
+      </div>
     </div>
+  </div>
 </footer>
-
-<!-- Portfolio Modals -->
 
 <!-- Modal Template for Portfolio -->
 <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">

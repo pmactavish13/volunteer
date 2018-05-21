@@ -63,7 +63,7 @@ $(document).ready(function () {
         // THEN POST
 
         // Send the POST request to add an event
-        $.ajax("/member_opportunity", {
+        $.ajax("/new_opportunity", {
             type: "POST",
             data: opportunitySignUp
         }).then(
@@ -74,21 +74,21 @@ $(document).ready(function () {
         );
 
         var updateMember = {
-            member_address: $("#address").val().trim(),
-            member_city: $("#city").val().trim(),
-            member_state: $("#selectState option:selected").text(),
-            member_zip: $("#zip").val().trim(),
+            address: $("#address").val().trim(),
+            city: $("#city").val().trim(),
+            state: $("#selectState option:selected").text(),
+            zip: $("#zip").val().trim(),
         }
 
         // Send the PUT request to update member.
-        $.ajax("/api/member/" + id, {
+        $.ajax("/api/user", {
             type: "PUT",
             data: updateMember
         }).then(
             function () {
                 // Reload the page to get the updated list
                 // location.reload();
-                $(location).attr('href', '/homeTest')
+                $(location).attr('href', '/private')
             }
         );
     });

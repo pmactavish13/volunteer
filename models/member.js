@@ -18,8 +18,7 @@ module.exports = function (sequelize, DataTypes) {
     },
     password: {
       type: DataTypes.STRING,
-      allowNull: true,
-      // allowNull: false,
+      allowNull: false,
       validate: {
         len: [1]
       },
@@ -68,13 +67,6 @@ module.exports = function (sequelize, DataTypes) {
         len: [1]
       },
     },
-    // frequency: {
-    //   type: DataTypes.STRING,
-    //   allowNull: false,
-    //   validate: {
-    //     len: [1]
-    //   },
-    // },
     member_inOrOut: {
       type: DataTypes.STRING,
       allowNull: false,

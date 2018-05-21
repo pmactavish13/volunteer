@@ -1,7 +1,11 @@
 // Make sure to wait to attach handlers until the DOM is fully loaded.
 $(document).ready(function () {
 
-    $("#newMemberForm").on("submit", function (event) {
+    $("#signup").on("submit", function (event) {
+        
+        var $this = $(this);
+        $this.find('.message:first').text('');
+
         event.preventDefault();
         if ($.trim($("#userName").val()) === "" || $.trim($("#userName").val()) === "User Name" || $.trim($("#userName").val()) === "Please enter a User Name") {
             $("#userName").val(" Please enter a User Name");
@@ -31,10 +35,6 @@ $(document).ready(function () {
             $("#photoUrl").val(" Please enter the URL address of your photo");
             return false;
         }
-        // if ($("#selectFrequency").val() === "" || $("#selectFrequency").val() === "Choose..." || $("#selectFrequency").val() === "Please select an option") {
-        //     $("#selectFrequency").val(" Please select an option");
-        //     return false;
-        // }
         if ($("#selectInOrOut").val() === "" || $("#selectInOrOut").val() === "Choose..." || $("#selectInOrOut").val() === "Please select an option") {
             $("#selectInOrOut").val(" Please select an option");
             return false;
@@ -48,7 +48,6 @@ $(document).ready(function () {
             last_name: $("#lastName").val().trim(),
             phone: $("#phone").val().trim(),
             photoUrl: $("#photoUrl").val().trim(),
-            // member_frequency_preference: $("#selectFrequency option:selected").text(),
             member_inOrOut:  $("#selectInOrOut option:selected").text(),
         };
         
@@ -59,14 +58,15 @@ $(document).ready(function () {
         console.log(newMember)
       
         // Send the POST request.
-        $.ajax("/api/new_members", {
+        $.ajax("/api/signup", {
             type: "POST",
             data: newMember
         }).then(
-            function () {
-                // Reload the page to get the updated list
-                // location.reload();
-                $(location).attr('href', '/private')
+            function (response) {
+                window.location.href = response.redirectTo;
+            },
+            function(error) {
+                $this.find('.message:first').text('That email account is alread in use.');
             }
         );
     });

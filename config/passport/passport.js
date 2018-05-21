@@ -2,31 +2,32 @@
 var bCrypt = require('bcrypt-nodejs');
 var db = require('../../models');
 
-module.exports = function (passport, login) {
+module.exports = function (passport, signin) {
 
-    var Login = login;
+    var Signin = signin;
     var LocalStrategy = require('passport-local').Strategy;
 
-    passport.serializeUser(function (login, done) {
-        done(null, login.id);
+    passport.serializeUser(function (signin, done) {
+        done(null, signin.id);
     });
 
     // used to deserialize the login
     passport.deserializeUser(function (id, done) {
-        db.Member.findById(id).then(function (login) {
-            if (login) {
-                done(null, login.get());
+        db.Member.findById(id).then(function (signin) {
+            if (signin) {
+                done(null, signin.get());
             } else {
-                done(login.errors, null);
+                done(signin.errors, null);
             }
         });
     });
 
+    // create new member
     passport.use('local-signup', new LocalStrategy({
-            usernameField: 'email',
-            passwordField: 'password',
-            passReqToCallback: true // allows us to pass back the entire request to the callback
-        },
+        usernameField: 'email',
+        passwordField: 'password',
+        passReqToCallback: true // allows us to pass back the entire request to the callback
+    },
 
         function (req, email, password, done) {
             var generateHash = function (password) {
@@ -37,22 +38,22 @@ module.exports = function (passport, login) {
                 where: {
                     email: email
                 }
-            }).then(function (login) {
-                if (login) {
+            }).then(function (signin) {
+                if (signin) {
                     return done(null, false, {
                         message: 'email address already in use. please try again'
                     });
-                } else {
+                } else if (!signin) {
                     var hashPassword = generateHash(password);
                     var data = {
+                        user_name: req.body.user_name,
                         email: email,
                         password: hashPassword,
                         first_name: req.body.first_name,
                         last_name: req.body.last_name,
                         phone: req.body.phone,
                         photoUrl: req.body.photoUrl,
-                        frequency: req.body.frequency,
-                        inOrOut: req.body.inOrOut,
+                        member_inOrOut: req.body.member_inOrOut,
                         cooking: req.body.cooking,
                         gardening: req.body.gardening,
                         painting: req.body.painting,
@@ -65,7 +66,7 @@ module.exports = function (passport, login) {
                         programming: req.body.programming,
                         sales: req.body.sales,
                         teaching: req.body.teaching,
-                    };
+                    }
 
                     db.Member.create(data).then(function (newUser, created) {
                         if (!newUser) {
@@ -76,22 +77,25 @@ module.exports = function (passport, login) {
                         }
                     });
                 }
+                return done(null, signin);
+            }).catch(function (err) {
+                console.log("Error:", err);
+                return done(null, false, {
+                    message: 'an error occured. please try again.'
+                });
             });
         }
-    ));
+    ))
 
     //LOCAL SIGNIN
     passport.use('local-signin', new LocalStrategy({
-            // by default, local strategy uses username and password, we will override with email
-            usernameField: 'email',
-            passwordField: 'password',
-            passReqToCallback: true // allows us to pass back the entire request to the callback
-        },
-
+        // by default, local strategy uses username and password, we will override with email
+        usernameField: 'email',
+        passwordField: 'password',
+        passReqToCallback: true // allows us to pass back the entire request to the callback
+    },
         function (req, email, password, done) {
-            console.log("login route");
 
-            var Login = login;
             var isValidPassword = function (userpass, password) {
                 return bCrypt.compareSync(password, userpass);
             };
@@ -100,21 +104,20 @@ module.exports = function (passport, login) {
                 where: {
                     email: email
                 }
-            }).then(function (login) {
-                if (!login) {
-                    return done(null, false, {
+            }).then(function (signin) {
+                console.log(signin);
+                if (!signin) {
+                    return done(null, null, {
                         message: 'email/password combination incorrect. please try again.'
                     });
                 }
-                if (!isValidPassword(login.password, password)) {
-                    return done(null, false, {
+                if (!isValidPassword(signin.password, password)) {
+                    return done(null, null, {
                         message: 'email/password combination incorrect. please try again.'
                     });
                 }
 
-                var userinfo = login.get();
-                return done(null, userinfo);
-
+                return done(null, signin);
             }).catch(function (err) {
                 console.log("Error:", err);
                 return done(null, false, {
