@@ -2,10 +2,6 @@ $(document).ready(function () {
 
     $("#memberLoginForm").on("submit", function (event) {
         event.preventDefault();
-        // if ($.trim($("#userName").val()) === "" || $.trim($("#userName").val()) === "User Name" || $.trim($("#userName").val()) === "Please enter a User Name") {
-        //     $("#userName").val(" Please enter a User Name");
-        //     return false;
-        // }
         if ($.trim($("#email").val()) === "" || $.trim($("#email").val()) === "jDoe@email.com" || $.trim($("#email").val()) === "Please enter a valid e-mail Address") {
             $("#email").val(" Please enter your e-mail Address");
             return false;
@@ -25,8 +21,6 @@ $(document).ready(function () {
             data: memberLogin
         }).then(
             function () {
-                // Reload the page to get the updated list
-                // location.reload();
                 $(location).attr('href', '/private')
             }
         );

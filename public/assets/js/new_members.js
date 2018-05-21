@@ -3,10 +3,6 @@ $(document).ready(function () {
 
     $("#newMemberForm").on("submit", function (event) {
         event.preventDefault();
-        if ($.trim($("#userName").val()) === "" || $.trim($("#userName").val()) === "User Name" || $.trim($("#userName").val()) === "Please enter a User Name") {
-            $("#userName").val(" Please enter a User Name");
-            return false;
-        }
         if ($.trim($("#email").val()) === "" || $.trim($("#email").val()) === "jDoe@email.com" || $.trim($("#email").val()) === "Please enter a valid e-mail Address") {
             $("#email").val(" Please enter your e-mail Address");
             return false;
@@ -41,7 +37,6 @@ $(document).ready(function () {
         } 
         
         var newMember = {
-            user_name: $("#userName").val().trim(),
             password: $("#password").val().trim(),
             email: $("#email").val().trim(),
             first_name: $("#firstName").val().trim(),
@@ -49,7 +44,7 @@ $(document).ready(function () {
             phone: $("#phone").val().trim(),
             photoUrl: $("#photoUrl").val().trim(),
             // member_frequency_preference: $("#selectFrequency option:selected").text(),
-            member_inOrOut:  $("#selectInOrOut option:selected").text(),
+            inOrOut:  $("#selectInOrOut option:selected").text(),
         };
         
         $('input[name="skills"]:checked').each(function() {   
@@ -59,7 +54,7 @@ $(document).ready(function () {
         console.log(newMember)
       
         // Send the POST request.
-        $.ajax("/api/new_members", {
+        $.ajax("/api/member", {
             type: "POST",
             data: newMember
         }).then(

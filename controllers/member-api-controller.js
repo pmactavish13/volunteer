@@ -4,12 +4,14 @@ module.exports = function (app, passport) {
 
     app.post('/api/member', passport.authenticate('local-signup', {
         successRedirect: '/opportunities_sign_up',
-        failureRedirect: '/new_members'
+        failureRedirect: '/new_members',
+        failureFlash: true,
     }));
 
     app.post('/api/login', passport.authenticate('local-signin', {
         successRedirect: '/opportunities_sign_up',
-        failureRedirect: '/login'
+        failureRedirect: '/login',
+        failureFlash: true,
     }));
 
     // get all members
@@ -40,33 +42,13 @@ module.exports = function (app, passport) {
         });
     });
 
-    app.get('/users/:id?', function(req, res, next){
-        var id = req.params.id;
-    
-        if(!id)
-            return next();
-    
-        // do something
-    });
-
-    app.put("/api/member/:id", isLoggedIn, function (req, res) {
-        db.Member.update(
-            req.body, {
-                where: {
-                    id: req.params.id
-                }
-            }).then(function (dbPost) {
-            res.json(dbPost);
-        });
-    });
-
-    app.delete("/api/authors/:id", isLoggedIn, function (req, res) {
-        db.Author.destroy({
+    app.delete("/api/member/:id", isLoggedIn, function (req, res) {
+        db.Member.destroy({
             where: {
                 id: req.params.id
             }
-        }).then(function (dbAuthor) {
-            res.json(dbAuthor);
+        }).then(function (member) {
+            res.json(member);
         });
     });
 

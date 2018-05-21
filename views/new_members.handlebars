@@ -3,13 +3,9 @@
     <div class="row">
         <div class="col-sm-2"></div>
         <div class="col-sm-8" id="memberEnrollment" style="border:solid 2px grey; background-color:white">
-            <h1 class="display-4" style="border-bottom:dotted 2px grey; padding:8px">Member Enrollment Form</h1>
+            <h1 class="display-4" style="border-bottom:dotted 2px grey; padding:8px">New Member</h1>
             <form id="newMemberForm" name="signup" method="post" action="/new_members">
                 <div class="form-group">
-                    <div>
-                        <label for="userName">User Name</label>
-                        <input type="text" class="form-control form-control-sm" name="user_name" id="userName" placeholder="User Name" onfocus="this.placeholder=''">
-                    </div>
                     <div class="row">
                         <div class="col-sm-6">
                             <div>
@@ -71,7 +67,7 @@
                     </div>
 
                     <div>
-                        <label for="skills">Special Skills - Check any that Apply</label>
+                        <label for="skills">Special Skills - Check all that apply</label>
                         <div class="row" style="margin-top:-10px; margin-bottom: 10px">
                             <div class="col-sm-3">
                                 <div class="form-check">
@@ -146,8 +142,8 @@
                             </div>
                         </div>
                     </div>
-                     {{!-- value="Sign Up" --}}
-                    <button class="btn" style="background-color: grey; color: white; width: 180px; height: 40px; font-size:18px;" type="submit">Submit</button>
+                     {{!--  --}}
+                    <input class="btn" style="background-color: grey; color: white; width: 180px; height: 40px; font-size:18px;" type="submit" value="Sign Up" />
                 </div>
             </form>
         </div>

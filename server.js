@@ -37,7 +37,7 @@ app.set("view engine", "handlebars");
 
 
 //load passport strategy
-require('./config/passport/passport.js')(passport, db.members);
+require('./controllers/passport.js')(passport, db.members);
 
 
 // Import routes and give the server access to them.

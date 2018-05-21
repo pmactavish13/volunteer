@@ -1,6 +1,6 @@
 //load bcrypt
 var bCrypt = require('bcrypt-nodejs');
-var db = require('../../models');
+var db = require('../models');
 
 module.exports = function (passport, login) {
 
@@ -66,7 +66,7 @@ module.exports = function (passport, login) {
                         sales: req.body.sales,
                         teaching: req.body.teaching,
                     };
-
+console.log("here");
                     db.Member.create(data).then(function (newUser, created) {
                         if (!newUser) {
                             return done(null, false);

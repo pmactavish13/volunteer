@@ -38,7 +38,7 @@ module.exports = function (app) {
   });
 
   // opportunities sign up route loads opportunities_sign_up.handlebars - all jobs list
-  app.get("/opportunities_sign_up",isLoggedIn, function (req, res,) {
+  app.get("/opportunities_sign_up", isLoggedIn, function (req, res) {
     res.render(path.join(__dirname, "../views/opportunities_sign_up.handlebars"));
   });
   
