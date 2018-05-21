@@ -3,10 +3,6 @@ $(document).ready(function () {
 
     $("#newOpportunityForm").on("submit", function (event) {
         event.preventDefault();
-        if ($.trim($("#userName").val()) === "" || $.trim($("#userName").val()) === "User Name" || $.trim($("#userName").val()) === "Please enter a User Name") {
-            $("#userName").val(" Please enter a User Name");
-            return false;
-        }
         if ($.trim($("#opportunityName").val()) === "" || $.trim($("#opportunityName").val()) === "Event Name" || $.trim($("#opportunityName").val()) === "Please enter your Event Name") {
             $("#opportunityName").val(" Please enter your Event Name");
             return false;
@@ -48,7 +44,6 @@ $(document).ready(function () {
         //     return false;
         // }
         var opportunitySignUp = {
-            user_name: $("#userName").val().trim(),
             opportunity_name: $("#opportunityName").val().trim(),
             // member_frequency: $("#selectFrequency option:selected").text(),
             // member_start_date: $("#startDate").val().trim(),

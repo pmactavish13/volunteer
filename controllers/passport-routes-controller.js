@@ -15,14 +15,18 @@ app.post('/api/signup',
       failWithError: true
     }),
     (req, res, next) => {
+        console.log("here");
         res.status(200).send({redirectTo: '/private'});
     },
     (err, req, res, next) => {
+        console.log("there");
         res.status(403).send(err);
     });
 //     successRedirect: '/private',
 //     failureRedirect: '/new_members'
 // }));
+
+
 
 app.post(
     '/api/signin', 

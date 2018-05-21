@@ -53,7 +53,7 @@ module.exports = function (passport, signin) {
                         last_name: req.body.last_name,
                         phone: req.body.phone,
                         photoUrl: req.body.photoUrl,
-                        inOrOut: req.body.member_inOrOut,
+                        inOrOut: req.body.inOrOut,
                         cooking: req.body.cooking,
                         gardening: req.body.gardening,
                         painting: req.body.painting,
@@ -66,13 +66,7 @@ module.exports = function (passport, signin) {
                         programming: req.body.programming,
                         sales: req.body.sales,
                         teaching: req.body.teaching,
-<<<<<<< HEAD:config/passport/passport.js
-                    }
-
-=======
                     };
-console.log("here");
->>>>>>> master:controllers/passport.js
                     db.Member.create(data).then(function (newUser, created) {
                         if (!newUser) {
                             return done(null, false);
