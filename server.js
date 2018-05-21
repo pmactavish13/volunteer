@@ -5,15 +5,8 @@ var passport = require('passport');
 var session = require('express-session');
 var app = express();
 var PORT = process.env.PORT || 5000;
+
 var db = require("./models");
-
-// handlebars rout to static files - css, img
-app.use(express.static('public'));
-
-// bodyParser to translate urlform and json
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-// app.use(bodyParser.text());
 
 app.use(session({
     secret: 'ninety tuba spike',
@@ -23,27 +16,31 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 
-// persistent data
-// app.use(function(req, res, next) {
-//     if (req.Member) {
-//         console.log(req.Member);
-//     }
-//     next();
-// });
+// bodyParser to translate urlform and json
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.text());
 
 // Set Handlebars as the default templating engine.
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-
 //load passport strategy
 require('./controllers/passport.js')(passport, db.members);
 
+// what is going on with passport
+app.use((req, res, next) => {
+    console.log(req.body);
+    next();
+});
 
 // Import routes and give the server access to them.
-require("./controllers/html-controller.js")(app);
-//require("./controllers/opportunity-api-controller.js")(app);
-require("./controllers/member-api-controller.js")(app, passport);
+require("./controllers/html-routes-controller.js")(app);
+require("./controllers/passport-routes-controller.js")(app, passport);
+// require("./controllers/member-api-controller.js")(app, passport);
+
+// handlebars rout to static files - css, img
+app.use(express.static('public'));
 
 // Use to clear databases during development { force: true }
 // { force: true }
