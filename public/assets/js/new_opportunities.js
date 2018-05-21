@@ -3,8 +3,8 @@ $(document).ready(function () {
 
     $("#newOpportunityForm").on("submit", function (event) {
         event.preventDefault();
-        if ($.trim($("#userName").val()) === "" || $.trim($("#userName").val()) === "User Name" || $.trim($("#userName").val()) === "Please enter a User Name") {
-            $("#userName").val(" Please enter a User Name");
+        if ($.trim($("#userName").val()) === "" || $.trim($("#userName").val()) === "User Name" || $.trim($("#userName").val()) === "Please enter your Name") {
+            $("#userName").val(" Please enter your Name");
             return false;
         }
         if ($.trim($("#organizationName").val()) === "" || $.trim($("#organizationName").val()) === "Organization Name" || $.trim($("#organizationName").val()) === "Please enter your Organization Name") {
@@ -19,8 +19,8 @@ $(document).ready(function () {
             $("#phone").val(" Please enter your Contact Number");
             return false;
         }
-        if ($.trim($("#eMail").val()) === "" || $.trim($("#eMail").val()) === "jDoe@email.com" || $.trim($("#eMail").val()) === "Please enter a valid e-mail Address") {
-            $("#eMail").val(" Please enter your e-mail Address");
+        if ($.trim($("#email").val()) === "" || $.trim($("#email").val()) === "jDoe@email.com" || $.trim($("#email").val()) === "Please enter a valid e-mail Address") {
+            $("#email").val(" Please enter your e-mail Address");
             return false;
         }
         if ($.trim($("#opportunityPhotoUrl").val()) === "" || $.trim($("#opportunityPhotoUrl").val()) === "URL Address" || $.trim($("#opportunityPhotoUrl").val()) === "Please enter a valid URL address") {
@@ -43,18 +43,18 @@ $(document).ready(function () {
             $("#zip").val(" Please enter a valid Zip Code");
             return false;
         }
-        if ($("#selectFrequency").val() === "" || $("#selectFrequency").val() === "Choose..." || $("#selectFrequency").val() === "Please select an option") {
-            $("#selectFrequency").val(" Please select an option");
-            return false;
-        }
+        // if ($("#selectFrequency").val() === "" || $("#selectFrequency").val() === "Choose..." || $("#selectFrequency").val() === "Please select an option") {
+        //     $("#selectFrequency").val(" Please select an option");
+        //     return false;
+        // }
         if ($.trim($(".date").val()) === "" || $.trim($(".date").val()) === "MM/DD/YY" || $.trim($(".date").val()) === "Please enter a valid Date") {
             $(".date").val(" Please enter a valid Date");
             return false;
         } 
-        if ($("#selectOpportunityFrequency").val() === "" || $("#selectOpportunityFrequency").val() === "Choose..." || $("#selectOpportunityFrequency").val() === "Please select an option") {
-            $("#selectOpportunityFrequency").val(" Please select an option");
-            return false;
-        }
+        // if ($("#selectOpportunityFrequency").val() === "" || $("#selectOpportunityFrequency").val() === "Choose..." || $("#selectOpportunityFrequency").val() === "Please select an option") {
+        //     $("#selectOpportunityFrequency").val(" Please select an option");
+        //     return false;
+        // }
         if ($.trim($("#startTime").val()) === "" || $.trim($("#startTime").val()) === "HH:mm" || $.trim($("#startTime").val()) === "Please enter a valid Start Time") {
             $("#startTime").val(" Please enter a valid Start Time");
             return false;
@@ -72,19 +72,20 @@ $(document).ready(function () {
             return false;
         }
         var newOpportunity = {
-            user_name: $("#userName").val().trim(),
+            // add user_name by how it is passed into form
+            //user_name: $("#userName").val().trim(),
             organization_name: $("#organizationName").val().trim(),
             opportunity_name: $("#opportunityName").val().trim(),
             organization_phone: $("#phone").val().trim(),
-            organization_eMail: $("#eMail").val().trim(),
-            organization_photo_Url: $("#opportunityPhotoUrl").val().trim(),
+            organization_eMail: $("#email").val().trim(),
+            opportunity_photo_Url: $("#opportunityPhotoUrl").val().trim(),
             organization_address: $("#address").val().trim(),
             organization_city: $("#city").val().trim(),
             organization_state: $("#selectState option:selected").text(),
             organization_zip: $("#zip").val().trim(),
-            organization_frequency: $("#selectFrequency option:selected").text(),
+            // organization_frequency: $("#selectFrequency option:selected").text(),
             opportunity_date: $("#date").val().trim(),
-            opportunity_frequency: $("#selectOpportunityFrequency option:selected").text(),
+            // opportunity_frequency: $("#selectOpportunityFrequency option:selected").text(),
             opportunity_start_time: $("#startTime").val().trim(),
             opportunity_end_time: $("#endTime").val().trim(),
             opportunity_in_or_out:  $("#selectInOrOut option:selected").text(),

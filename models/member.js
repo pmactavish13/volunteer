@@ -2,6 +2,13 @@ var Sequelize = require('sequelize');
 
 module.exports = function (sequelize, DataTypes) {
   var Member = sequelize.define("Member", {
+    user_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      },
+    },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -11,7 +18,8 @@ module.exports = function (sequelize, DataTypes) {
     },
     password: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
+      // allowNull: false,
       validate: {
         len: [1]
       },
@@ -30,46 +38,46 @@ module.exports = function (sequelize, DataTypes) {
         len: [1]
       },
     },
-    member_address: {
+    address: {
       type: DataTypes.STRING,
       allowNull: true,
     },
-    member_city: {
+    city: {
       type: DataTypes.STRING(100),
       allowNull: true,
     },
-    member_state: {
+   state: {
       type: DataTypes.STRING(2),
       allowNull: true,
     },
-    member_zip: {
+   zip: {
       type: DataTypes.STRING(5),
       allowNull: true,
     },
-    member_phone: {
+    phone: {
       type: DataTypes.BIGINT,
       allowNull: false,
       validate: {
         len: [1]
       },
     },
-    member_photoUrl: {
+    photoUrl: {
       type: DataTypes.STRING,
       allowNull: true,
       validate: {
         len: [1]
       },
     },
-    member_frequency_preference: {
-      type: DataTypes.STRING,
-      allowNull: true,
-      validate: {
-        len: [1]
-      },
-    },
+    // frequency: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false,
+    //   validate: {
+    //     len: [1]
+    //   },
+    // },
     member_inOrOut: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: false,
       validate: {
         len: [1]
       },
@@ -125,8 +133,8 @@ module.exports = function (sequelize, DataTypes) {
   });
 
   // Associating member with event
-  Member.associate = function (models) {
-    Member.hasMany(models.Opportunity)
-  };
+  // Member.associate = function (models) {
+  //   Member.belongsToMany(db.Opportunity, {through: 'MemberOpportunity'})
+  // };
   return Member;
 };

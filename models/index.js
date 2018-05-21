@@ -33,4 +33,7 @@ Object.keys(db).forEach(modelName => {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
+db.Member.belongsToMany(db.Opportunity, {through: 'MemberOpportunity'});
+db.Opportunity.belongsToMany(db.Member, {through: 'MemberOpportunity'});
+
 module.exports = db;

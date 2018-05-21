@@ -27,38 +27,43 @@ $(document).ready(function () {
             $("#zip").val(" Please enter a valid Zip Code");
             return false;
         }
-        if ($("#selectFrequency").val() === "" || $("#selectFrequency").val() === "Choose..." || $("#selectFrequency").val() === "Please select an option") {
-            $("#selectFrequency").val(" Please select an option");
-            return false;
-        }
-        if ($.trim($(".startDate").val()) === "" || $.trim($(".startDate").val()) === "MM/DD/YY" || $.trim($(".startDate").val()) === "Please enter a valid Date") {
-            $(".startDate").val(" Please enter a valid Date");
-            return false;
-        }
-        if ($.trim($("#startTime").val()) === "" || $.trim($("#startTime").val()) === "HH:mm" || $.trim($("#startTime").val()) === "Please enter a valid Start Time") {
-            $("#startTime").val(" Please enter a valid Start Time");
-            return false;
-        }
-        if ($.trim($("#endTime").val()) === "" || $.trim($("#endTime").val()) === "HH:mm" || $.trim($("#endTime").val()) === "Please enter a valid End Time") {
-            $("#endTime").val(" Please enter a valid End Time");
-            return false;
-        }
-        if ($("#selectInOrOut").val() === "" || $("#selectInOrOut").val() === "Choose..." || $("#selectInOrOut").val() === "Please select an option") {
-            $("#selectInOrOut").val(" Please select an option");
-            return false;
-        }
+        // if ($("#selectFrequency").val() === "" || $("#selectFrequency").val() === "Choose..." || $("#selectFrequency").val() === "Please select an option") {
+        //     $("#selectFrequency").val(" Please select an option");
+        //     return false;
+        // }
+        // if ($.trim($(".startDate").val()) === "" || $.trim($(".startDate").val()) === "MM/DD/YY" || $.trim($(".startDate").val()) === "Please enter a valid Date") {
+        //     $(".startDate").val(" Please enter a valid Date");
+        //     return false;
+        // }
+        // if ($.trim($("#startTime").val()) === "" || $.trim($("#startTime").val()) === "HH:mm" || $.trim($("#startTime").val()) === "Please enter a valid Start Time") {
+        //     $("#startTime").val(" Please enter a valid Start Time");
+        //     return false;
+        // }
+        // if ($.trim($("#endTime").val()) === "" || $.trim($("#endTime").val()) === "HH:mm" || $.trim($("#endTime").val()) === "Please enter a valid End Time") {
+        //     $("#endTime").val(" Please enter a valid End Time");
+        //     return false;
+        // }
+        // if ($("#selectInOrOut").val() === "" || $("#selectInOrOut").val() === "Choose..." || $("#selectInOrOut").val() === "Please select an option") {
+        //     $("#selectInOrOut").val(" Please select an option");
+        //     return false;
+        // }
         var opportunitySignUp = {
             user_name: $("#userName").val().trim(),
             opportunity_name: $("#opportunityName").val().trim(),
-            member_frequency: $("#selectFrequency option:selected").text(),
-            member_start_date: $("#startDate").val().trim(),
-            member_start_time: $("#startTime").val().trim(),
-            member_end_time: $("#endTime").val().trim(),
-            member_in_or_out: $("#selectInOrOut option:selected").text(),
+            // member_frequency: $("#selectFrequency option:selected").text(),
+            // member_start_date: $("#startDate").val().trim(),
+            // member_start_time: $("#startTime").val().trim(),
+            // member_end_time: $("#endTime").val().trim(),
+            // member_in_or_out: $("#selectInOrOut option:selected").text(),
         };
 
+        //***********************************************/
+        //  GET THE MEMBER ID
+        //  GET THE OPPORTUNITY ID
+        // THEN POST
+
         // Send the POST request to add an event
-        $.ajax("/opportunities_sign_up", {
+        $.ajax("/member_opportunity", {
             type: "POST",
             data: opportunitySignUp
         }).then(
