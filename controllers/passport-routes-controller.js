@@ -83,6 +83,29 @@ module.exports = function (app, passport) {
     });
   });
 
+  app.post('/api/register/:id', isLoggedIn, function (req, res) {
+    newMemberOpportunity = {
+      MemberId: req.user.id,
+      OpportunityId: parseInt(req.params.id)
+    };
+    console.log(newMemberOpportunity);
+
+    db.Member.findOne({ where: {id: req.user.id} }).then(function(member) {
+      db.Opportunity.findOne({where: {id: parseInt(req.params.id)}}).then(function(opportunity){
+        member.setOpportunities(opportunity);
+      });
+    });
+    // db.MemberOpportunity.create(newMemberOpportunity).then(function (dbOpportunity) {
+    //   if (!dbOpportunity) {
+    //     res.status(500).send("unable to create new registration");
+    //   }
+    //   if (dbOpportunity) {
+    //     res.status(200).send({redirectTo: '/private'});
+    //   }
+    // });
+  });
+
+
   // logout, redirect to home page
   app.get('/logout', function (req, res) {
     req.session.destroy(function (err) {
