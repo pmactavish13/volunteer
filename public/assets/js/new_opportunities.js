@@ -4,6 +4,9 @@ $(document).ready(function () {
     $("#newOpportunityForm").on("submit", function (event) {
         event.preventDefault();
 
+        var $this = $(this);
+        $this.find('.message:first').text('');
+
         if ($.trim($("#organizationName").val()) === "" || $.trim($("#organizationName").val()) === "Organization Name" || $.trim($("#organizationName").val()) === "Please enter your Organization Name") {
             $("#organizationName").val(" Please enter your Organization Name");
             return false;
@@ -98,10 +101,12 @@ $(document).ready(function () {
             type: "POST",
             data: newOpportunity
         }).then(
-            function () {
-                // Reload the page to get the updated list
-                // location.reload();
-                $(location).attr('href', '/homeTest')
+            function (response) {
+                window.location.href = response.redirectTo;
+            },
+            function(error) {
+                console.log(error);
+                $this.find('.message:first').text('An error occured.  Please try again');
             }
         );
     });
