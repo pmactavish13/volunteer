@@ -3,7 +3,7 @@ $(document).ready(function () {
 
     $("#newOpportunityForm").on("submit", function (event) {
         event.preventDefault();
-        
+
         if ($.trim($("#organizationName").val()) === "" || $.trim($("#organizationName").val()) === "Organization Name" || $.trim($("#organizationName").val()) === "Please enter your Organization Name") {
             $("#organizationName").val(" Please enter your Organization Name");
             return false;
@@ -51,7 +51,7 @@ $(document).ready(function () {
         if ($.trim($("#date").val()) === "" || $.trim($("#date").val()) === "MM/DD/YY" || $.trim($("#date").val()) === "Please enter a valid Date") {
             $("#date").val(" Please enter a valid Date");
             return false;
-        } 
+        }
         if ($.trim($("#startTime").val()) === "" || $.trim($("#startTime").val()) === "HH:mm" || $.trim($("#startTime").val()) === "Please enter a valid Start Time") {
             $("#startTime").val(" Please enter a valid Start Time");
             return false;
@@ -63,7 +63,7 @@ $(document).ready(function () {
         if ($("#selectInOrOut").val() === "" || $("#selectInOrOut").val() === "Choose..." || $("#selectInOrOut").val() === "Please select an option") {
             $("#selectInOrOut").val(" Please select an option");
             return false;
-        } 
+        }
         if ($.trim($("#volunteersNeeded").val()) === "" || $.trim($("#volunteersNeeded").val()) === "0" || $.trim($("#volunteersNeeded").val()) === "Please enter a valid Number") {
             $("#volunteersNeeded").val(" Please enter a valid Number");
             return false;
@@ -83,16 +83,16 @@ $(document).ready(function () {
             opportunity_date: $("#date").val().trim(),
             opportunity_start_time: $("#startTime").val().trim(),
             opportunity_end_time: $("#endTime").val().trim(),
-            opportunity_inOrOut:  $("#selectInOrOut option:selected").text(),
+            opportunity_inOrOut: $("#selectInOrOut option:selected").text(),
             volunteers_needed: $("#volunteersNeeded").val().trim(),
         };
-        
-        $('input[name="skills"]:checked').each(function() {   
-         newOpportunity[this.value] = true;
-         });
+
+        $('input[name="skills"]:checked').each(function () {
+            newOpportunity[this.value] = true;
+        });
 
         console.log(newOpportunity)
-      
+
         // Send the POST request.
         $.ajax("/api/new_opportunities", {
             type: "POST",
