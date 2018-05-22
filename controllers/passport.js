@@ -99,7 +99,6 @@ module.exports = function (passport, signin) {
     },
         function (req, email, password, done) {
 
-            var Member = member;
             var isValidPassword = function (userpass, password) {
                 return bCrypt.compareSync(password, userpass);
             };
