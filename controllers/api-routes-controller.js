@@ -66,11 +66,6 @@ module.exports = function (app, passport) {
     res.render(path.join(__dirname, "../views/new_opportunities.handlebars"));
   });
 
-  // opportunities sign up route loads opportunities_sign_up.handlebars - all jobs list
-  app.get("/opportunities_sign_up", isLoggedIn, function (req, res, ) {
-    res.render(path.join(__dirname, "../views/opportunities_sign_up.handlebars"));
-  });
-
   app.post('/api/new_opportunities', isLoggedIn, function (req, res) {
     console.log(req.body);
     db.Opportunity.create(req.body).then(function (dbOpportunity) {
