@@ -31,7 +31,7 @@ module.exports = function (app) {
 
   // route loads private.handlebars
   app.get("/private", isLoggedIn, function (req, res) {
-    db.Member.findOne({
+    db.Member.findAll({
       attributes: {
         exclude: ['password']
       },
@@ -41,10 +41,10 @@ module.exports = function (app) {
       include: [db.Opportunity]
     }).then(function (member) {
       MyOpportunities = {
-        opportunity: member.Opportunities,
+        opportunities: member.Opportunities,
       };
-      res.render(path.join(__dirname, "../views/private.handlebars"), MyOpportunities);
-      // res.json(member.Opportunities);
+      // res.render(path.join(__dirname, "../views/private.handlebars"), MyOpportunities);
+      res.json(member.Opportunities);
     });
   });
 
