@@ -37,7 +37,6 @@ app.use((req, res, next) => {
 // Import routes and give the server access to them.
 require("./controllers/html-routes-controller.js")(app);
 require("./controllers/api-routes-controller.js")(app, passport);
-// require("./controllers/member-api-controller.js")(app, passport);
 
 // handlebars rout to static files - css, img
 app.use(express.static('public'));
