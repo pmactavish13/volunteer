@@ -2,13 +2,6 @@ var Sequelize = require('sequelize');
 
 module.exports = function (sequelize, DataTypes) {
   var Member = sequelize.define("Member", {
-    user_name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [1]
-      },
-    },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -18,8 +11,7 @@ module.exports = function (sequelize, DataTypes) {
     },
     password: {
       type: DataTypes.STRING,
-      allowNull: true,
-      // allowNull: false,
+      allowNull: false,
       validate: {
         len: [1]
       },
@@ -68,14 +60,7 @@ module.exports = function (sequelize, DataTypes) {
         len: [1]
       },
     },
-    // frequency: {
-    //   type: DataTypes.STRING,
-    //   allowNull: false,
-    //   validate: {
-    //     len: [1]
-    //   },
-    // },
-    member_inOrOut: {
+    inOrOut: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {

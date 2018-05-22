@@ -13,23 +13,39 @@ module.exports = function (app) {
     db.Opportunity.findAll({
       order: ["opportunity_name"]
     }).then(function (dbOpportunity) {
-      res.render(path.join(__dirname, "../views/home.handlebars"), { opportunities: dbOpportunity });
+      res.render(path.join(__dirname, "../views/home.handlebars"), {
+        opportunities: dbOpportunity
+      });
     });
-  }); 
-  
+  });
+
   // register new_member route loads new_members.handlebars
   app.get("/new_members", function (req, res) {
     res.render(path.join(__dirname, "../views/new_members.handlebars"));
   });
-  
+
   // route leads to login page
   app.get('/login', function (req, res) {
-    res.render(path.join(__dirname, "../views/login.handlebars"));
+    res.render(path.join(__dirname, "../views/home"));
   });
 
   // route loads private.handlebars
-  app.get("/private", function (req, res) {
-    res.render(path.join(__dirname, "../views/private.handlebars"));
+  app.get("/private", isLoggedIn, function (req, res) {
+    db.Member.findOne({
+      attributes: {
+        exclude: ['password']
+      },
+      where: {
+        id: req.user.id
+      },
+      include: [db.Opportunity]
+    }).then(function (member) {
+      MyOpportunities = {
+        opportunity: member.Opportunities,
+      };
+      res.render(path.join(__dirname, "../views/private.handlebars"), MyOpportunities);
+      // res.json(member.Opportunities);
+    });
   });
 
   // new_opportunities route loads new_opportunities.handlebars
@@ -38,10 +54,10 @@ module.exports = function (app) {
   });
 
   // opportunities sign up route loads opportunities_sign_up.handlebars - all jobs list
-  app.get("/opportunities_sign_up",isLoggedIn, function (req, res,) {
+  app.get("/opportunities_sign_up", isLoggedIn, function (req, res) {
     res.render(path.join(__dirname, "../views/opportunities_sign_up.handlebars"));
   });
-  
+
   // logout, redirect to home page
   app.get('/logout', function (req, res) {
     req.session.destroy(function (err) {

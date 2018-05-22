@@ -1,15 +1,11 @@
-<div id="container" style="background-color: grey">
+<div id="container" style="background-color:#fed136">
 
     <div class="row">
         <div class="col-sm-2"></div>
         <div class="col-sm-8" id="memberEnrollment" style="border:solid 2px grey; background-color:white">
-            <h1 class="display-4" style="border-bottom:dotted 2px grey; padding:10px">Member Enrollment Form</h1>
-            <form id="newMemberForm">
+            <h1 class="display-4" style="border-bottom:dotted 2px grey; padding:8px">Member Enrollment Form</h1>        
+            <form id="signup" name="signup">
                 <div class="form-group">
-                    <div>
-                        <label for="userName">User Name</label>
-                        <input type="text" class="form-control form-control-sm" name="user_name" id="userName" placeholder="User Name" onfocus="this.placeholder=''">
-                    </div>
                     <div class="row">
                         <div class="col-sm-6">
                             <div>
@@ -57,13 +53,7 @@
 
                     <div class="row">
                         {{!-- <div class="col-sm-6">
-                            <label for="onceRecur">One Time or Recurring Event Preference</label>
-                            <select class="form-control form-control-sm" id="selectFrequency">
-                                <option selected>Choose...</option>
-                                <option value="1">Once</option>
-                                <option value="2">Recurring</option>
-                                <option value="3">Both</option>
-                            </select>
+                            
                         </div> --}}
                         <div class="col-sm-12">
                             <label for="inOrOut">Inside or Outside Preference</label>
@@ -77,7 +67,7 @@
                     </div>
 
                     <div>
-                        <label for="skills">Special Skills - Check any that Apply</label>
+                        <label for="skills">Special Skills - Check all that apply</label>
                         <div class="row" style="margin-top:-10px; margin-bottom: 10px">
                             <div class="col-sm-3">
                                 <div class="form-check">
@@ -152,7 +142,8 @@
                             </div>
                         </div>
                     </div>
-                    <button class="btn" style="background-color: grey; color: white; width: 180px; height: 40px; font-size:18px;" type="submit">Submit</button>
+                     <div class="message" style="color:red"></div>
+                    <input class="btn" style="background-color: grey; color: white; width: 180px; height: 40px; font-size:18px;" type="submit" value="Sign Up" />
                 </div>
             </form>
         </div>
