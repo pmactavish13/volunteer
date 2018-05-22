@@ -2,13 +2,10 @@
     <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
         <div class="portfolio-hover">
             <div class="portfolio-hover-content">
-                <p class="text-muted">{{organization_address}}</p>
-                <p class="text-muted">{{organization_city}}</p>
-                <p class="text-muted">{{organization_state}}</p>
-                <p class="text-muted">{{organization_zip}}</p>
-                <p class="text-muted">{{opportunity_data}}</p>
-                <p class="text-muted">{{opportunity_start_time}}</p>
-                <p class="text-muted">{{opportunity_end_time}}</p>
+                <div class="text-muted">{{opportunity_date}}
+                    <br /> {{opportunity_start_time}} - {{opportunity_end_time}}
+                    <br /> {{organization_address}} {{organization_city}}, {{organization_state}} {{organization_zip}}
+                </div>
             </div>
         </div>
         <img class="img-fluid" src="{{opportunity_photo_Url}}" alt="opportunity_photo">
@@ -17,7 +14,7 @@
         <h4>{{organization_name}}</h4>
         <p class="text-muted">{{opportunity_name}}</p>
         <button class="register" data-id="{{id}}" data-register="{{register}}">
-        {{#if register}}Unenroll{{else}}Register{{/if}}
-    </button>
+            {{#if register}}Unenroll{{else}}Register{{/if}}
+        </button>
     </div>
 </div>

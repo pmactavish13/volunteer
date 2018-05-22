@@ -34,11 +34,4 @@ module.exports = function (app) {
     res.render(path.join(__dirname, "../views/opportunities_sign_up.handlebars"));
   });
   
-  // logout, redirect to home page
-  app.get('/logout', function (req, res) {
-    req.session.destroy(function (err) {
-      res.redirect('/');
-    });
-  });
-
 };

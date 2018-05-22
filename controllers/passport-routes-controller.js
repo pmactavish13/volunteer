@@ -48,20 +48,12 @@ app.put(
 
   // route loads private.handlebars
   app.get("/private", isLoggedIn, function (req, res) {
-    db.Member.findOne({
-      attributes: {
-        exclude: ['password']
-      },
-      where: {
-        id: req.user.id
-      },
-      include: [db.Opportunity]
-    }).then(function (member) {
+    db.Opportunity.findAll({}).then(function (DbOpporunities) {
       MyOpportunities = {
-        opportunities: member.Opportunities,
+        opportunities: DbOpporunities,
       };
       res.render(path.join(__dirname, "../views/private.handlebars"), MyOpportunities);
-      // res.json(member.Opportunities);
+      //res.json(DbOpporunities);
     });
   });
 
@@ -85,13 +77,7 @@ app.put(
   function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())
       return next();
-    res.redirect('/private');
+    res.redirect('/');
  }
 
 };
-
-
-
-
-
-
