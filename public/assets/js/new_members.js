@@ -1,8 +1,11 @@
 // Make sure to wait to attach handlers until the DOM is fully loaded.
 $(document).ready(function () {
 
-    $("#newMemberForm").on("submit", function (event) {
-        console.log("here");
+    $("#signup").on("submit", function (event) {
+        
+        var $this = $(this);
+        $this.find('.message:first').text('');
+
         event.preventDefault();
         if ($.trim($("#email").val()) === "" || $.trim($("#email").val()) === "jDoe@email.com" || $.trim($("#email").val()) === "Please enter a valid e-mail Address") {
             $("#email").val(" Please enter your e-mail Address");
@@ -52,14 +55,16 @@ $(document).ready(function () {
         console.log(newMember);
 
         // Send the POST request.
-        $.ajax("/api/member", {
+        $.ajax("/api/signup", {
             type: "POST",
             data: newMember
         }).then(
-            function () {
-                // Reload the page to get the updated list
-                // location.reload();
-                $(location).attr('href', '/private');
+            function (response) {
+                window.location.href = response.redirectTo;
+            },
+            function(error) {
+                console.log(error);
+                $this.find('.message:first').text('That email account is alread in use.');
             }
         );
     });

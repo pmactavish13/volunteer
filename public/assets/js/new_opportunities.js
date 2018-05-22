@@ -3,16 +3,21 @@ $(document).ready(function () {
 
     $("#newOpportunityForm").on("submit", function (event) {
         event.preventDefault();
-        if ($.trim($("#userName").val()) === "" || $.trim($("#userName").val()) === "User Name" || $.trim($("#userName").val()) === "Please enter your Name") {
-            $("#userName").val(" Please enter your Name");
-            return false;
-        }
+        
         if ($.trim($("#organizationName").val()) === "" || $.trim($("#organizationName").val()) === "Organization Name" || $.trim($("#organizationName").val()) === "Please enter your Organization Name") {
             $("#organizationName").val(" Please enter your Organization Name");
             return false;
         }
+        if ($.trim($("#aboutOrganization").val()) === "" || $.trim($("#aboutOrganization").val()) === "To be used with your Event listing" || $.trim($("#about Organization").val()) === "Please enter information about your Organization.") {
+            $("#aboutOrganization").val(" Please enter information about your Organization");
+            return false;
+        }
         if ($.trim($("#opportunityName").val()) === "" || $.trim($("#opportunityName").val()) === "Event Name" || $.trim($("#opportunityName").val()) === "Please enter your Event Name") {
             $("#opportunityName").val(" Please enter your Event Name");
+            return false;
+        }
+        if ($.trim($("#tagLine").val()) === "" || $.trim($("#tagLine").val()) === "To be used with your Event listing" || $.trim($("#tagLine").val()) === "Please enter information about your Event") {
+            $("#tagLine").val(" Please enter a tag line for your Event");
             return false;
         }
         if ($.trim($("#phone").val()) === "" || $.trim($("#phone").val()) === "123-456-7890" || $.trim($("#phone").val()) === "Please enter your Contact Number") {
@@ -43,18 +48,10 @@ $(document).ready(function () {
             $("#zip").val(" Please enter a valid Zip Code");
             return false;
         }
-        // if ($("#selectFrequency").val() === "" || $("#selectFrequency").val() === "Choose..." || $("#selectFrequency").val() === "Please select an option") {
-        //     $("#selectFrequency").val(" Please select an option");
-        //     return false;
-        // }
         if ($.trim($(".date").val()) === "" || $.trim($(".date").val()) === "MM/DD/YY" || $.trim($(".date").val()) === "Please enter a valid Date") {
             $(".date").val(" Please enter a valid Date");
             return false;
         } 
-        // if ($("#selectOpportunityFrequency").val() === "" || $("#selectOpportunityFrequency").val() === "Choose..." || $("#selectOpportunityFrequency").val() === "Please select an option") {
-        //     $("#selectOpportunityFrequency").val(" Please select an option");
-        //     return false;
-        // }
         if ($.trim($("#startTime").val()) === "" || $.trim($("#startTime").val()) === "HH:mm" || $.trim($("#startTime").val()) === "Please enter a valid Start Time") {
             $("#startTime").val(" Please enter a valid Start Time");
             return false;
@@ -72,10 +69,10 @@ $(document).ready(function () {
             return false;
         }
         var newOpportunity = {
-            // add user_name by how it is passed into form
-            //user_name: $("#userName").val().trim(),
             organization_name: $("#organizationName").val().trim(),
+            about_organization: $("#about_organization").val().trim(),
             opportunity_name: $("#opportunityName").val().trim(),
+            tag_line: $("#tagLine").val().trim(),
             organization_phone: $("#phone").val().trim(),
             organization_eMail: $("#email").val().trim(),
             opportunity_photo_Url: $("#opportunityPhotoUrl").val().trim(),
@@ -83,9 +80,7 @@ $(document).ready(function () {
             organization_city: $("#city").val().trim(),
             organization_state: $("#selectState option:selected").text(),
             organization_zip: $("#zip").val().trim(),
-            // organization_frequency: $("#selectFrequency option:selected").text(),
             opportunity_date: $("#date").val().trim(),
-            // opportunity_frequency: $("#selectOpportunityFrequency option:selected").text(),
             opportunity_start_time: $("#startTime").val().trim(),
             opportunity_end_time: $("#endTime").val().trim(),
             opportunity_in_or_out:  $("#selectInOrOut option:selected").text(),

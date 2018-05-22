@@ -3,10 +3,6 @@ $(document).ready(function () {
 
     $("#newOpportunityForm").on("submit", function (event) {
         event.preventDefault();
-        if ($.trim($("#userName").val()) === "" || $.trim($("#userName").val()) === "User Name" || $.trim($("#userName").val()) === "Please enter a User Name") {
-            $("#userName").val(" Please enter a User Name");
-            return false;
-        }
         if ($.trim($("#opportunityName").val()) === "" || $.trim($("#opportunityName").val()) === "Event Name" || $.trim($("#opportunityName").val()) === "Please enter your Event Name") {
             $("#opportunityName").val(" Please enter your Event Name");
             return false;
@@ -48,7 +44,6 @@ $(document).ready(function () {
         //     return false;
         // }
         var opportunitySignUp = {
-            user_name: $("#userName").val().trim(),
             opportunity_name: $("#opportunityName").val().trim(),
             // member_frequency: $("#selectFrequency option:selected").text(),
             // member_start_date: $("#startDate").val().trim(),
@@ -63,7 +58,7 @@ $(document).ready(function () {
         // THEN POST
 
         // Send the POST request to add an event
-        $.ajax("/member_opportunity", {
+        $.ajax("/new_opportunity", {
             type: "POST",
             data: opportunitySignUp
         }).then(
@@ -74,21 +69,21 @@ $(document).ready(function () {
         );
 
         var updateMember = {
-            member_address: $("#address").val().trim(),
-            member_city: $("#city").val().trim(),
-            member_state: $("#selectState option:selected").text(),
-            member_zip: $("#zip").val().trim(),
+            address: $("#address").val().trim(),
+            city: $("#city").val().trim(),
+            state: $("#selectState option:selected").text(),
+            zip: $("#zip").val().trim(),
         }
 
         // Send the PUT request to update member.
-        $.ajax("/api/member/" + id, {
+        $.ajax("/api/user", {
             type: "PUT",
             data: updateMember
         }).then(
             function () {
                 // Reload the page to get the updated list
                 // location.reload();
-                $(location).attr('href', '/homeTest')
+                $(location).attr('href', '/private')
             }
         );
     });

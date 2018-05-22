@@ -2,11 +2,13 @@
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color: rgb(19, 18, 18)">
   <div class="container">
     <a class="navbar-brand js-scroll-trigger" href="#page-top">Volunteer Philadelphia</a>
+    
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
       aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       Menu
       <i class="fa fa-bars"></i>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav text-uppercase ml-auto">
         <li class="nav-item">
@@ -27,11 +29,12 @@
 <header class="masthead">
   <div class="container">
     <div class="intro-text">
-      <div class="intro-lead-in" style="background-color:#fed136; padding: 20px; border-radius: 8px; margin-top: 200px">Matching Volunteers with Events
-        <h4 style="font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 100; margin-top: 20px; margin-right: -200px">.....We find you work, you won't get paid for! ;~)</h4>
-        </div>
+      <div class="intro-lead-in" style="background-color:#fed136;padding: 8px;border-radius: 8px;margin-top: 10px;width: 800px;margin-left: 150px;">Matching Volunteers with Events
+        <h4 style="font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-weight: 100;margin-top: 10px;width: 730px;margin-right: 0px;width: 790px;">.....We find you work, you won't get paid for! ;~)</h4>
+      </div>
       <!-- Trigger the modal with a button -->
-      <button type="button" class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" data-toggle="modal" data-target="#myModal" style="margin-bottom: -100px">Log In</button>
+      <button type="button" class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" data-toggle="modal" data-target="#myModal"
+        style="margin-bottom: -100px">Log In</button>
 
       <!-- <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">We find work you won't get paid for!</a> -->
     </div>
@@ -42,42 +45,42 @@
 
 
 <!-- Modal -->
-<div id="myModal" class="modal fade modalLogIn" role="dialog">
+<div id="myModal" class="modal fade" data-id="modalLogIn"role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
     <div class="modal-content" id="login">
       <div class="modal-header">
-        {{!-- <button type="button" class="close" data-dismiss="modal"></button> --}}
+        {{!--
+        <button type="button" class="close" data-dismiss="modal"></button> --}}
         <h4 class="modal-title">Member Log In</h4>
       </div>
       <div class="modal-body">
         <div class="row">
           <div class="col-lg-12">
-            <form id="memberLoginForm" name="login" method="post" action="login">
+            <form id="signin" name="signin">
               {{!-- novalidate="novalidate"> --}}
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
-                    <input class="form-control" id="email" name="email" type="email" placeholder="Your Email *" onfocus="this.placeholder=''"> 
-                    {{!-- required="required" data-validation-required-message="Please enter your email address.">
-                    <p class="help-block text-danger"></p> --}}
-                  {{!-- </div>
+                    <input class="form-control" id="email" name="email" type="email" placeholder="Your Email *" onfocus="this.placeholder=''" required> {{!-- required="required" data-validation-required-message="Please enter your email address.">
+                    <p class="help-block text-danger"></p> --}} {{!-- </div>
                   <div class="form-group"> --}}
-                    <input class="form-control" id="password" name="password" type="password" placeholder="Your Password *" onfocus="this.placeholder=''"> 
-                    {{!-- required="required" data-validation-required-message="Please enter your password."> 
+                    <input class="form-control" id="password" name="password" type="password" placeholder="Your Password *" onfocus="this.placeholder=''" required> {{!-- required="required" data-validation-required-message="Please enter your password.">
                     <p class="help-block text-danger"></p> --}}
                   </div>
                 </div>
+                <div class="message" style="color:red;"></div>
                 <div class="clearfix"></div>
                 <div class="col-lg-6 text-center">
                   {{!-- <div id="success"></div> --}}
-                  <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit" value="Log In">Login</button>
+                  <input id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit" value="Log In" />
                 </div>
                 <div class="clearfix"></div>
                 <div class="col-lg-6 text-center">
-                  {{!-- <div id="success"></div> --}}
-                  <a class="btn btn-primary btn-xl text-uppercase"  href="/new_members">Sign Up</a>
+                  {{!--
+                  <div id="success"></div> --}}
+                  <a class="btn btn-primary btn-xl text-uppercase" href="/new_members">Sign Up</a>
                 </div>
               </div>
             </form>
@@ -401,7 +404,8 @@
     </section> -->
 
 <!-- Clients -->
-{{!-- <section class="py-5">
+{{!--
+<section class="py-5">
   <div class="container">
     <div class="row">
       <div class="col-md-3 col-sm-6">
@@ -426,9 +430,7 @@
       </div>
     </div>
   </div>
-</section> --}}
-
-{{!--
+</section> --}} {{!--
 <!-- Contact -->
 <section id="contact">
   <div class="container">
@@ -475,14 +477,14 @@
 </section> --}}
 
 <!-- Footer -->
-<footer>
+<footer style="background-color: #fed136; max height 50px;">
   <div class="container">
     <div class="row">
       <div class="col-md-4">
-        <span class="copyright">Copyright &copy; Your Website 2018</span>
+        <span class="copyright">Copyright &copy; Philadelphhia Volunteer 2018</span>
       </div>
-      <div class="col-md-4">
-        <ul class="list-inline social-buttons">
+      <div class="col-md-1">
+        {{!-- <ul class="list-inline social-buttons">
           <li class="list-inline-item">
             <a href="#">
               <i class="fa fa-twitter"></i>
@@ -498,17 +500,10 @@
               <i class="fa fa-linkedin"></i>
             </a>
           </li>
-        </ul>
+        </ul> --}}
       </div>
-      <div class="col-md-4">
-        <ul class="list-inline quicklinks">
-          <li class="list-inline-item">
-            <a href="#">Privacy Policy</a>
-          </li>
-          <li class="list-inline-item">
-            <a href="#">Terms of Use</a>
-          </li>
-        </ul>
+      <div class="col-md-7">
+            <p style="color: black; font-weight:300">Developers: Anthony Elliott / Paula MacTavish / Alexa Stefanou / Dirk Wiggins</p>
       </div>
     </div>
   </div>
