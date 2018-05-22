@@ -9,7 +9,21 @@ module.exports = function (sequelize, DataTypes) {
         len: [1]
       },
     },
+    about_organization: {
+      type: DataTypes.STRING(1500),
+      allowNull: false,
+      validate: {
+        len: [1]
+      },
+    },
     opportunity_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      },
+    },
+    tag_line: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
