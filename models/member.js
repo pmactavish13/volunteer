@@ -117,9 +117,5 @@ module.exports = function (sequelize, DataTypes) {
     },
   });
 
-  // Associating member with event
-  // Member.associate = function (models) {
-  //   Member.belongsToMany(db.Opportunity, {through: 'MemberOpportunity'})
-  // };
   return Member;
 };

@@ -15,18 +15,12 @@ app.post('/api/signup',
       failWithError: true
     }),
     (req, res, next) => {
-        console.log("here");
         res.status(200).send({redirectTo: '/private'});
     },
     (err, req, res, next) => {
-        console.log("there");
-        res.status(403).send(err);
+        console.log(err);
+        res.status(500).send(err);
     });
-//     successRedirect: '/private',
-//     failureRedirect: '/new_members'
-// }));
-
-
 
 app.post(
     '/api/signin', 
@@ -37,7 +31,8 @@ app.post(
         res.status(200).send({redirectTo: '/private'});
     },
     (err, req, res, next) => {
-        res.status(403).send(err);
+        console.log(err);
+        res.status(500).send(err);
     });
 
 app.put(
@@ -52,8 +47,22 @@ app.put(
     });
 
   // route loads private.handlebars
-  app.get("/private",  isLoggedIn, function (req, res) {
-    res.render(path.join(__dirname, "../views/private.handlebars"));
+  app.get("/private", isLoggedIn, function (req, res) {
+    db.Member.findOne({
+      attributes: {
+        exclude: ['password']
+      },
+      where: {
+        id: req.user.id
+      },
+      include: [db.Opportunity]
+    }).then(function (member) {
+      MyOpportunities = {
+        opportunities: member.Opportunities,
+      };
+      res.render(path.join(__dirname, "../views/private.handlebars"), MyOpportunities);
+      // res.json(member.Opportunities);
+    });
   });
 
   // new_opportunities route loads new_opportunities.handlebars

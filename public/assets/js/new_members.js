@@ -34,8 +34,8 @@ $(document).ready(function () {
         if ($("#selectInOrOut").val() === "" || $("#selectInOrOut").val() === "Choose..." || $("#selectInOrOut").val() === "Please select an option") {
             $("#selectInOrOut").val(" Please select an option");
             return false;
-        } 
-        
+        }
+
         var newMember = {
             password: $("#password").val().trim(),
             email: $("#email").val().trim(),
@@ -43,15 +43,17 @@ $(document).ready(function () {
             last_name: $("#lastName").val().trim(),
             phone: $("#phone").val().trim(),
             photoUrl: $("#photoUrl").val().trim(),
-            inOrOut:  $("#selectInOrOut option:selected").text(),
+            inOrOut: $("#selectInOrOut option:selected").text(),
         };
-        
-        $('input[name="skills"]:checked').each(function() {   
-         newMember[this.value] = true;
-         });
 
-        console.log(newMember)
-      
+        $('input[name="skills"]:checked').each(function () {
+            newMember[this.value] = true;
+        });
+
+        console.log("there");
+
+        console.log(newMember);
+
         // Send the POST request.
         $.ajax("/api/signup", {
             type: "POST",
@@ -61,6 +63,7 @@ $(document).ready(function () {
                 window.location.href = response.redirectTo;
             },
             function(error) {
+                console.log(error);
                 $this.find('.message:first').text('That email account is alread in use.');
             }
         );
