@@ -1,4 +1,5 @@
-{{!-- <div class="row filter-bar my-5">
+{{!--
+<div class="row filter-bar my-5">
     <button type="button" class="filter show-all" onclick="filterSelection('all')"> {{Show All}}</button>
     <button type="button" class="filter categories" onclick="filterSelection('carpentry')">{{Category}}</button>
 </div> --}}
@@ -31,25 +32,100 @@
 
 <section class="bg-light" id="portfolio">
     <div class="container">
-        {{!-- <div class="row">
+        <div class="row">
             <div class="col-lg-12 text-center">
-                <h2 class="section-heading text-uppercase">Volunteer Opportunities</h2>
+                <h2 class="section-heading text-uppercase" style="font-size:30px">Volunteer Opportunities</h2>
             </div>
         </div>
-        
-        
-        {{!-- <form>
-            
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input" name="skills" value="cooking">Cooking
+
+        <div>
+        <form>
+            <div id="ck-button">
+                <label class="skillsLabel">
+                    <input class="skillsInput" type="checkbox" value="cooking">
+                    <span>In/Outside</span>
                 </label>
             </div>
-            <input type="checkbox" id="check" onclick="checked()" style="width:20px;height:20px;" />
-          <input type="checkbox" class="form-check-input" name="inOut" value="inOut">InOut
-        </form>  --}}
+            <div id="ck-button">
+                <label class="skillsLabel">
+                    <input class="skillsInput" type="checkbox" value="cooking">
+                    <span>Cooking</span>
+                </label>
+            </div>
+            <div id="ck-button">
+                <label class="skillsLabel">
+                    <input class="skillsInput" type="checkbox" value="cooking">
+                    <span>Gardening</span>
+                </label>
+            </div>
+            <div id="ck-button">
+                <label class="skillsLabel">
+                    <input class="skillsInput" type="checkbox" value="cooking">
+                    <span>Painting</span>
+                </label>
+            </div>
+            <div id="ck-button">
+                <label class="skillsLabel">
+                    <input class="skillsInput" type="checkbox" value="cooking">
+                    <span>Carpentry</span>
+                </label>
+            </div>
+            <div id="ck-button">
+                <label class="skillsLabel">
+                    <input class="skillsInput" type="checkbox" value="cooking">
+                    <span>Plumbing</span>
+                </label>
+            </div>
+            <div id="ck-button">
+                <label class="skillsLabel">
+                    <input class="skillsInput" type="checkbox" value="cooking">
+                    <span>Electrical</span>
+                </label>
+            </div>
+            <div id="ck-button">
+                <label class="skillsLabel">
+                    <input class="skillsInput" type="checkbox" value="marketing">
+                    <span>Marketing</span>
+                </label>
+            </div>
+            <div id="ck-button">
+                <label class="skillsLabel">
+                    <input class="skillsInput" type="checkbox" value="sales">
+                    <span>Sales</span>
+                </label>
+            </div>
+            <div id="ck-button">
+                <label class="skillsLabel">
+                    <input class="skillsInput" type="checkbox" value="teaching">
+                    <span>Teaching</span>
+                </label>
+            </div>
+            <div id="ck-button">
+                <label class="skillsLabel">
+                    <input class="skillsInput" type="checkbox" value="publicRelations">
+                    <span>Public Relations</span>
+                </label>
+            </div>
+            <div id="ck-button">
+                <label class="skillsLabel">
+                    <input class="skillsInput" type="checkbox" value="fundRaisint">
+                    <span>Fund Raising</span>
+                </label>
+            </div>
+            <div id="ck-button">
+                <label class="skillsLabel">
+                    <input class="skillsInput" type="checkbox" value="Programming">
+                    <span>Programming</span>
+                </label>
+            </div>
+            <button id="ck-button" type="submit">Submit</button>
+        </form>
+        <button id="ck-button" type="submit">My Events</button>
+        </div>
+            
         
-        
+
+
         <div class="row">
             {{#each opportunities}} {{> opportunity}} {{/each}}
         </div>
