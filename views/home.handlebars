@@ -15,7 +15,9 @@
           <a class="nav-link js-scroll-trigger" href="#portfolio">Opportunities</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="/new_members">Sign Up</a>
+          {{!-- <a class="nav-link js-scroll-trigger" href="/new_members">Sign Up</a> --}}
+          <a class="nav-link js-scroll-trigger" data-toggle="modal" data-target="#newMemberModal">Join Up</a>
+
         </li>
         <li class="nav-item">
           <a class="nav-link js-scroll-trigger" data-toggle="modal" data-target="#myModal">Log In</a>
@@ -43,7 +45,6 @@
 
 
 
-
 <!-- Modal -->
 <div id="myModal" class="modal fade" data-id="modalLogIn"role="dialog">
   <div class="modal-dialog">
@@ -53,7 +54,7 @@
       <div class="modal-header">
         {{!--
         <button type="button" class="close" data-dismiss="modal"></button> --}}
-        <h4 class="modal-title">Member Log In</h4>
+        <h4 class="modal-title">Volunteer Log In</h4>
       </div>
       <div class="modal-body">
         <div class="row">
@@ -94,6 +95,10 @@
 
   </div>
 </div>
+
+<!-- Start Dirk New Member Modal -->
+{{> new-member}} 
+<!-- End Dirk New Member Modal -->
 
 <!-- Services
     <section id="services">

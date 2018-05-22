@@ -1,18 +1,17 @@
 // Make sure to wait to attach handlers until the DOM is fully loaded.
 $(document).ready(function () {
 
-    $("#signup").on("submit", function (event) {
-        
+    $("#newMemberForm").on("submit", function (event) {
         var $this = $(this);
         $this.find('.message:first').text('');
 
         event.preventDefault();
-        if ($.trim($("#email").val()) === "" || $.trim($("#email").val()) === "jDoe@email.com" || $.trim($("#email").val()) === "Please enter a valid e-mail Address") {
-            $("#email").val(" Please enter your e-mail Address");
+        if ($.trim($("#newEmail").val()) === "" || $.trim($("#newEmail").val()) === "jDoe@email.com" || $.trim($("#newEmail").val()) === "Please enter a valid e-mail Address") {
+            $("#newEmail").val(" Please enter your e-mail Address");
             return false;
         }
-        if ($.trim($("#password").val()) === "" || $.trim($("#password").val()) === "Password" || $.trim($("#password").val()) === "Please enter a Password") {
-            $("#password").val(" Please enter a Password");
+        if ($.trim($("#newPassword").val()) === "" || $.trim($("#newPassword").val()) === "Password" || $.trim($("#newPassword").val()) === "Please enter a Password") {
+            $("#newPassword").val(" Please enter a Password");
             return false;
         }
         if ($.trim($("#firstName").val()) === "" || $.trim($("#firstName").val()) === "First Name" || $.trim($("#firstName").val()) === "Please enter your First Name") {
@@ -37,8 +36,8 @@ $(document).ready(function () {
         }
 
         var newMember = {
-            password: $("#password").val().trim(),
-            email: $("#email").val().trim(),
+            password: $("#newPassword").val().trim(),
+            email: $("#newEmail").val().trim(),
             first_name: $("#firstName").val().trim(),
             last_name: $("#lastName").val().trim(),
             phone: $("#phone").val().trim(),
@@ -49,9 +48,6 @@ $(document).ready(function () {
         $('input[name="skills"]:checked').each(function () {
             newMember[this.value] = true;
         });
-
-        console.log("there");
-
         console.log(newMember);
 
         // Send the POST request.
