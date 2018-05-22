@@ -13,12 +13,39 @@ module.exports = function (app) {
     db.Opportunity.findAll({
       order: ["opportunity_name"]
     }).then(function (dbOpportunity) {
-      res.render(path.join(__dirname, "../views/home.handlebars"), { opportunities: dbOpportunity });
+      var handlebarsData = {
+        formData: {
+          newEmail: "jDoe@email.com",
+          newPassword: "",
+          lastName: "Doe",
+          firstName: "Jane",
+          phone: "555-555-1234",
+          photoUrl: "http://picture.com",
+          selectInOrOut: "",
+          cooking: "",
+          gardening: "",
+          painting: "",
+          carpentry: "",
+          plumbing: "",
+          electrical: "",
+          publicRelations: "",
+          marketing: "",
+          fundRaising: "",
+          programming: "",
+          sales: "",
+          teaching: "",
+        },
+        opportunityData: {
+          opportunities: dbOpportunity,
+        }
+      };
+
+      res.render(path.join(__dirname, "../views/home.handlebars"), handlebarsData);
     });
   });
 
-  // register new_member route loads new_members.handlebars
-  app.get("/new_members", function (req, res) {
-    res.render(path.join(__dirname, "../views/new_members.handlebars"));
-  });
-}
+//   // register new_member route loads new_members.handlebars
+//   app.get("/new_members", function (req, res) {
+//     res.render(path.join(__dirname, "../views/new_members.handlebars"), formValues);
+//   });
+};

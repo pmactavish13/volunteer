@@ -20,7 +20,7 @@
                     <a class="nav-link js-scroll-trigger" href="/new_opportunities">Post New Event</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" data-toggle="modal" data-target="#memberProfile">Member Profile</a>
+                    <a class="nav-link js-scroll-trigger" data-toggle="modal" data-target="#newMemberModal">Member Profile</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="/logout">Log Out</a>
@@ -128,7 +128,7 @@
         </div>
 
         <div class="row" style="clear: both; padding-top: 20px;">
-            {{#each opportunities}} 
+            {{#each opportunityData.opportunities}} 
                 {{> opportunity}} 
             {{/each}}
         </div>
@@ -190,41 +190,8 @@
     </div>
 </div>
 
-<!-- Modal Template for Member Profile -->
-<div class="portfolio-modal modal fade" id="memberProfile" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl"></div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 mx-auto">
-                        <div class="modal-body">
-                            <!-- Member Details Go Here -->
-                            <h2 class="text-uppercase">Member Profile</h2>
-                            {{!--
-                            <p class="item-intro text-muted">Northern Liberties</p>
-                            <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/Graffiti-Removal.jpg" alt="">
-                            <p>On Saturday June 23 we'll be cleaning up graffiti at 3rd and Spring Garden. All cleaning supplies
-                                will be provided. If you have gloves and water proof boots please bring those. Light refeshments
-                                will be served.</p>
-                            <ul class="list-inline">
-                                <li>Date: June 23, 2018</li>
-                                <li>Time: 1:00PM</li>
-                                <li>Community Service Hours: No</li>
-                            </ul> --}}
-
-                            <a class="btn btn-primary" href="/member_upDate">Edit Member Profile</a>
-
-                            <button class="btn btn-primary" data-dismiss="modal" type="button">
-                                Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<!-- Start New Member Modal -->
+{{#with formData}}
+  {{> new-member}}
+{{/with}}
+<!-- End New Member Modal -->
