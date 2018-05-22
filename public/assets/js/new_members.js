@@ -61,6 +61,7 @@ $(document).ready(function () {
                 window.location.href = response.redirectTo;
             },
             function(error) {
+                console.log(error);
                 $this.find('.message:first').text('That email account is alread in use.');
             }
         );

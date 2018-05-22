@@ -13,11 +13,11 @@ module.exports = function (passport, signin) {
 
     // used to deserialize the login
     passport.deserializeUser(function (id, done) {
-        db.Member.findById(id).then(function (signin) {
-            if (signin) {
-                done(null, signin.get());
+        db.Member.findById(id).then(function (user) {
+            if (user) {
+                done(null, user.get());
             } else {
-                done(signin.errors, null);
+                done(user.errors, null);
             }
         });
     });
@@ -38,15 +38,14 @@ module.exports = function (passport, signin) {
                 where: {
                     email: email
                 }
-            }).then(function (signin) {
-                if (signin) {
+            }).then(function (accountFound) {
+                if (accountFound) {
                     return done(null, false, {
                         message: 'email address already in use. please try again'
                     });
-                } else if (!signin) {
+                } else {
                     var hashPassword = generateHash(password);
                     var data = {
-                        user_name: req.body.user_name,
                         email: email,
                         password: hashPassword,
                         first_name: req.body.first_name,
@@ -70,14 +69,18 @@ module.exports = function (passport, signin) {
 
                     db.Member.create(data).then(function (newUser, created) {
                         if (!newUser) {
-                            return done(null, false);
+                            return done(null, false, {
+                                message: 'an error occured. please try again.'
+                            });
                         }
                         if (newUser) {
-                            return done(null, newUser);
+                            return done(null, newUser, {
+                                message: 'success! account created.'
+                            });
                         }
                     });
                 }
-                return done(null, signin);
+                // return done(null, accountFound);
             }).catch(function (err) {
                 console.log("Error:", err);
                 return done(null, false, {
@@ -105,7 +108,6 @@ module.exports = function (passport, signin) {
                     email: email
                 }
             }).then(function (signin) {
-                console.log(signin);
                 if (!signin) {
                     return done(null, null, {
                         message: 'email/password combination incorrect. please try again.'
