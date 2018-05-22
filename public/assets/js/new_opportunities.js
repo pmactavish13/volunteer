@@ -102,11 +102,13 @@ $(document).ready(function () {
             data: newOpportunity
         }).then(
             function (response) {
-                window.location.href = response.redirectTo;
+                // Reload the page to get the updated list
+                // location.reload();
+                $(location).attr('href', '/private')
             },
             function(error) {
                 console.log(error);
-                $this.find('.message:first').text('An error occured.  Please try again');
+                $this.find('.message:first').text('That email account is alread in use.');
             }
         );
     });
