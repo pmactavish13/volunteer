@@ -7,43 +7,47 @@ var db = require("../models");
 // Routes
 // =============================================================
 
-module.exports = function (app,passport) {
-    
-// register signin route loads new_members.handlebars
-app.post('/api/signup',
+module.exports = function (app, passport) {
+
+  // register signin route loads new_members.handlebars
+  app.post('/api/signup',
     passport.authenticate('local-signup', {
       failWithError: true
     }),
     (req, res, next) => {
-        res.status(200).send({redirectTo: '/private'});
+      res.status(200).send({
+        redirectTo: '/private'
+      });
     },
     (err, req, res, next) => {
-        console.log(err);
-        res.status(500).send(err);
+      console.log(err);
+      res.status(500).send(err);
     });
 
-app.post(
-    '/api/signin', 
+  app.post(
+    '/api/signin',
     passport.authenticate('local-signin', {
-        failWithError: true
+      failWithError: true
     }),
     (req, res, next) => {
-        res.status(200).send({redirectTo: '/private'});
+      res.status(200).send({
+        redirectTo: '/private'
+      });
     },
     (err, req, res, next) => {
-        console.log(err);
-        res.status(500).send(err);
+      console.log(err);
+      res.status(500).send(err);
     });
 
-app.put(
+  app.put(
     '/api/user',
     isLoggedIn,
     async (req, res) => {
-        const id = req.user;
-        const data = req.body;
-        const member = await db.Member.findById(id);
-        await member.update(data); 
-        res.status(200).send();
+      const id = req.user;
+      const data = req.body;
+      const member = await db.Member.findById(id);
+      await member.update(data);
+      res.status(200).send();
     });
 
   // route loads private.handlebars
@@ -63,8 +67,20 @@ app.put(
   });
 
   // opportunities sign up route loads opportunities_sign_up.handlebars - all jobs list
-  app.get("/opportunities_sign_up",isLoggedIn, function (req, res,) {
+  app.get("/opportunities_sign_up", isLoggedIn, function (req, res, ) {
     res.render(path.join(__dirname, "../views/opportunities_sign_up.handlebars"));
+  });
+
+  app.post('/api/new_opportunities', isLoggedIn, function (req, res) {
+    console.log(req.body);
+    db.Opportunity.create(req.body).then(function (dbOpportunity) {
+      if (!dbOpportunity) {
+        res.status(500).send("unable to create new event");
+      }
+      if (dbOpportunity) {
+        res.status(200).send({redirectTo: '/private'});
+      }
+    });
   });
 
   // logout, redirect to home page
@@ -78,6 +94,6 @@ app.put(
     if (req.isAuthenticated())
       return next();
     res.redirect('/');
- }
+  }
 
 };

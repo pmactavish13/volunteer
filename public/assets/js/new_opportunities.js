@@ -24,8 +24,8 @@ $(document).ready(function () {
             $("#phone").val(" Please enter your Contact Number");
             return false;
         }
-        if ($.trim($("#email").val()) === "" || $.trim($("#email").val()) === "jDoe@email.com" || $.trim($("#email").val()) === "Please enter a valid e-mail Address") {
-            $("#email").val(" Please enter your e-mail Address");
+        if ($.trim($("#eMail").val()) === "" || $.trim($("#eMail").val()) === "jDoe@email.com" || $.trim($("#eMail").val()) === "Please enter a valid e-mail Address") {
+            $("#eMail").val(" Please enter your e-mail Address");
             return false;
         }
         if ($.trim($("#opportunityPhotoUrl").val()) === "" || $.trim($("#opportunityPhotoUrl").val()) === "URL Address" || $.trim($("#opportunityPhotoUrl").val()) === "Please enter a valid URL address") {
@@ -40,7 +40,7 @@ $(document).ready(function () {
             $("#city").val(" Please enter a valid City");
             return false;
         }
-        if ($("#state").val() === "" || $("#state").val() === "Choose..." || $("#photoUrl").val() === "Please enter a State") {
+        if ($("#state").val() === "" || $("#state").val() === "Choose..." || $("#state").val() === "Please enter a State") {
             $("#state").val(" Please choose a State");
             return false;
         }
@@ -48,8 +48,8 @@ $(document).ready(function () {
             $("#zip").val(" Please enter a valid Zip Code");
             return false;
         }
-        if ($.trim($(".date").val()) === "" || $.trim($(".date").val()) === "MM/DD/YY" || $.trim($(".date").val()) === "Please enter a valid Date") {
-            $(".date").val(" Please enter a valid Date");
+        if ($.trim($("#date").val()) === "" || $.trim($("#date").val()) === "MM/DD/YY" || $.trim($("#date").val()) === "Please enter a valid Date") {
+            $("#date").val(" Please enter a valid Date");
             return false;
         } 
         if ($.trim($("#startTime").val()) === "" || $.trim($("#startTime").val()) === "HH:mm" || $.trim($("#startTime").val()) === "Please enter a valid Start Time") {
@@ -70,11 +70,11 @@ $(document).ready(function () {
         }
         var newOpportunity = {
             organization_name: $("#organizationName").val().trim(),
-            about_organization: $("#about_organization").val().trim(),
+            about_organization: $("#aboutOrganization").val().trim(),
             opportunity_name: $("#opportunityName").val().trim(),
             tag_line: $("#tagLine").val().trim(),
             organization_phone: $("#phone").val().trim(),
-            organization_eMail: $("#email").val().trim(),
+            organization_eMail: $("#eMail").val().trim(),
             opportunity_photo_Url: $("#opportunityPhotoUrl").val().trim(),
             organization_address: $("#address").val().trim(),
             organization_city: $("#city").val().trim(),
@@ -83,8 +83,8 @@ $(document).ready(function () {
             opportunity_date: $("#date").val().trim(),
             opportunity_start_time: $("#startTime").val().trim(),
             opportunity_end_time: $("#endTime").val().trim(),
-            opportunity_in_or_out:  $("#selectInOrOut option:selected").text(),
-            volunteers_needed: $("#volunteerNumber").val().trim(),
+            opportunity_inOrOut:  $("#selectInOrOut option:selected").text(),
+            volunteers_needed: $("#volunteersNeeded").val().trim(),
         };
         
         $('input[name="skills"]:checked').each(function() {   
@@ -94,7 +94,7 @@ $(document).ready(function () {
         console.log(newOpportunity)
       
         // Send the POST request.
-        $.ajax("/new_opportunities", {
+        $.ajax("/api/new_opportunities", {
             type: "POST",
             data: newOpportunity
         }).then(
