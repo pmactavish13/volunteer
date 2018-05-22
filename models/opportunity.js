@@ -164,6 +164,10 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.BOOLEAN,
       defaultValue: false
     },
+    active: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true
+    },
   });
 
   // Associating member with opportunity
