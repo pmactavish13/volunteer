@@ -1,22 +1,22 @@
 {
     "development": {
       "username": "root",
-      "password": "faBu13my",
-      "database": "volunteer_db",
+      "password": "",
+      "database": "vol_match",
       "host": "127.0.0.1",
       "dialect": "mysql"
     },
     "test": {
       "username": "root",
-      "password": "faBu13my",
-      "database": "volunteer_db",
+      "password": "",
+      "database": "vol_match",
       "host": "127.0.0.1",
       "dialect": "mysql"
     },
     "production": {
         "username": "root",
-        "password": "faBu13my",
-        "database": "volunteer_db",
+        "password": "",
+        "database": "vol_match",
         "host": "127.0.0.1",
         "dialect": "mysql"
     }
