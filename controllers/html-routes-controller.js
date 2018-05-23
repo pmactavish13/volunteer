@@ -15,12 +15,21 @@ module.exports = function (app) {
     }).then(function (dbOpportunity) {
       var handlebarsData = {
         formData: {
+          formName: "Volunteer Registration",
+          formAction: "create",
+          buttonName: "Sign Up",
+          deactivateButton: '',
+          usernameReadOnly: 'false',
           newEmail: "jDoe@email.com",
+          emailFocus: "",
           newPassword: "",
+          passwordFocus: '',
           lastName: "Doe",
+          lastNameFocus: '',
           firstName: "Jane",
+          firstNamefocus: '',
           phone: "555-555-1234",
-          photoUrl: "http://picture.com",
+          phoneFocus: '',
           selectInOrOut: "",
           cooking: "",
           gardening: "",

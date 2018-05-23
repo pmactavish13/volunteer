@@ -94,8 +94,6 @@ $(document).ready(function () {
             newOpportunity[this.value] = true;
         });
 
-        console.log(newOpportunity)
-
         // Send the POST request.
         $.ajax("/api/new_opportunities", {
             type: "POST",
