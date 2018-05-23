@@ -20,7 +20,6 @@ module.exports = function (app, passport) {
       });
     },
     (err, req, res, next) => {
-      console.log(err);
       res.status(500).send(err);
     });
 
@@ -68,7 +67,6 @@ module.exports = function (app, passport) {
       });
     },
     (err, req, res, next) => {
-      console.log(err);
       res.status(500).send(err);
     });
 
