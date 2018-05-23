@@ -67,13 +67,6 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING(5),
       allowNull: false,
     },
-    // organization_frequency: {
-    //   type: DataTypes.STRING,
-    //   allowNull: false,
-    //   validate: {
-    //     len: [1]
-    //   },
-    // },
     opportunity_date: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -81,13 +74,6 @@ module.exports = function (sequelize, DataTypes) {
         len: [1]
       },
     },
-    // opportunity_frequency: {
-    //   type: DataTypes.STRING,
-    //   allowNull: false,
-    //   validate: {
-    //     len: [1]
-    //   },
-    // },
     opportunity_start_time: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -170,10 +156,6 @@ module.exports = function (sequelize, DataTypes) {
     },
   });
 
-  // Associating member with opportunity
-  // Opportunity.associate = function (models) {
-  //   Opportunity.belongsToMany(models.Member)
-  // };
   return Opportunity;
 };
 
