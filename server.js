@@ -29,10 +29,10 @@ app.set("view engine", "handlebars");
 require('./controllers/passport.js')(passport, db.members);
 
 // what is going on with passport
-app.use((req, res, next) => {
-    console.log(req.body);
-    next();
-});
+// app.use((req, res, next) => {
+//     console.log(req.body);
+//     next();
+// });
 
 // Import routes and give the server access to them.
 require("./controllers/html-routes-controller.js")(app);

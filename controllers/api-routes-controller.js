@@ -72,7 +72,25 @@ module.exports = function (app, passport) {
 
   // route loads private.handlebars
   app.get("/private", isLoggedIn, function (req, res) {
-    db.Opportunity.findAll({}).then(function (DbOpporunities) {
+    
+    console.log(req.query);
+
+    let searchFilter = req.query.skillsSearch || []
+    
+    if (typeof searchFilter === 'string')
+      searchFilter = [searchFilter]
+
+    const filter = searchFilter.reduce( (acc, keyname) => {
+      if (['Inside', 'Outside'].includes(keyname))
+        acc['opportunity_inOrOut'] =  acc['opportunity_inOrOut'] ? 'Both': keyname
+      else
+        acc[keyname] = true
+      return acc;
+    }, {})
+    console.log(filter)
+    db.Opportunity.findAll({
+      where: filter
+    }).then(function (DbOpporunities) {
 
       var handlebarsData = {
         formData: {
@@ -115,6 +133,26 @@ module.exports = function (app, passport) {
     });
   });
 
+  app.get("/myEvents", isLoggedIn, function(req, res) {
+    db.Opportunity.findAll({
+      include: {
+        model: db.Member,
+        where: {
+          id: req.user.id
+        }
+      }
+    }).then( opportunities => {
+      const handlebarsData = {
+        opportunityData: {
+          opportunities
+        }
+      }
+      console.log(handlebarsData)
+      res.render(path.join(__dirname, "../views/my_events.handlebars"), handlebarsData);
+    })
+    
+  })
+
   // new_opportunities route loads new_opportunities.handlebars
   app.get("/new_opportunities", isLoggedIn, function (req, res) {
     res.render(path.join(__dirname, "../views/new_opportunities.handlebars"));
@@ -126,9 +164,7 @@ module.exports = function (app, passport) {
         res.status(500).send("unable to create new event");
       }
       if (dbOpportunity) {
-        res.status(200).send({
-          redirectTo: '/private'
-        });
+        res.status(200).send({ redirectTo: '/private' });
       }
     });
   });
@@ -167,4 +203,4 @@ module.exports = function (app, passport) {
     res.redirect('/');
   }
 
-};
+}
