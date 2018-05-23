@@ -26,6 +26,7 @@ $(document).ready(function () {
         }
     });
 
+<<<<<<< HEAD
     // $("#findAll").on("click", function (event) {
     //     var id = $(this).data("id");
     //     event.preventDefault();
@@ -61,4 +62,6 @@ $(document).ready(function () {
 
 
     // })
+=======
+>>>>>>> 30ada1008df039aafe4f2b01bb1103335bdfb6b3
 });

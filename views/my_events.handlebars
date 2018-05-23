@@ -1,13 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color: rgb(19, 18, 18)">
     <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">Volunteer Events</a>
-        {{!--
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            Menu
-            <i class="fa fa-bars"></i>
-        </button> --}}
-        <div class="collapse navbar-collapse" id="navbarResponsive">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">My Events</a>
+        
+        <div>
+        {{!-- class="collapse navbar-collapse" id="navbarResponsive"> --}}
             <ul class="navbar-nav text-uppercase ml-auto">
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="/new_opportunities">Post New Event</a>
@@ -26,9 +22,29 @@
         </div>
     </div>
 </nav>
-
-<div class="row" style="clear: both; padding-top: 20px;">
+<section class="bg-light" id="portfolio">
+<div class="row" style="padding-top: 10px">
     {{#each opportunityData.opportunities}} 
         {{> opportunity}} 
     {{/each}}
 </div>
+</section>
+<!-- Footer -->
+<footer style="background-color: #fed136; max height 50px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <span class="copyright">Copyright &copy; Philadelphhia Volunteer 2018</span>
+            </div>
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-7">
+                <p style="color: black; font-weight:300">Developers: Anthony Elliot / Paula MacTavish / Alexa Stefanou / Dirk Wiggins</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Start New Member Modal -->
+{{#with formData}} {{> new-member}} {{/with}}
+<!-- End New Member Modal -->

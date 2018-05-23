@@ -3,19 +3,13 @@ A full-stack Philadelphia Volunteer app matching organizations to volunteers.  D
 
 The app opens to the sign-in section of the home page. 
 
-New users can fill out a form to join Philadelphia Volunteer.  In this form, there is also survey to track any special skills needed for the volunteer opportunity, number of hours, date, time, etc.  This way the app can suggest matches between organizations and volunteers.
+New users can fill out a form to join Philadelphia Volunteer.  In this form, there is also survey to track any special skills and indoor/outdoor preference.
 
-After joining or logging in, the user is taken to an opportunity portion of the home page.  The top 6 matched  opportunities are listed.  The user can add an opportunity, see their profile, click a button to see more opportunities, change the search criteria to see different matched opportunities or see all opportunities. 
+After joining or logging in, the user is taken to an privte page.  The nav bar gives the user the option of adding an opportunity of their own, viewing/changing their profile, viewing the events they have created or logging out.  A row of buttons below the nav bar allows the user to change the search criteria to see opportunities where certian skills are required or needed.  
 
-By clicking on add opportunity, the member is directed to an add opportunity form.
+If the member chooses an opportunity to participate in, they can click on s button to sign-up for the opportunity.
 
-If the member clicks on the member profile, they are shown their personal data, opportunity participation and any opportunities they have posted. 
-
-If the member chooses an opportunity to participate in, they can click on the opportunity thumbnail.  The app will then take the user to a form to to sign-up for the opportunity.
-
-After completing any form, the member is redirected to the opportunities portion of the home page.
-
-mySQL database is used to keep track of all members and opportunities.
+mySQL database is used to keep track of all members and opportunities.  Two tables, Member and Opportunity are linked with a belongsToMany relationship creating a third MemberOpportunity table that can be used to see which members signed up or created which events.
 
 **************************** Technology *****************************
 
@@ -27,16 +21,22 @@ Front end:
 Back end:
     MySQL database,
     MySQL workbench,
-     Node.js,
+    Node.js,
     Express npm,
     Express-Handlebars npm,
     Body-Parser npm,
     Path npm,
-    Chai npm,
+    chai npm,
     mysql2 npm,
     Sequelize npm,
     Passport npm,
+    Passport-local npm,
+    bcrypt-nodejs npm,
     Express-session npm
+    Bootstrap npm,
+    Font-awesome npm
+    jquery npm
+    jquery.easing npm
 
 **************************** Developers *****************************
 
