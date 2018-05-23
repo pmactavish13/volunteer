@@ -47,3 +47,19 @@ html {
      background-color:rgb(34, 31, 31);
  }
 
+ input:invalid {
+    box-shadow: 0 0 5px 1px red;
+  }
+  
+  input:focus:invalid {
+    outline: none;
+  }
+
+  .modal-body {
+    padding: 3rem;
+  }
+
+  .form-check {
+      margin: 0;
+      padding: 0 15px;
+  }

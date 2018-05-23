@@ -88,7 +88,7 @@ module.exports = function (passport, signin) {
                 });
             });
         }
-    ))
+    ));
 
     //LOCAL SIGNIN
     passport.use('local-signin', new LocalStrategy({
