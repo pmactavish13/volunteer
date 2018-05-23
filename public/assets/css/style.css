@@ -13,7 +13,7 @@ html {
 /* div label input {
     margin-right:140px;
  } */
- #ck-button{
+ .ck-button{
     margin:4px;
     background-color: #fed136;
     border-radius:4px;
@@ -31,18 +31,18 @@ html {
      
  } */
  
- #ck-button  {
+ .ck-button  {
      text-align:center;
      padding:3px 0px;
      display:block;
  }
  
- #ck-button label input {
+ .ck-button label input {
      position:absolute;
      top:-10px;
  }
 
- #ck-button input:checked + span {
+ .ck-button input:checked + span {
      color: #fed136;
      background-color:rgb(34, 31, 31);
  }

@@ -8,7 +8,7 @@ var db = require("../models");
 // =============================================================
 module.exports = function (app) {
 
-  // route loads homeTest.handlebars
+  // route loads home.handlebars
   app.get("/", function (req, res) {
     db.Opportunity.findAll({
       order: ["opportunity_name"]
