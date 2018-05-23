@@ -52,8 +52,7 @@ module.exports = function (app, passport) {
 
   // route loads private.handlebars
   app.get("/private", isLoggedIn, function (req, res) {
-    //console
-
+    
     console.log(req.query);
 
     let searchFilter = req.query.skillsSearch || []
