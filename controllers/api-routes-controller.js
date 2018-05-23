@@ -51,7 +51,9 @@ module.exports = function (app, passport) {
           plain: true
         })
         .then(function (result) {
-          console.log(result);
+          res.status(200).send({
+            redirectTo: '/private'
+          });
         });
     });
 
@@ -89,9 +91,35 @@ module.exports = function (app, passport) {
     }, {})
     console.log(filter)
     db.Opportunity.findAll({
-      where: filter
+      where: filter,
+      include: {
+        model: db.Member,
+      }
     }).then(function (DbOpporunities) {
-
+      var allOpportunities =[];
+      for (i=0; i<DbOpporunities.length; i++) {
+        var newOpportunity = {
+          id: DbOpporunities[i].id,
+          opportunity_name: DbOpporunities[i].opportunity_name,
+          tag_line: DbOpporunities[i].tag_line,
+          opportunity_date: DbOpporunities[i].opportunity_date,
+          opportunity_start_time: DbOpporunities[i].opportunity_start_time,
+          opportunity_end_time: DbOpporunities[i].opportunity_end_time,
+          organization_address: DbOpporunities[i].organization_address,
+          organization_city: DbOpporunities[i].organization_city,
+          organization_state: DbOpporunities[i].organization_state,
+          organization_zip: DbOpporunities[i].organization_zip,
+          opportunity_photo_Url: DbOpporunities[i].opportunity_photo_Url,
+        };
+        for (j=0; j<DbOpporunities[i].Members.length; j++) {
+          if (DbOpporunities[i].Members[j].id == req.user.id) {
+            newOpportunity.registered=true;
+          } else {
+            newOpportunity.registered=false;
+          }
+        }
+        allOpportunities.push(newOpportunity);
+      }
       var handlebarsData = {
         formData: {
           formName: "My Profile",
@@ -124,12 +152,11 @@ module.exports = function (app, passport) {
           teaching: req.user.teaching ? "checked" : "",
         },
         opportunityData: {
-          opportunities: DbOpporunities,
+          opportunities: allOpportunities,
         }
       };
-
       res.render(path.join(__dirname, "../views/private.handlebars"), handlebarsData);
-      //res.json(DbOpporunities);
+      //res.json(allOpportunities);
     });
   });
 
@@ -169,6 +196,28 @@ module.exports = function (app, passport) {
     });
   });
 
+  app.post('/api/unenroll/:id', isLoggedIn, function (req, res) {
+    newMemberOpportunity = {
+      MemberId: req.user.id,
+      OpportunityId: parseInt(req.params.id)
+    };
+
+    db.Member.findOne({
+      where: {
+        id: req.user.id
+      }
+    }).then(function (member) {
+      db.Opportunity.findAll({
+        where: {
+          id: parseInt(req.params.id)
+        }
+      }).then(function (opportunity) {
+        member.removeOpportunities(opportunity);
+        res.status(200).send();
+      });
+    });
+  });
+
   app.post('/api/register/:id', isLoggedIn, function (req, res) {
     newMemberOpportunity = {
       MemberId: req.user.id,
@@ -186,6 +235,7 @@ module.exports = function (app, passport) {
         }
       }).then(function (opportunity) {
         member.addOpportunities(opportunity);
+        res.status(200).send();
       });
     });
   });

@@ -2,7 +2,9 @@
     <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
         <div class="portfolio-hover">
             <div class="portfolio-hover-content">
-                <div class="text-muted">{{opportunity_date}} // {{opportunity_start_time}} - {{opportunity_end_time}}
+                <div class="text-muted">{{opportunity_name}}
+                    <br />{{tag_line}}
+                    <br />{{opportunity_date}} // {{opportunity_start_time}} - {{opportunity_end_time}}
                     <br />{{organization_address}}
                     <br />{{organization_city}}, {{organization_state}} {{organization_zip}}
                 </div>
@@ -13,8 +15,8 @@
     <div class="portfolio-caption">
         <h4>{{organization_name}}</h4>
         <p class="text-muted">{{opportunity_name}}</p>
-        <button class="register" data-id="{{id}}" data-register="{{register}}">
-            {{#if register}}Unenroll{{else}}Register{{/if}}
+        <button class="register btn btn-primary text-uppercase" data-id="{{id}}" data-register="{{registered}}">
+            {{#if registered}}Unenroll{{else}}Register{{/if}}
         </button>
     </div>
 </div>

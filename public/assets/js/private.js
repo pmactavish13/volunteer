@@ -4,16 +4,26 @@ $(document).ready(function () {
 
     $(".register").on("click", function (event) {
         var id = $(this).data("id");
+        var enrollFunc = $(this).data("register");
         event.preventDefault();
 
-        $.ajax("/api/register/" + id, {
-            type: "POST",
-        }).then(
-            function () {
+        if (enrollFunc == 'true') {
+            $.ajax("/api/unenroll/" + id, {
+                type: "POST",
+            }).then(function (response) {
+                console.log("here");
                 // Reload the page to get the updated list
                 location.reload();
-            }
-        );
+            });
+        } else {
+            $.ajax("/api/register/" + id, {
+                type: "POST",
+            }).then(function (response) {
+                console.log("here");
+                // Reload the page to get the updated list
+                location.reload();
+            });
+        }
     });
 
     // $("#findAll").on("click", function (event) {
@@ -31,10 +41,10 @@ $(document).ready(function () {
     // });
 
     // $("#search").on("submit", function (event) {
-    
+
     //     var searchSkill = {};
     //     event.preventDefault();
-        
+
     //     $('input[name="skillsSearch"]:checked').each(function () {
     //         searchSkill[this.value] = true;
     //     });
