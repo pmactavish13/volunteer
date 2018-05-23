@@ -3,13 +3,14 @@
   <div class="container">
     <a class="navbar-brand js-scroll-trigger" href="#page-top">Volunteer Philadelphia</a>
     
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+    {{!-- <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
       aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       Menu
       <i class="fa fa-bars"></i>
-    </button>
+    </button> --}}
 
-    <div class="collapse navbar-collapse" id="navbarResponsive">
+    <div>
+      {{!-- class="collapse navbar-collapse" id="navbarResponsive"> --}}
       <ul class="navbar-nav text-uppercase ml-auto">
         <li class="nav-item">
           <a class="nav-link js-scroll-trigger" href="#portfolio">Opportunities</a>
@@ -96,13 +97,21 @@
   </div>
 </div>
 
+<section class="bg-light" id="portfolio">
+ <div class="row" style="clear: both; padding-top: 20px;">
+        {{#each opportunityData.opportunities}}
+            {{> opportunity}}
+        {{/each}}
+    </div>
+</section>
+
 <!-- Start New Member Modal -->
 {{#with formData}}
   {{> new-member}}
 {{/with}}
 <!-- End New Member Modal -->
 
-<!-- Portfolio Grid -->
+{{!-- <!-- Portfolio Grid -->
 <section class="bg-light" id="portfolio">
   <div class="container">
     <div class="row">
@@ -198,7 +207,7 @@
       </div>
     </div>
   </div>
-</section>
+</section> --}}
 
 
 <!-- Footer -->
@@ -219,7 +228,7 @@
 
 <!-- Portfolio Modals -->
 
-<!-- Modal 1 -->
+{{!-- <!-- Modal 1 -->
 <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -434,4 +443,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> --}}

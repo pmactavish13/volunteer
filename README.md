@@ -14,6 +14,7 @@ mySQL database is used to keep track of all members and opportunities.  Two tabl
 **************************** Technology *****************************
 
 Front end:
+    Start Bootstrap
     HTML
     CSS
     Bootstrap 4.0    
