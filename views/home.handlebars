@@ -96,9 +96,11 @@
   </div>
 </div>
 
-<!-- Start Dirk New Member Modal -->
-{{> new-member}} 
-<!-- End Dirk New Member Modal -->
+<!-- Start New Member Modal -->
+{{#with formData}}
+  {{> new-member}}
+{{/with}}
+<!-- End New Member Modal -->
 
 <!-- Services
     <section id="services">

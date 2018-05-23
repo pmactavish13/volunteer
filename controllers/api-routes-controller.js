@@ -39,24 +39,50 @@ module.exports = function (app, passport) {
       res.status(500).send(err);
     });
 
-  app.put(
-    '/api/user',
-    isLoggedIn,
-    async (req, res) => {
-      const id = req.user;
-      const data = req.body;
-      const member = await db.Member.findById(id);
-      await member.update(data);
-      res.status(200).send();
-    });
+  // app.put(
+  //   '/api/user',
+  //   isLoggedIn,
+  //   async (req, res) => {
+  //     const id = req.user;
+  //     const data = req.body;
+  //     const member = await db.Member.findById(id);
+  //     await member.update(data);
+  //     res.status(200).send();
+  //   });
 
   // route loads private.handlebars
   app.get("/private", isLoggedIn, function (req, res) {
+    console.log(req.user);
     db.Opportunity.findAll({}).then(function (DbOpporunities) {
-      MyOpportunities = {
-        opportunities: DbOpporunities,
+
+      var handlebarsData = {
+        formData: {
+          newEmail: req.user.email,
+          newPassword: req.user.password,
+          lastName: req.user.last_name,
+          firstName: req.user.first_name,
+          phone: req.user.phone,
+          photoUrl: req.user.photoUrl,
+          selectInOrOut: req.user.inOrOut ,
+          cooking: req.user.cooking ? "checked" : "",
+          gardening: req.user.gardening ? "checked" : "",
+          painting: req.user.painting ? "checked" : "",
+          carpentry: req.user.carpentry ? "checked" : "",
+          plumbing: req.user.plumbing ? "checked" : "",
+          electrical: req.user.electrical ? "checked" : "",
+          publicRelations: req.user.publicRelations ? "checked" : "",
+          marketing: req.user.marketing ? "checked" : "",
+          fundRaising: req.user.fundRaising ? "checked" : "",
+          programming: req.user.programming ? "checked" : "",
+          sales: req.user.sales ? "checked" : "",
+          teaching: req.user.teaching ? "checked" : "",
+        },
+        opportunityData: {
+          opportunities: DbOpporunities,
+        }
       };
-      res.render(path.join(__dirname, "../views/private.handlebars"), MyOpportunities);
+
+      res.render(path.join(__dirname, "../views/private.handlebars"), handlebarsData);
       //res.json(DbOpporunities);
     });
   });
@@ -86,8 +112,8 @@ module.exports = function (app, passport) {
     console.log(newMemberOpportunity);
 
     db.Member.findOne({ where: {id: req.user.id} }).then(function(member) {
-      db.Opportunity.findOne({where: {id: parseInt(req.params.id)}}).then(function(opportunity){
-        member.setOpportunities(opportunity);
+      db.Opportunity.findAll({where: {id: parseInt(req.params.id)}}).then(function(opportunity){
+        member.addOpportunities(opportunity);
       });
     });
     // db.MemberOpportunity.create(newMemberOpportunity).then(function (dbOpportunity) {
